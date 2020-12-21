@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <Version>0.1.0</Version>
+    <Authors>Calteo</Authors>
+    <Description>standard componets for almost every project</Description>
+    <Copyright>Copyright 2021 by Calteo</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RootNamespace>Toolbox</RootNamespace>
+  </PropertyGroup>
+
+</Project>
