@@ -1,0 +1,41 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Toolbox
+  name: Toolbox
+  href: api/Toolbox.html
+  commentId: N:Toolbox
+  fullName: Toolbox
+  nameWithType: Toolbox
+- uid: Toolbox.StringExtension
+  name: StringExtension
+  href: api/Toolbox.StringExtension.html
+  commentId: T:Toolbox.StringExtension
+  fullName: Toolbox.StringExtension
+  nameWithType: StringExtension
+- uid: Toolbox.StringExtension.IsEmpty(System.String)
+  name: IsEmpty(String)
+  href: api/Toolbox.StringExtension.html#Toolbox_StringExtension_IsEmpty_System_String_
+  commentId: M:Toolbox.StringExtension.IsEmpty(System.String)
+  fullName: Toolbox.StringExtension.IsEmpty(System.String)
+  nameWithType: StringExtension.IsEmpty(String)
+- uid: Toolbox.StringExtension.IsEmpty*
+  name: IsEmpty
+  href: api/Toolbox.StringExtension.html#Toolbox_StringExtension_IsEmpty_
+  commentId: Overload:Toolbox.StringExtension.IsEmpty
+  isSpec: "True"
+  fullName: Toolbox.StringExtension.IsEmpty
+  nameWithType: StringExtension.IsEmpty
+- uid: Toolbox.StringExtension.NotEmpty(System.String)
+  name: NotEmpty(String)
+  href: api/Toolbox.StringExtension.html#Toolbox_StringExtension_NotEmpty_System_String_
+  commentId: M:Toolbox.StringExtension.NotEmpty(System.String)
+  fullName: Toolbox.StringExtension.NotEmpty(System.String)
+  nameWithType: StringExtension.NotEmpty(String)
+- uid: Toolbox.StringExtension.NotEmpty*
+  name: NotEmpty
+  href: api/Toolbox.StringExtension.html#Toolbox_StringExtension_NotEmpty_
+  commentId: Overload:Toolbox.StringExtension.NotEmpty
+  isSpec: "True"
+  fullName: Toolbox.StringExtension.NotEmpty
+  nameWithType: StringExtension.NotEmpty
