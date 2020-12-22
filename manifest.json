@@ -5,6 +5,30 @@
   "files": [
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.SortedBindingList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.SortedBindingList-1.html",
+          "hash": "uCE5lZGixdWbwLSGxoXz9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.html",
+          "hash": "8uyx+v0buv8xmJnsJyzeMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Toolbox.StringExtension.yml",
       "output": {
         ".html": {
@@ -45,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "xW+n9J75pQrEpBlwKHyXHg=="
+          "hash": "7UYVMPwMNA3SWtYl4dkNuA=="
         }
       },
       "is_incremental": false,
@@ -154,7 +178,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 2,
+          "total_file_count": 4,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

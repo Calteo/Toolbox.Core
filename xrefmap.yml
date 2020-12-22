@@ -7,6 +7,843 @@ references:
   commentId: N:Toolbox
   fullName: Toolbox
   nameWithType: Toolbox
+- uid: Toolbox.ComponentModel
+  name: Toolbox.ComponentModel
+  href: api/Toolbox.ComponentModel.html
+  commentId: N:Toolbox.ComponentModel
+  fullName: Toolbox.ComponentModel
+  nameWithType: Toolbox.ComponentModel
+- uid: Toolbox.ComponentModel.SortedBindingList`1
+  name: SortedBindingList<T>
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html
+  commentId: T:Toolbox.ComponentModel.SortedBindingList`1
+  name.vb: SortedBindingList(Of T)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T)
+  nameWithType: SortedBindingList<T>
+  nameWithType.vb: SortedBindingList(Of T)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.#ctor
+  name: SortedBindingList()
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1__ctor
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.#ctor
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.SortedBindingList()
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).SortedBindingList()
+  nameWithType: SortedBindingList<T>.SortedBindingList()
+  nameWithType.vb: SortedBindingList(Of T).SortedBindingList()
+- uid: Toolbox.ComponentModel.SortedBindingList`1.#ctor*
+  name: SortedBindingList
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1__ctor_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.#ctor
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.SortedBindingList
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).SortedBindingList
+  nameWithType: SortedBindingList<T>.SortedBindingList
+  nameWithType.vb: SortedBindingList(Of T).SortedBindingList
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Add(`0)
+  name: Add(T)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Add__0_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.Add(`0)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Add(T)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Add(T)
+  nameWithType: SortedBindingList<T>.Add(T)
+  nameWithType.vb: SortedBindingList(Of T).Add(T)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Add*
+  name: Add
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Add_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.Add
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Add
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Add
+  nameWithType: SortedBindingList<T>.Add
+  nameWithType.vb: SortedBindingList(Of T).Add
+- uid: Toolbox.ComponentModel.SortedBindingList`1.ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)
+  name: ApplySort(PropertyDescriptor, ListSortDirection)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_ApplySort_System_ComponentModel_PropertyDescriptor_System_ComponentModel_ListSortDirection_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.ApplySort(System.ComponentModel.PropertyDescriptor, System.ComponentModel.ListSortDirection)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).ApplySort(System.ComponentModel.PropertyDescriptor, System.ComponentModel.ListSortDirection)
+  nameWithType: SortedBindingList<T>.ApplySort(PropertyDescriptor, ListSortDirection)
+  nameWithType.vb: SortedBindingList(Of T).ApplySort(PropertyDescriptor, ListSortDirection)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.ApplySort(System.String,System.ComponentModel.ListSortDirection)
+  name: ApplySort(String, ListSortDirection)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_ApplySort_System_String_System_ComponentModel_ListSortDirection_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.ApplySort(System.String,System.ComponentModel.ListSortDirection)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.ApplySort(System.String, System.ComponentModel.ListSortDirection)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).ApplySort(System.String, System.ComponentModel.ListSortDirection)
+  nameWithType: SortedBindingList<T>.ApplySort(String, ListSortDirection)
+  nameWithType.vb: SortedBindingList(Of T).ApplySort(String, ListSortDirection)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.ApplySort*
+  name: ApplySort
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_ApplySort_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.ApplySort
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.ApplySort
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).ApplySort
+  nameWithType: SortedBindingList<T>.ApplySort
+  nameWithType.vb: SortedBindingList(Of T).ApplySort
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Clear
+  name: Clear()
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Clear
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.Clear
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Clear()
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Clear()
+  nameWithType: SortedBindingList<T>.Clear()
+  nameWithType.vb: SortedBindingList(Of T).Clear()
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Clear*
+  name: Clear
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Clear_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.Clear
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Clear
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Clear
+  nameWithType: SortedBindingList<T>.Clear
+  nameWithType.vb: SortedBindingList(Of T).Clear
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Contains(`0)
+  name: Contains(T)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Contains__0_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.Contains(`0)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Contains(T)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Contains(T)
+  nameWithType: SortedBindingList<T>.Contains(T)
+  nameWithType.vb: SortedBindingList(Of T).Contains(T)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Contains*
+  name: Contains
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Contains_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.Contains
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Contains
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Contains
+  nameWithType: SortedBindingList<T>.Contains
+  nameWithType.vb: SortedBindingList(Of T).Contains
+- uid: Toolbox.ComponentModel.SortedBindingList`1.CopyTo(`0[],System.Int32)
+  name: CopyTo(T[], Int32)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_CopyTo__0___System_Int32_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.CopyTo(`0[],System.Int32)
+  name.vb: CopyTo(T(), Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.CopyTo(T[], System.Int32)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).CopyTo(T(), System.Int32)
+  nameWithType: SortedBindingList<T>.CopyTo(T[], Int32)
+  nameWithType.vb: SortedBindingList(Of T).CopyTo(T(), Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.CopyTo*
+  name: CopyTo
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_CopyTo_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.CopyTo
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.CopyTo
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).CopyTo
+  nameWithType: SortedBindingList<T>.CopyTo
+  nameWithType.vb: SortedBindingList(Of T).CopyTo
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Count
+  name: Count
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Count
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.Count
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Count
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Count
+  nameWithType: SortedBindingList<T>.Count
+  nameWithType.vb: SortedBindingList(Of T).Count
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Count*
+  name: Count
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Count_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.Count
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Count
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Count
+  nameWithType: SortedBindingList<T>.Count
+  nameWithType.vb: SortedBindingList(Of T).Count
+- uid: Toolbox.ComponentModel.SortedBindingList`1.IndexOf(`0)
+  name: IndexOf(T)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_IndexOf__0_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.IndexOf(`0)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.IndexOf(T)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).IndexOf(T)
+  nameWithType: SortedBindingList<T>.IndexOf(T)
+  nameWithType.vb: SortedBindingList(Of T).IndexOf(T)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.IndexOf*
+  name: IndexOf
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_IndexOf_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.IndexOf
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.IndexOf
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).IndexOf
+  nameWithType: SortedBindingList<T>.IndexOf
+  nameWithType.vb: SortedBindingList(Of T).IndexOf
+- uid: Toolbox.ComponentModel.SortedBindingList`1.IsSorted
+  name: IsSorted
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_IsSorted
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.IsSorted
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.IsSorted
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).IsSorted
+  nameWithType: SortedBindingList<T>.IsSorted
+  nameWithType.vb: SortedBindingList(Of T).IsSorted
+- uid: Toolbox.ComponentModel.SortedBindingList`1.IsSorted*
+  name: IsSorted
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_IsSorted_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.IsSorted
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.IsSorted
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).IsSorted
+  nameWithType: SortedBindingList<T>.IsSorted
+  nameWithType.vb: SortedBindingList(Of T).IsSorted
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Item(System.Int32)
+  name: Item[Int32]
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Item_System_Int32_
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.Item(System.Int32)
+  name.vb: Item(Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Item[System.Int32]
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Item(System.Int32)
+  nameWithType: SortedBindingList<T>.Item[Int32]
+  nameWithType.vb: SortedBindingList(Of T).Item(Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Item*
+  name: Item
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Item_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.Item
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Item
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Item
+  nameWithType: SortedBindingList<T>.Item
+  nameWithType.vb: SortedBindingList(Of T).Item
+- uid: Toolbox.ComponentModel.SortedBindingList`1.ListChanged
+  name: ListChanged
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_ListChanged
+  commentId: E:Toolbox.ComponentModel.SortedBindingList`1.ListChanged
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.ListChanged
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).ListChanged
+  nameWithType: SortedBindingList<T>.ListChanged
+  nameWithType.vb: SortedBindingList(Of T).ListChanged
+- uid: Toolbox.ComponentModel.SortedBindingList`1.RaisesItemChangedEvents
+  name: RaisesItemChangedEvents
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_RaisesItemChangedEvents
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.RaisesItemChangedEvents
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.RaisesItemChangedEvents
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).RaisesItemChangedEvents
+  nameWithType: SortedBindingList<T>.RaisesItemChangedEvents
+  nameWithType.vb: SortedBindingList(Of T).RaisesItemChangedEvents
+- uid: Toolbox.ComponentModel.SortedBindingList`1.RaisesItemChangedEvents*
+  name: RaisesItemChangedEvents
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_RaisesItemChangedEvents_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.RaisesItemChangedEvents
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.RaisesItemChangedEvents
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).RaisesItemChangedEvents
+  nameWithType: SortedBindingList<T>.RaisesItemChangedEvents
+  nameWithType.vb: SortedBindingList(Of T).RaisesItemChangedEvents
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Remove(`0)
+  name: Remove(T)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Remove__0_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.Remove(`0)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Remove(T)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Remove(T)
+  nameWithType: SortedBindingList<T>.Remove(T)
+  nameWithType.vb: SortedBindingList(Of T).Remove(T)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.Remove*
+  name: Remove
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Remove_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.Remove
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.Remove
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Remove
+  nameWithType: SortedBindingList<T>.Remove
+  nameWithType.vb: SortedBindingList(Of T).Remove
+- uid: Toolbox.ComponentModel.SortedBindingList`1.RemoveAt(System.Int32)
+  name: RemoveAt(Int32)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_RemoveAt_System_Int32_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.RemoveAt(System.Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.RemoveAt(System.Int32)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).RemoveAt(System.Int32)
+  nameWithType: SortedBindingList<T>.RemoveAt(Int32)
+  nameWithType.vb: SortedBindingList(Of T).RemoveAt(Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.RemoveAt*
+  name: RemoveAt
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_RemoveAt_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.RemoveAt
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.RemoveAt
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).RemoveAt
+  nameWithType: SortedBindingList<T>.RemoveAt
+  nameWithType.vb: SortedBindingList(Of T).RemoveAt
+- uid: Toolbox.ComponentModel.SortedBindingList`1.RemoveSort
+  name: RemoveSort()
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_RemoveSort
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.RemoveSort
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.RemoveSort()
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).RemoveSort()
+  nameWithType: SortedBindingList<T>.RemoveSort()
+  nameWithType.vb: SortedBindingList(Of T).RemoveSort()
+- uid: Toolbox.ComponentModel.SortedBindingList`1.RemoveSort*
+  name: RemoveSort
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_RemoveSort_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.RemoveSort
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.RemoveSort
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).RemoveSort
+  nameWithType: SortedBindingList<T>.RemoveSort
+  nameWithType.vb: SortedBindingList(Of T).RemoveSort
+- uid: Toolbox.ComponentModel.SortedBindingList`1.SortDirection
+  name: SortDirection
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_SortDirection
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.SortDirection
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.SortDirection
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).SortDirection
+  nameWithType: SortedBindingList<T>.SortDirection
+  nameWithType.vb: SortedBindingList(Of T).SortDirection
+- uid: Toolbox.ComponentModel.SortedBindingList`1.SortDirection*
+  name: SortDirection
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_SortDirection_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.SortDirection
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.SortDirection
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).SortDirection
+  nameWithType: SortedBindingList<T>.SortDirection
+  nameWithType.vb: SortedBindingList(Of T).SortDirection
+- uid: Toolbox.ComponentModel.SortedBindingList`1.SortProperty
+  name: SortProperty
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_SortProperty
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.SortProperty
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.SortProperty
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).SortProperty
+  nameWithType: SortedBindingList<T>.SortProperty
+  nameWithType.vb: SortedBindingList(Of T).SortProperty
+- uid: Toolbox.ComponentModel.SortedBindingList`1.SortProperty*
+  name: SortProperty
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_SortProperty_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.SortProperty
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.SortProperty
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).SortProperty
+  nameWithType: SortedBindingList<T>.SortProperty
+  nameWithType.vb: SortedBindingList(Of T).SortProperty
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#ICollection{T}#IsReadOnly
+  name: ICollection<T>.IsReadOnly
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_Generic_ICollection_T__IsReadOnly
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#ICollection{T}#IsReadOnly
+  name.vb: System.Collections.Generic.ICollection<T>.IsReadOnly
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.Generic.ICollection<T>.IsReadOnly
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
+  nameWithType: SortedBindingList<T>.ICollection<T>.IsReadOnly
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#ICollection{T}#IsReadOnly*
+  name: ICollection<T>.IsReadOnly
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_Generic_ICollection_T__IsReadOnly_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#ICollection{T}#IsReadOnly
+  isSpec: "True"
+  name.vb: System.Collections.Generic.ICollection<T>.IsReadOnly
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.Generic.ICollection<T>.IsReadOnly
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
+  nameWithType: SortedBindingList<T>.ICollection<T>.IsReadOnly
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.Generic.ICollection<T>.IsReadOnly
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator
+  name: IEnumerable<T>.GetEnumerator()
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_Generic_IEnumerable_T__GetEnumerator
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator
+  name.vb: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType: SortedBindingList<T>.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator*
+  name: IEnumerable<T>.GetEnumerator
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_Generic_IEnumerable_T__GetEnumerator_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IEnumerable{T}#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.Generic.IEnumerable<T>.GetEnumerator
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.Generic.IEnumerable<T>.GetEnumerator
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator
+  nameWithType: SortedBindingList<T>.IEnumerable<T>.GetEnumerator
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.Generic.IEnumerable<T>.GetEnumerator
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IList{T}#Insert(System.Int32,`0)
+  name: IList<T>.Insert(Int32, T)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_Generic_IList_T__Insert_System_Int32__0_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IList{T}#Insert(System.Int32,`0)
+  name.vb: System.Collections.Generic.IList<T>.Insert(Int32, T)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.Generic.IList<T>.Insert(System.Int32, T)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.Generic.IList<T>.Insert(System.Int32, T)
+  nameWithType: SortedBindingList<T>.IList<T>.Insert(Int32, T)
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.Generic.IList<T>.Insert(Int32, T)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IList{T}#Insert*
+  name: IList<T>.Insert
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_Generic_IList_T__Insert_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IList{T}#Insert
+  isSpec: "True"
+  name.vb: System.Collections.Generic.IList<T>.Insert
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.Generic.IList<T>.Insert
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.Generic.IList<T>.Insert
+  nameWithType: SortedBindingList<T>.IList<T>.Insert
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.Generic.IList<T>.Insert
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IReadOnlyList{T}#Item(System.Int32)
+  name: IReadOnlyList<T>.Item[Int32]
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_Generic_IReadOnlyList_T__Item_System_Int32_
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IReadOnlyList{T}#Item(System.Int32)
+  name.vb: System.Collections.Generic.IReadOnlyList<T>.Item(Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.Generic.IReadOnlyList<T>.Item[System.Int32]
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.Generic.IReadOnlyList<T>.Item(System.Int32)
+  nameWithType: SortedBindingList<T>.IReadOnlyList<T>.Item[Int32]
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.Generic.IReadOnlyList<T>.Item(Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IReadOnlyList{T}#Item*
+  name: IReadOnlyList<T>.Item
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_Generic_IReadOnlyList_T__Item_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#Generic#IReadOnlyList{T}#Item
+  isSpec: "True"
+  name.vb: System.Collections.Generic.IReadOnlyList<T>.Item
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.Generic.IReadOnlyList<T>.Item
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.Generic.IReadOnlyList<T>.Item
+  nameWithType: SortedBindingList<T>.IReadOnlyList<T>.Item
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.Generic.IReadOnlyList<T>.Item
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#CopyTo(System.Array,System.Int32)
+  name: ICollection.CopyTo(Array, Int32)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_CopyTo_System_Array_System_Int32_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#CopyTo(System.Array,System.Int32)
+  name.vb: System.Collections.ICollection.CopyTo(Array, Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.ICollection.CopyTo(System.Array, System.Int32)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.ICollection.CopyTo(System.Array, System.Int32)
+  nameWithType: SortedBindingList<T>.ICollection.CopyTo(Array, Int32)
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.ICollection.CopyTo(Array, Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#CopyTo*
+  name: ICollection.CopyTo
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_CopyTo_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#CopyTo
+  isSpec: "True"
+  name.vb: System.Collections.ICollection.CopyTo
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.ICollection.CopyTo
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.ICollection.CopyTo
+  nameWithType: SortedBindingList<T>.ICollection.CopyTo
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.ICollection.CopyTo
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#IsSynchronized
+  name: ICollection.IsSynchronized
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_IsSynchronized
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#IsSynchronized
+  name.vb: System.Collections.ICollection.IsSynchronized
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.ICollection.IsSynchronized
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.ICollection.IsSynchronized
+  nameWithType: SortedBindingList<T>.ICollection.IsSynchronized
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.ICollection.IsSynchronized
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#IsSynchronized*
+  name: ICollection.IsSynchronized
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_IsSynchronized_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#IsSynchronized
+  isSpec: "True"
+  name.vb: System.Collections.ICollection.IsSynchronized
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.ICollection.IsSynchronized
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.ICollection.IsSynchronized
+  nameWithType: SortedBindingList<T>.ICollection.IsSynchronized
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.ICollection.IsSynchronized
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#SyncRoot
+  name: ICollection.SyncRoot
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_SyncRoot
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#SyncRoot
+  name.vb: System.Collections.ICollection.SyncRoot
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.ICollection.SyncRoot
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.ICollection.SyncRoot
+  nameWithType: SortedBindingList<T>.ICollection.SyncRoot
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.ICollection.SyncRoot
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#SyncRoot*
+  name: ICollection.SyncRoot
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_SyncRoot_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#SyncRoot
+  isSpec: "True"
+  name.vb: System.Collections.ICollection.SyncRoot
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.ICollection.SyncRoot
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.ICollection.SyncRoot
+  nameWithType: SortedBindingList<T>.ICollection.SyncRoot
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.ICollection.SyncRoot
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: SortedBindingList<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: SortedBindingList<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IEnumerable.GetEnumerator
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Add(System.Object)
+  name: IList.Add(Object)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Add_System_Object_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Add(System.Object)
+  name.vb: System.Collections.IList.Add(Object)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Add(System.Object)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Add(System.Object)
+  nameWithType: SortedBindingList<T>.IList.Add(Object)
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Add(Object)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Add*
+  name: IList.Add
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Add_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Add
+  isSpec: "True"
+  name.vb: System.Collections.IList.Add
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Add
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Add
+  nameWithType: SortedBindingList<T>.IList.Add
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Add
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Contains(System.Object)
+  name: IList.Contains(Object)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Contains_System_Object_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Contains(System.Object)
+  name.vb: System.Collections.IList.Contains(Object)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Contains(System.Object)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Contains(System.Object)
+  nameWithType: SortedBindingList<T>.IList.Contains(Object)
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Contains(Object)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Contains*
+  name: IList.Contains
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Contains_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Contains
+  isSpec: "True"
+  name.vb: System.Collections.IList.Contains
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Contains
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Contains
+  nameWithType: SortedBindingList<T>.IList.Contains
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Contains
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IndexOf(System.Object)
+  name: IList.IndexOf(Object)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IndexOf_System_Object_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IndexOf(System.Object)
+  name.vb: System.Collections.IList.IndexOf(Object)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.IndexOf(System.Object)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.IndexOf(System.Object)
+  nameWithType: SortedBindingList<T>.IList.IndexOf(Object)
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.IndexOf(Object)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IndexOf*
+  name: IList.IndexOf
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IndexOf_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IndexOf
+  isSpec: "True"
+  name.vb: System.Collections.IList.IndexOf
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.IndexOf
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.IndexOf
+  nameWithType: SortedBindingList<T>.IList.IndexOf
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.IndexOf
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Insert(System.Int32,System.Object)
+  name: IList.Insert(Int32, Object)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Insert_System_Int32_System_Object_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Insert(System.Int32,System.Object)
+  name.vb: System.Collections.IList.Insert(Int32, Object)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Insert(System.Int32, System.Object)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Insert(System.Int32, System.Object)
+  nameWithType: SortedBindingList<T>.IList.Insert(Int32, Object)
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Insert(Int32, Object)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Insert*
+  name: IList.Insert
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Insert_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Insert
+  isSpec: "True"
+  name.vb: System.Collections.IList.Insert
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Insert
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Insert
+  nameWithType: SortedBindingList<T>.IList.Insert
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Insert
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IsFixedSize
+  name: IList.IsFixedSize
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IsFixedSize
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IsFixedSize
+  name.vb: System.Collections.IList.IsFixedSize
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.IsFixedSize
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.IsFixedSize
+  nameWithType: SortedBindingList<T>.IList.IsFixedSize
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.IsFixedSize
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IsFixedSize*
+  name: IList.IsFixedSize
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IsFixedSize_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IsFixedSize
+  isSpec: "True"
+  name.vb: System.Collections.IList.IsFixedSize
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.IsFixedSize
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.IsFixedSize
+  nameWithType: SortedBindingList<T>.IList.IsFixedSize
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.IsFixedSize
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IsReadOnly
+  name: IList.IsReadOnly
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IsReadOnly
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IsReadOnly
+  name.vb: System.Collections.IList.IsReadOnly
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.IsReadOnly
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.IsReadOnly
+  nameWithType: SortedBindingList<T>.IList.IsReadOnly
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.IsReadOnly
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IsReadOnly*
+  name: IList.IsReadOnly
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IsReadOnly_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IsReadOnly
+  isSpec: "True"
+  name.vb: System.Collections.IList.IsReadOnly
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.IsReadOnly
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.IsReadOnly
+  nameWithType: SortedBindingList<T>.IList.IsReadOnly
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.IsReadOnly
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Item(System.Int32)
+  name: IList.Item[Int32]
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Item_System_Int32_
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Item(System.Int32)
+  name.vb: System.Collections.IList.Item(Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Item[System.Int32]
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Item(System.Int32)
+  nameWithType: SortedBindingList<T>.IList.Item[Int32]
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Item(Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Item*
+  name: IList.Item
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Item_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Item
+  isSpec: "True"
+  name.vb: System.Collections.IList.Item
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Item
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Item
+  nameWithType: SortedBindingList<T>.IList.Item
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Item
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Remove(System.Object)
+  name: IList.Remove(Object)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Remove_System_Object_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Remove(System.Object)
+  name.vb: System.Collections.IList.Remove(Object)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Remove(System.Object)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Remove(System.Object)
+  nameWithType: SortedBindingList<T>.IList.Remove(Object)
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Remove(Object)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Remove*
+  name: IList.Remove
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Remove_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Remove
+  isSpec: "True"
+  name.vb: System.Collections.IList.Remove
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.Collections.IList.Remove
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.Collections.IList.Remove
+  nameWithType: SortedBindingList<T>.IList.Remove
+  nameWithType.vb: SortedBindingList(Of T).System.Collections.IList.Remove
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddIndex(System.ComponentModel.PropertyDescriptor)
+  name: IBindingList.AddIndex(PropertyDescriptor)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddIndex_System_ComponentModel_PropertyDescriptor_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddIndex(System.ComponentModel.PropertyDescriptor)
+  name.vb: System.ComponentModel.IBindingList.AddIndex(PropertyDescriptor)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AddIndex(System.ComponentModel.PropertyDescriptor)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AddIndex(System.ComponentModel.PropertyDescriptor)
+  nameWithType: SortedBindingList<T>.IBindingList.AddIndex(PropertyDescriptor)
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AddIndex(PropertyDescriptor)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddIndex*
+  name: IBindingList.AddIndex
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddIndex_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddIndex
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.AddIndex
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AddIndex
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AddIndex
+  nameWithType: SortedBindingList<T>.IBindingList.AddIndex
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AddIndex
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddNew
+  name: IBindingList.AddNew()
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddNew
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddNew
+  name.vb: System.ComponentModel.IBindingList.AddNew()
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AddNew()
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AddNew()
+  nameWithType: SortedBindingList<T>.IBindingList.AddNew()
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AddNew()
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddNew*
+  name: IBindingList.AddNew
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddNew_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddNew
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.AddNew
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AddNew
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AddNew
+  nameWithType: SortedBindingList<T>.IBindingList.AddNew
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AddNew
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowEdit
+  name: IBindingList.AllowEdit
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AllowEdit
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowEdit
+  name.vb: System.ComponentModel.IBindingList.AllowEdit
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AllowEdit
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowEdit
+  nameWithType: SortedBindingList<T>.IBindingList.AllowEdit
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowEdit
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowEdit*
+  name: IBindingList.AllowEdit
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AllowEdit_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowEdit
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.AllowEdit
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AllowEdit
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowEdit
+  nameWithType: SortedBindingList<T>.IBindingList.AllowEdit
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowEdit
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowNew
+  name: IBindingList.AllowNew
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AllowNew
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowNew
+  name.vb: System.ComponentModel.IBindingList.AllowNew
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AllowNew
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowNew
+  nameWithType: SortedBindingList<T>.IBindingList.AllowNew
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowNew
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowNew*
+  name: IBindingList.AllowNew
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AllowNew_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowNew
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.AllowNew
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AllowNew
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowNew
+  nameWithType: SortedBindingList<T>.IBindingList.AllowNew
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowNew
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowRemove
+  name: IBindingList.AllowRemove
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AllowRemove
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowRemove
+  name.vb: System.ComponentModel.IBindingList.AllowRemove
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AllowRemove
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowRemove
+  nameWithType: SortedBindingList<T>.IBindingList.AllowRemove
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowRemove
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowRemove*
+  name: IBindingList.AllowRemove
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AllowRemove_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AllowRemove
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.AllowRemove
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.AllowRemove
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowRemove
+  nameWithType: SortedBindingList<T>.IBindingList.AllowRemove
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.AllowRemove
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#Find(System.ComponentModel.PropertyDescriptor,System.Object)
+  name: IBindingList.Find(PropertyDescriptor, Object)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_Find_System_ComponentModel_PropertyDescriptor_System_Object_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#Find(System.ComponentModel.PropertyDescriptor,System.Object)
+  name.vb: System.ComponentModel.IBindingList.Find(PropertyDescriptor, Object)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.Find(System.ComponentModel.PropertyDescriptor, System.Object)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.Find(System.ComponentModel.PropertyDescriptor, System.Object)
+  nameWithType: SortedBindingList<T>.IBindingList.Find(PropertyDescriptor, Object)
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.Find(PropertyDescriptor, Object)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#Find*
+  name: IBindingList.Find
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_Find_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#Find
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.Find
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.Find
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.Find
+  nameWithType: SortedBindingList<T>.IBindingList.Find
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.Find
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#RemoveIndex(System.ComponentModel.PropertyDescriptor)
+  name: IBindingList.RemoveIndex(PropertyDescriptor)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_RemoveIndex_System_ComponentModel_PropertyDescriptor_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#RemoveIndex(System.ComponentModel.PropertyDescriptor)
+  name.vb: System.ComponentModel.IBindingList.RemoveIndex(PropertyDescriptor)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.RemoveIndex(System.ComponentModel.PropertyDescriptor)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.RemoveIndex(System.ComponentModel.PropertyDescriptor)
+  nameWithType: SortedBindingList<T>.IBindingList.RemoveIndex(PropertyDescriptor)
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.RemoveIndex(PropertyDescriptor)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#RemoveIndex*
+  name: IBindingList.RemoveIndex
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_RemoveIndex_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#RemoveIndex
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.RemoveIndex
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.RemoveIndex
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.RemoveIndex
+  nameWithType: SortedBindingList<T>.IBindingList.RemoveIndex
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.RemoveIndex
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsChangeNotification
+  name: IBindingList.SupportsChangeNotification
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_SupportsChangeNotification
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsChangeNotification
+  name.vb: System.ComponentModel.IBindingList.SupportsChangeNotification
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.SupportsChangeNotification
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsChangeNotification
+  nameWithType: SortedBindingList<T>.IBindingList.SupportsChangeNotification
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsChangeNotification
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsChangeNotification*
+  name: IBindingList.SupportsChangeNotification
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_SupportsChangeNotification_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsChangeNotification
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.SupportsChangeNotification
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.SupportsChangeNotification
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsChangeNotification
+  nameWithType: SortedBindingList<T>.IBindingList.SupportsChangeNotification
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsChangeNotification
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsSearching
+  name: IBindingList.SupportsSearching
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_SupportsSearching
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsSearching
+  name.vb: System.ComponentModel.IBindingList.SupportsSearching
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.SupportsSearching
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSearching
+  nameWithType: SortedBindingList<T>.IBindingList.SupportsSearching
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSearching
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsSearching*
+  name: IBindingList.SupportsSearching
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_SupportsSearching_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsSearching
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.SupportsSearching
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.SupportsSearching
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSearching
+  nameWithType: SortedBindingList<T>.IBindingList.SupportsSearching
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSearching
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsSorting
+  name: IBindingList.SupportsSorting
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_SupportsSorting
+  commentId: P:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsSorting
+  name.vb: System.ComponentModel.IBindingList.SupportsSorting
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.SupportsSorting
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSorting
+  nameWithType: SortedBindingList<T>.IBindingList.SupportsSorting
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSorting
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsSorting*
+  name: IBindingList.SupportsSorting
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_SupportsSorting_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#SupportsSorting
+  isSpec: "True"
+  name.vb: System.ComponentModel.IBindingList.SupportsSorting
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.IBindingList.SupportsSorting
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSorting
+  nameWithType: SortedBindingList<T>.IBindingList.SupportsSorting
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSorting
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew(System.Int32)
+  name: ICancelAddNew.CancelNew(Int32)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_CancelNew_System_Int32_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew(System.Int32)
+  name.vb: System.ComponentModel.ICancelAddNew.CancelNew(Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.ICancelAddNew.CancelNew(System.Int32)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.CancelNew(System.Int32)
+  nameWithType: SortedBindingList<T>.ICancelAddNew.CancelNew(Int32)
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.CancelNew(Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew*
+  name: ICancelAddNew.CancelNew
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_CancelNew_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew
+  isSpec: "True"
+  name.vb: System.ComponentModel.ICancelAddNew.CancelNew
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.ICancelAddNew.CancelNew
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.CancelNew
+  nameWithType: SortedBindingList<T>.ICancelAddNew.CancelNew
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.CancelNew
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew(System.Int32)
+  name: ICancelAddNew.EndNew(Int32)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_EndNew_System_Int32_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew(System.Int32)
+  name.vb: System.ComponentModel.ICancelAddNew.EndNew(Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.ICancelAddNew.EndNew(System.Int32)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.EndNew(System.Int32)
+  nameWithType: SortedBindingList<T>.ICancelAddNew.EndNew(Int32)
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.EndNew(Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew*
+  name: ICancelAddNew.EndNew
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_EndNew_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew
+  isSpec: "True"
+  name.vb: System.ComponentModel.ICancelAddNew.EndNew
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.ICancelAddNew.EndNew
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.EndNew
+  nameWithType: SortedBindingList<T>.ICancelAddNew.EndNew
+  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.EndNew
 - uid: Toolbox.StringExtension
   name: StringExtension
   href: api/Toolbox.StringExtension.html
