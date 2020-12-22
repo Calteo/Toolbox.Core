@@ -330,5 +330,30 @@ namespace Toolbox.Core.Test
 
             Assert.AreEqual(findIndex, index);           
         }
+
+        [TestMethod]
+        public void RaisedItemEvents()
+        {
+            var cut = new SortedBindingList<Data>();
+            var raisedEvents = new List<ListChangedEventArgs>();
+            cut.ListChanged += (s, e) => raisedEvents.Add(e);
+
+            var data = new Data();
+
+            const string NewName = "NewName";
+
+            cut.Add(data);
+            data.Name = NewName;
+
+            Assert.AreEqual(1, cut.Count);
+            Assert.AreEqual(data.Name, cut[0].Name);
+
+            Assert.AreEqual(2, raisedEvents.Count);
+            Assert.AreEqual(ListChangedType.ItemAdded, raisedEvents[0].ListChangedType);
+            Assert.AreEqual(0, raisedEvents[0].NewIndex);
+            Assert.AreEqual(ListChangedType.ItemChanged, raisedEvents[1].ListChangedType);
+            Assert.AreEqual(0, raisedEvents[1].NewIndex);
+            Assert.AreEqual(nameof(Data.Name), raisedEvents[1].PropertyDescriptor.Name);
+        }
     }
 }
