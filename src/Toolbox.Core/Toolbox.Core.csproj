@@ -8,10 +8,19 @@
     <FileVersion>1.0.0.1</FileVersion>
     <Version>0.1.0</Version>
     <Authors>Calteo</Authors>
-    <Description>standard componets for almost every project</Description>
+    <Description>standard components for almost every project</Description>
     <Copyright>Copyright 2021 by Calteo</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RootNamespace>Toolbox</RootNamespace>
+    <RepositoryUrl>https://github.com/Calteo/Toolbox.Core</RepositoryUrl>
+    <PackageIcon>toolbox.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="images\toolbox.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
