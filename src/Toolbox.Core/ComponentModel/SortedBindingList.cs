@@ -21,15 +21,15 @@ namespace Toolbox.ComponentModel
 
         private List<T> Items { get; } = new List<T>();
         private List<int> Indices { get; } = new List<int>();
-        private ItemComparer<T> Comparer { get; } 
-        
+        private ItemComparer<T> Comparer { get; }
+
         private const bool IsReadOnly = false;
 
         #region IList
-        object IList.this[int index] 
+        object IList.this[int index]
         {
             get => GetItem(index);
-            set 
+            set
             {
                 if (value is T tValue)
                 {
@@ -59,12 +59,12 @@ namespace Toolbox.ComponentModel
         {
             Items.Clear();
             Indices.Clear();
-            ListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.Reset,0));
+            ListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.Reset, 0));
         }
         #endregion
 
         #region IList<T>
-        public T this[int index] 
+        public T this[int index]
         {
             get => GetItem(index);
             set => SetItem(index, value);
@@ -86,7 +86,7 @@ namespace Toolbox.ComponentModel
 
         bool ICollection<T>.IsReadOnly => IsReadOnly;
 
-        public int Count => Items.Count;          
+        public int Count => Items.Count;
 
         bool ICollection.IsSynchronized => false;
 
@@ -112,11 +112,6 @@ namespace Toolbox.ComponentModel
 
         bool IBindingList.SupportsSorting => true;
 
-        void IBindingList.AddIndex(PropertyDescriptor property)
-        {
-            throw new NotImplementedException();
-        }
-
         object IBindingList.AddNew()
         {
             throw new NotImplementedException();
@@ -140,10 +135,12 @@ namespace Toolbox.ComponentModel
             ApplySort(property, direction);
         }
 
+        void IBindingList.AddIndex(PropertyDescriptor property)
+        {
+        }
 
         void IBindingList.RemoveIndex(PropertyDescriptor property)
-        {
-            throw new NotImplementedException();
+        {            
         }
 
         public void RemoveSort()
@@ -198,19 +195,28 @@ namespace Toolbox.ComponentModel
             throw new NotImplementedException();
         }
 
-        int IBindingList.Find(PropertyDescriptor property, object key)
+        public int Find(PropertyDescriptor property, object key)
         {
-            throw new NotImplementedException();
+            return Indices.Find(i => property.GetValue(Items[Indices[i]]).Equals(key));
+        }
+
+        public int Find(string propertyName, object key)
+        {
+            var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false);
+            if (property == null)
+                throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
+
+            return Find(property, key);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new ItemEnumerator<T>(Indices, Items);
         }
 
         int IList.IndexOf(object value)
@@ -229,12 +235,18 @@ namespace Toolbox.ComponentModel
 
         void IList.Insert(int index, object value)
         {
-            throw new NotImplementedException();
+            if (value is T tValue)
+            {
+                InsertCore(index, tValue);
+                return;
+            }
+
+            throw new ArgumentException($"Value is not of type {typeof(T).FullName}.", nameof(value));
         }
 
-        void IList<T>.Insert(int index, T item)
+        public void Insert(int index, T item)
         {
-            throw new NotImplementedException();
+            InsertCore(index, item);
         }
 
         void IList.Remove(object value)
@@ -337,6 +349,17 @@ namespace Toolbox.ComponentModel
 
             return index >= 0;
         }
+
+        public void InsertCore(int index, T item)
+        {
+            if (Comparer.IsSorted)
+                throw new InvalidOperationException("No insert operation when list is sorted.");
+
+            Items.Insert(index, item);
+            Indices.Add(Indices.Count);
+
+            ListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.ItemAdded, index));
+        }
         #endregion
 
         #region IComparer<T>
@@ -377,6 +400,56 @@ namespace Toolbox.ComponentModel
                 }
                 return SortDirection == ListSortDirection.Ascending ? rc : -rc;
 
+            }
+        }
+        #endregion
+
+        #region Enumerator<T>
+        private class ItemEnumerator<TI> : IEnumerator<TI>
+        {
+            public ItemEnumerator(List<int> indices, List<TI> items)
+            {
+                IndicesEnumerator = indices.GetEnumerator();
+                Items = items;
+            }
+
+            private IEnumerator<int> IndicesEnumerator { get; }
+            private List<TI> Items { get; }
+
+            public TI Current => Items[IndicesEnumerator.Current];
+
+            object IEnumerator.Current => Current;
+
+            public bool MoveNext()
+            {
+                return IndicesEnumerator.MoveNext();
+            }
+
+            public void Reset()
+            {
+                IndicesEnumerator.Reset();
+            }
+
+            private bool _disposed;
+
+            protected virtual void Dispose(bool disposing)
+            {
+                if (!_disposed)
+                {
+                    if (disposing)
+                    {
+                        IndicesEnumerator.Dispose();
+                    }
+
+                    _disposed = true;
+                }
+            }
+
+            public void Dispose()
+            {
+                // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+                Dispose(true);
+                GC.SuppressFinalize(this);
             }
         }
         #endregion

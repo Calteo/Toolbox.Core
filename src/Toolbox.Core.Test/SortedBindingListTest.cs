@@ -1,9 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using Toolbox.ComponentModel;
 using Toolbox.Core.Test.Model;
 
@@ -29,7 +27,6 @@ namespace Toolbox.Core.Test
             {
                 list.Add(data);
             }
-
             return datas;
         }
 
@@ -49,6 +46,29 @@ namespace Toolbox.Core.Test
             Assert.AreEqual(1, raisedEvents.Count);
             Assert.AreEqual(ListChangedType.ItemAdded, raisedEvents[0].ListChangedType);
             Assert.AreEqual(0, raisedEvents[0].NewIndex);
+        }
+
+        [TestMethod]
+        public void Insert()
+        {
+            var cut = new SortedBindingList<Data>();
+            var raisedEvents = new List<ListChangedEventArgs>();
+            cut.ListChanged += (s, e) => raisedEvents.Add(e);
+
+            var datas = AddData(cut, 5);
+            var data = new Data();
+
+            const int index = 2;
+
+            cut.Insert(index, data);
+            var last = raisedEvents.Last();
+
+            Assert.AreEqual(datas.Length+1, cut.Count);
+
+            Assert.AreEqual(data, cut[index]);
+            
+            Assert.AreEqual(ListChangedType.ItemAdded, last.ListChangedType);
+            Assert.AreEqual(index, last.NewIndex);
         }
 
         [TestMethod]
@@ -196,7 +216,7 @@ namespace Toolbox.Core.Test
         {
             var cut = new SortedBindingList<Data>();
 
-            var datas = AddData(cut, 3);
+            AddData(cut, 3);
 
             var rc = cut.IndexOf(new Data());
 
@@ -262,5 +282,53 @@ namespace Toolbox.Core.Test
             Assert.AreEqual(datas[1], cut[0]);
         }
 
+        [TestMethod]
+        public void EnumerateUnsorted()
+        {
+            var cut = new SortedBindingList<Data>();
+
+            var datas = AddData(cut, 6);
+
+            Assert.AreEqual(datas.Length, cut.Count);
+
+            var i = 0;
+            foreach (var item in cut)
+            {
+                Assert.AreEqual(datas[i++], item);
+            }
+        }
+
+        [TestMethod]
+        public void EnumerateSorted()
+        {
+            var cut = new SortedBindingList<Data>();
+
+            var datas = AddData(cut, 6);
+
+            cut.ApplySort(nameof(Data.Name), ListSortDirection.Ascending);
+            var sorted = datas.OrderBy(d => d.Name).ToArray();
+
+            Assert.AreEqual(sorted.Length, cut.Count);
+
+            var i = 0;
+            foreach (var item in cut)
+            {
+                Assert.AreEqual(sorted[i++], item);
+            }
+        }
+
+        [TestMethod]
+        public void Find()
+        {
+            var cut = new SortedBindingList<Data>();
+
+            var datas = AddData(cut, 10);
+
+            const int findIndex = 6;
+
+            var index = cut.Find(nameof(Data.Name), datas[findIndex].Name);
+
+            Assert.AreEqual(findIndex, index);           
+        }
     }
 }
