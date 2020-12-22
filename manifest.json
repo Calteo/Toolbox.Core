@@ -5,11 +5,35 @@
   "files": [
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Collection.Generics.EnumerableExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Collection.Generics.EnumerableExtension.html",
+          "hash": "Ohj+NseKi/C0JVqrW8mz2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Collection.Generics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Collection.Generics.html",
+          "hash": "90Qboat1jvpKS0j76LwQoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Toolbox.ComponentModel.SortedBindingList-1.yml",
       "output": {
         ".html": {
           "relative_path": "api/Toolbox.ComponentModel.SortedBindingList-1.html",
-          "hash": "uCE5lZGixdWbwLSGxoXz9Q=="
+          "hash": "NWiDSj+9G/acNxy0sQ4jIQ=="
         }
       },
       "is_incremental": false,
@@ -69,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "7UYVMPwMNA3SWtYl4dkNuA=="
+          "hash": "6a//YZMLiy6Y+kTpFPmPVw=="
         }
       },
       "is_incremental": false,
@@ -178,7 +202,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 4,
+          "total_file_count": 6,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
