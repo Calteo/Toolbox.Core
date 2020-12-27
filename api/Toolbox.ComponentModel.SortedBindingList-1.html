@@ -123,7 +123,7 @@
   <h6><strong>Assembly</strong>: Toolbox.Core.dll</h6>
   <h5 id="Toolbox_ComponentModel_SortedBindingList_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SortedBindingList&lt;T&gt; : IList&lt;T&gt;, ICollection&lt;T&gt;, IReadOnlyList&lt;T&gt;, IReadOnlyCollection&lt;T&gt;, IEnumerable&lt;T&gt;, IBindingList, IList, ICollection, IEnumerable, IRaiseItemChangedEvents, ICancelAddNew</code></pre>
+    <pre><code class="lang-csharp hljs">public class SortedBindingList&lt;T&gt; : IList&lt;T&gt;, ICollection&lt;T&gt;, IReadOnlyList&lt;T&gt;, IReadOnlyCollection&lt;T&gt;, IEnumerable&lt;T&gt;, IBindingList, IList, ICollection, IEnumerable, IRaiseItemChangedEvents, ICancelAddNew where T : new()</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -396,10 +396,41 @@ it would break the ordering.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_AddNew.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.AddNew%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L165">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_SortedBindingList_1_AddNew_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.AddNew*"></a>
+  <h4 id="Toolbox_ComponentModel_SortedBindingList_1_AddNew" data-uid="Toolbox.ComponentModel.SortedBindingList`1.AddNew">AddNew()</h4>
+  <div class="markdown level1 summary"><p>Creates a new item, which can me commited (<see cref="!:"></see></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T AddNew()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_ApplySort_System_ComponentModel_PropertyDescriptor_System_ComponentModel_ListSortDirection_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.ApplySort(System.ComponentModel.PropertyDescriptor%2CSystem.ComponentModel.ListSortDirection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L166">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L185">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_ApplySort_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.ApplySort*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_ApplySort_System_ComponentModel_PropertyDescriptor_System_ComponentModel_ListSortDirection_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)">ApplySort(PropertyDescriptor, ListSortDirection)</h4>
@@ -439,7 +470,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_ApplySort_System_String_System_ComponentModel_ListSortDirection_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.ApplySort(System.String%2CSystem.ComponentModel.ListSortDirection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L183">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L202">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_ApplySort_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.ApplySort*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_ApplySort_System_String_System_ComponentModel_ListSortDirection_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.ApplySort(System.String,System.ComponentModel.ListSortDirection)">ApplySort(String, ListSortDirection)</h4>
@@ -492,6 +523,39 @@ it would break the ordering.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_CancelNew_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.CancelNew(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L242">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_SortedBindingList_1_CancelNew_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.CancelNew*"></a>
+  <h4 id="Toolbox_ComponentModel_SortedBindingList_1_CancelNew_System_Int32_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.CancelNew(System.Int32)">CancelNew(Int32)</h4>
+  <div class="markdown level1 summary"><p>Cancel an item that was created wird <a class="xref" href="Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_AddNew">AddNew()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CancelNew(int itemIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_Clear.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -511,7 +575,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_Contains__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.Contains(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L237">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L262">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_Contains_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Contains*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_Contains__0_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Contains(`0)">Contains(T)</h4>
@@ -560,7 +624,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_CopyTo__0___System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.CopyTo(%600%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L255">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L280">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_CopyTo_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.CopyTo*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_CopyTo__0___System_Int32_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.CopyTo(`0[],System.Int32)">CopyTo(T[], Int32)</h4>
@@ -622,10 +686,46 @@ it would break the ordering.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_EndNew_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.EndNew(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L297">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_SortedBindingList_1_EndNew_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.EndNew*"></a>
+  <h4 id="Toolbox_ComponentModel_SortedBindingList_1_EndNew_System_Int32_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.EndNew(System.Int32)">EndNew(Int32)</h4>
+  <div class="markdown level1 summary"><p>Commits an item that was created wird <a class="xref" href="Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_AddNew">AddNew()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndNew(int itemIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_ComponentModel_SortedBindingList_1_EndNew_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Items are automatically commited, when needed for other operations.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_Find_System_ComponentModel_PropertyDescriptor_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.Find(System.ComponentModel.PropertyDescriptor%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L278">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L308">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_Find_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Find*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_Find_System_ComponentModel_PropertyDescriptor_System_Object_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Find(System.ComponentModel.PropertyDescriptor,System.Object)">Find(PropertyDescriptor, Object)</h4>
@@ -679,7 +779,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_Find_System_String_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.Find(System.String%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L290">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L320">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_Find_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Find*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_Find_System_String_System_Object_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Find(System.String,System.Object)">Find(String, Object)</h4>
@@ -749,7 +849,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_GetEnumerator.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L310">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L340">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_GetEnumerator_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.GetEnumerator*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_GetEnumerator" data-uid="Toolbox.ComponentModel.SortedBindingList`1.GetEnumerator">GetEnumerator()</h4>
@@ -783,7 +883,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_IndexOf__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.IndexOf(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L328">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L358">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_IndexOf_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.IndexOf*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_IndexOf__0_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.IndexOf(`0)">IndexOf(T)</h4>
@@ -832,7 +932,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_Insert_System_Int32__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.Insert(System.Int32%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L352">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L382">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_Insert_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Insert*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_Insert_System_Int32__0_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Insert(System.Int32,`0)">Insert(Int32, T)</h4>
@@ -887,7 +987,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_InsertCore_System_Int32__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.InsertCore(System.Int32%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L488">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L519">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_InsertCore_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.InsertCore*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_InsertCore_System_Int32__0_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.InsertCore(System.Int32,`0)">InsertCore(Int32, T)</h4>
@@ -924,7 +1024,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_Remove__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.Remove(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L373">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L403">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_Remove_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Remove*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_Remove__0_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.Remove(`0)">Remove(T)</h4>
@@ -972,7 +1072,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_RemoveAt_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.RemoveAt(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L382">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L412">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_RemoveAt_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.RemoveAt*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_RemoveAt_System_Int32_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
@@ -1005,7 +1105,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_RemoveSort.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.RemoveSort%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L203">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L222">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_RemoveSort_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.RemoveSort*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_RemoveSort" data-uid="Toolbox.ComponentModel.SortedBindingList`1.RemoveSort">RemoveSort()</h4>
@@ -1023,7 +1123,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_ListChanged.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.ListChanged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L216">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L235">View Source</a>
   </span>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_ListChanged" data-uid="Toolbox.ComponentModel.SortedBindingList`1.ListChanged">ListChanged</h4>
   <div class="markdown level1 summary"><p>Gets fired, when the list changes.</p>
@@ -1132,7 +1232,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_CopyTo_System_Array_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23Collections%23ICollection%23CopyTo(System.Array%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L242">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L267">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_CopyTo_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#CopyTo*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_ICollection_CopyTo_System_Array_System_Int32_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#ICollection#CopyTo(System.Array,System.Int32)">ICollection.CopyTo(Array, Int32)</h4>
@@ -1229,7 +1329,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L299">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L329">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IEnumerable#GetEnumerator*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
@@ -1306,7 +1406,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Contains_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23Collections%23IList%23Contains(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L224">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L249">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Contains_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Contains*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Contains_System_Object_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Contains(System.Object)">IList.Contains(Object)</h4>
@@ -1353,7 +1453,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IndexOf_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23Collections%23IList%23IndexOf(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L315">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L345">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IndexOf_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IndexOf*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_IndexOf_System_Object_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#IndexOf(System.Object)">IList.IndexOf(Object)</h4>
@@ -1400,7 +1500,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Insert_System_Int32_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23Collections%23IList%23Insert(System.Int32%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L334">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L364">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Insert_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Insert*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Insert_System_Int32_System_Object_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Insert(System.Int32,System.Object)">IList.Insert(Int32, Object)</h4>
@@ -1544,7 +1644,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Remove_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23Collections%23IList%23Remove(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L357">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L387">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Remove_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Remove*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_Collections_IList_Remove_System_Object_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#Collections#IList#Remove(System.Object)">IList.Remove(Object)</h4>
@@ -1576,7 +1676,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddIndex_System_ComponentModel_PropertyDescriptor_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23ComponentModel%23IBindingList%23AddIndex(System.ComponentModel.PropertyDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L192">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L211">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddIndex_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddIndex*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddIndex_System_ComponentModel_PropertyDescriptor_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddIndex(System.ComponentModel.PropertyDescriptor)">IBindingList.AddIndex(PropertyDescriptor)</h4>
@@ -1608,7 +1708,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddNew.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23ComponentModel%23IBindingList%23AddNew%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L154">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L173">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddNew_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddNew*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_AddNew" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#AddNew">IBindingList.AddNew()</h4>
@@ -1728,7 +1828,7 @@ it would break the ordering.</p>
     <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_RemoveIndex_System_ComponentModel_PropertyDescriptor_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23ComponentModel%23IBindingList%23RemoveIndex(System.ComponentModel.PropertyDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L196">View Source</a>
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L215">View Source</a>
   </span>
   <a id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_RemoveIndex_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#RemoveIndex*"></a>
   <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IBindingList_RemoveIndex_System_ComponentModel_PropertyDescriptor_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IBindingList#RemoveIndex(System.ComponentModel.PropertyDescriptor)">IBindingList.RemoveIndex(PropertyDescriptor)</h4>
@@ -1841,70 +1941,6 @@ it would break the ordering.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_CancelNew_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23ComponentModel%23ICancelAddNew%23CancelNew(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L219">View Source</a>
-  </span>
-  <a id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_CancelNew_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew*"></a>
-  <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_CancelNew_System_Int32_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew(System.Int32)">ICancelAddNew.CancelNew(Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ICancelAddNew.CancelNew(int itemIndex)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">itemIndex</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_EndNew_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.SortedBindingList%601.System%23ComponentModel%23ICancelAddNew%23EndNew(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/SortedBindingList.cs/#L267">View Source</a>
-  </span>
-  <a id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_EndNew_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew*"></a>
-  <h4 id="Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_EndNew_System_Int32_" data-uid="Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew(System.Int32)">ICancelAddNew.EndNew(Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ICancelAddNew.EndNew(int itemIndex)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">itemIndex</span></td>
         <td></td>
       </tr>
     </tbody>

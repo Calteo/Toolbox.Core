@@ -84,6 +84,23 @@ references:
   fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Add
   nameWithType: SortedBindingList<T>.Add
   nameWithType.vb: SortedBindingList(Of T).Add
+- uid: Toolbox.ComponentModel.SortedBindingList`1.AddNew
+  name: AddNew()
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_AddNew
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.AddNew
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.AddNew()
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).AddNew()
+  nameWithType: SortedBindingList<T>.AddNew()
+  nameWithType.vb: SortedBindingList(Of T).AddNew()
+- uid: Toolbox.ComponentModel.SortedBindingList`1.AddNew*
+  name: AddNew
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_AddNew_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.AddNew
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.AddNew
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).AddNew
+  nameWithType: SortedBindingList<T>.AddNew
+  nameWithType.vb: SortedBindingList(Of T).AddNew
 - uid: Toolbox.ComponentModel.SortedBindingList`1.ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)
   name: ApplySort(PropertyDescriptor, ListSortDirection)
   href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_ApplySort_System_ComponentModel_PropertyDescriptor_System_ComponentModel_ListSortDirection_
@@ -109,6 +126,23 @@ references:
   fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).ApplySort
   nameWithType: SortedBindingList<T>.ApplySort
   nameWithType.vb: SortedBindingList(Of T).ApplySort
+- uid: Toolbox.ComponentModel.SortedBindingList`1.CancelNew(System.Int32)
+  name: CancelNew(Int32)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_CancelNew_System_Int32_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.CancelNew(System.Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.CancelNew(System.Int32)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).CancelNew(System.Int32)
+  nameWithType: SortedBindingList<T>.CancelNew(Int32)
+  nameWithType.vb: SortedBindingList(Of T).CancelNew(Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.CancelNew*
+  name: CancelNew
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_CancelNew_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.CancelNew
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.CancelNew
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).CancelNew
+  nameWithType: SortedBindingList<T>.CancelNew
+  nameWithType.vb: SortedBindingList(Of T).CancelNew
 - uid: Toolbox.ComponentModel.SortedBindingList`1.Clear
   name: Clear()
   href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Clear
@@ -178,6 +212,23 @@ references:
   fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).Count
   nameWithType: SortedBindingList<T>.Count
   nameWithType.vb: SortedBindingList(Of T).Count
+- uid: Toolbox.ComponentModel.SortedBindingList`1.EndNew(System.Int32)
+  name: EndNew(Int32)
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_EndNew_System_Int32_
+  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.EndNew(System.Int32)
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.EndNew(System.Int32)
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).EndNew(System.Int32)
+  nameWithType: SortedBindingList<T>.EndNew(Int32)
+  nameWithType.vb: SortedBindingList(Of T).EndNew(Int32)
+- uid: Toolbox.ComponentModel.SortedBindingList`1.EndNew*
+  name: EndNew
+  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_EndNew_
+  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.EndNew
+  isSpec: "True"
+  fullName: Toolbox.ComponentModel.SortedBindingList<T>.EndNew
+  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).EndNew
+  nameWithType: SortedBindingList<T>.EndNew
+  nameWithType.vb: SortedBindingList(Of T).EndNew
 - uid: Toolbox.ComponentModel.SortedBindingList`1.Find(System.ComponentModel.PropertyDescriptor,System.Object)
   name: Find(PropertyDescriptor, Object)
   href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_Find_System_ComponentModel_PropertyDescriptor_System_Object_
@@ -836,44 +887,6 @@ references:
   fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSorting
   nameWithType: SortedBindingList<T>.IBindingList.SupportsSorting
   nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.IBindingList.SupportsSorting
-- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew(System.Int32)
-  name: ICancelAddNew.CancelNew(Int32)
-  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_CancelNew_System_Int32_
-  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew(System.Int32)
-  name.vb: System.ComponentModel.ICancelAddNew.CancelNew(Int32)
-  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.ICancelAddNew.CancelNew(System.Int32)
-  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.CancelNew(System.Int32)
-  nameWithType: SortedBindingList<T>.ICancelAddNew.CancelNew(Int32)
-  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.CancelNew(Int32)
-- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew*
-  name: ICancelAddNew.CancelNew
-  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_CancelNew_
-  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#CancelNew
-  isSpec: "True"
-  name.vb: System.ComponentModel.ICancelAddNew.CancelNew
-  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.ICancelAddNew.CancelNew
-  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.CancelNew
-  nameWithType: SortedBindingList<T>.ICancelAddNew.CancelNew
-  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.CancelNew
-- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew(System.Int32)
-  name: ICancelAddNew.EndNew(Int32)
-  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_EndNew_System_Int32_
-  commentId: M:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew(System.Int32)
-  name.vb: System.ComponentModel.ICancelAddNew.EndNew(Int32)
-  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.ICancelAddNew.EndNew(System.Int32)
-  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.EndNew(System.Int32)
-  nameWithType: SortedBindingList<T>.ICancelAddNew.EndNew(Int32)
-  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.EndNew(Int32)
-- uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew*
-  name: ICancelAddNew.EndNew
-  href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_ICancelAddNew_EndNew_
-  commentId: Overload:Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#ICancelAddNew#EndNew
-  isSpec: "True"
-  name.vb: System.ComponentModel.ICancelAddNew.EndNew
-  fullName: Toolbox.ComponentModel.SortedBindingList<T>.System.ComponentModel.ICancelAddNew.EndNew
-  fullName.vb: Toolbox.ComponentModel.SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.EndNew
-  nameWithType: SortedBindingList<T>.ICancelAddNew.EndNew
-  nameWithType.vb: SortedBindingList(Of T).System.ComponentModel.ICancelAddNew.EndNew
 - uid: Toolbox.ComponentModel.SortedBindingList`1.System#ComponentModel#IRaiseItemChangedEvents#RaisesItemChangedEvents
   name: IRaiseItemChangedEvents.RaisesItemChangedEvents
   href: api/Toolbox.ComponentModel.SortedBindingList-1.html#Toolbox_ComponentModel_SortedBindingList_1_System_ComponentModel_IRaiseItemChangedEvents_RaisesItemChangedEvents
