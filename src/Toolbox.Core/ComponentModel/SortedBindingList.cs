@@ -9,7 +9,7 @@ namespace Toolbox.ComponentModel
     /// A <see cref="BindingList{T}"/> that support sorting and filtering
     /// </summary>
     public class SortedBindingList<T> : IList<T>, IReadOnlyList<T>, IList,
-        IBindingList, IRaiseItemChangedEvents, ICancelAddNew
+        IBindingList, IRaiseItemChangedEvents, ICancelAddNew where T: new()
     {
         /// <summary>
         /// Creates a new instance of <see cref="SortedBindingList{T}"/>.
@@ -151,9 +151,28 @@ namespace Toolbox.ComponentModel
 
         bool IBindingList.SupportsSorting => true;
 
+        private int _pendingAdd { get; set; }
+        private void CommitPendingItem()
+        {
+            if (_pendingAdd >= 0)
+                _pendingAdd = -1;
+        }
+
+        /// <summary>
+        /// Creates a new item, which can me commited (<see cref=""/>
+        /// </summary>
+        /// <returns></returns>
+        public T AddNew()
+        {
+            var item = new T();
+            AddCore(item);
+            _pendingAdd = IndexOf(item);
+            return item;
+        }
+
         object IBindingList.AddNew()
         {
-            throw new NotImplementedException();
+            return AddNew();
         }
 
         /// <summary>
@@ -216,9 +235,15 @@ namespace Toolbox.ComponentModel
         public event ListChangedEventHandler ListChanged;
         #endregion
 
-        void ICancelAddNew.CancelNew(int itemIndex)
+        /// <summary>
+        /// Cancel an item that was created wird <see cref="AddNew"/>.
+        /// </summary>
+        /// <param name="itemIndex"></param>
+        public void CancelNew(int itemIndex)
         {
-            throw new NotImplementedException();
+            if (itemIndex != _pendingAdd) return;
+            RemoveAt(itemIndex);
+            _pendingAdd = -1;
         }
 
         bool IList.Contains(object value)
@@ -264,9 +289,14 @@ namespace Toolbox.ComponentModel
             }
         }
 
-        void ICancelAddNew.EndNew(int itemIndex)
+        /// <summary>
+        /// Commits an item that was created wird <see cref="AddNew"/>.
+        /// </summary>
+        /// <param name="itemIndex"></param>
+        /// <remarks>Items are automatically commited, when needed for other operations.</remarks>
+        public void EndNew(int itemIndex)
         {
-            throw new NotImplementedException();
+            CommitPendingItem();
         }
 
         /// <summary>
@@ -423,6 +453,7 @@ namespace Toolbox.ComponentModel
 
         private void AddCore(T item)
         {
+            CommitPendingItem();
             if (IsSorted)
             {
                 var dataIndex = Items.Count;

@@ -355,5 +355,40 @@ namespace Toolbox.Core.Test
             Assert.AreEqual(0, raisedEvents[1].NewIndex);
             Assert.AreEqual(nameof(Data.Name), raisedEvents[1].PropertyDescriptor.Name);
         }
+
+        [TestMethod]
+        public void AddNewAndCommit()
+        {
+            var cut = new SortedBindingList<Data>();
+            var raisedEvents = new List<ListChangedEventArgs>();
+            cut.ListChanged += (s, e) => raisedEvents.Add(e);
+
+            const string NewName = "NewName";
+
+            var data = cut.AddNew();
+            data.Name = NewName;
+
+            cut.EndNew(0);
+
+            Assert.AreEqual(1, cut.Count);
+            Assert.AreEqual(data.Name, cut[0].Name);
+        }
+
+        [TestMethod]
+        public void AddNewAndCancel()
+        {
+            var cut = new SortedBindingList<Data>();
+            var raisedEvents = new List<ListChangedEventArgs>();
+            cut.ListChanged += (s, e) => raisedEvents.Add(e);
+
+            const string NewName = "NewName";
+
+            var data = cut.AddNew();
+            data.Name = NewName;
+
+            cut.CancelNew(0);
+
+            Assert.AreEqual(0, cut.Count);
+        }
     }
 }
