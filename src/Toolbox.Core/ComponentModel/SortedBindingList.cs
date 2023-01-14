@@ -70,7 +70,6 @@ namespace Toolbox.ComponentModel
             ListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.Reset, 0));
         }
         #endregion
-
         #region IList<T>
         /// <summary>
         /// Gets or sets an element at an index.
@@ -88,11 +87,9 @@ namespace Toolbox.ComponentModel
         #region IReadOnlyList<T>
         T IReadOnlyList<T>.this[int index] => Items[Indices[index]];
         #endregion
-
         #region IRaiseItemChangedEvents
         bool IRaiseItemChangedEvents.RaisesItemChangedEvents => true;
         #endregion
-
         #region ICollection<T>
         /// <summary>
         /// Adds an element to the list.
@@ -115,7 +112,6 @@ namespace Toolbox.ComponentModel
 
         object ICollection.SyncRoot => Items;
         #endregion
-
         #region IBindingList
         bool IBindingList.AllowEdit => true;
 
