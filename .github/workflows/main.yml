@@ -68,40 +68,20 @@ jobs:
     - name: Zip binaries
       uses: TheDoctor0/zip-release@0.6.2
       with:
-        filename: 'binary.zip'
+        filename: 'Toolbox.Core.${{ env.BUILD_VERSION }}-binary.zip'
         directory: output
         path: Toolbox.Core.dll
         type: 'zip'
 
     # create github release
     - name: Create Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-      id: create_release
+      uses: softprops/action-gh-release@v1        
       with:
-          tag_name: ${{ env.BUILD_VERSION }}
-          release_name: Release ${{ env.BUILD_VERSION }}
-
-    - name: Add zipped binaries
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./output/binary.zip
-        asset_name: Toolbox-Core-Binary-${{ env.BUILD_VERSION }}.zip
-        asset_content_type: application/zip
-
-    - name: Add nuget package
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./output/Toolbox.Core.${{ env.BUILD_VERSION }}.nupkg
-        asset_name: Toolbox.Core.${{ env.BUILD_VERSION }}.nupkg
-        asset_content_type: application/nuget
+        name: Release ${{ env.BUILD_VERSION }}
+        tag_name: ${{ env.BUILD_VERSION }}
+        files: |
+          ./output/Toolbox.Core.${{ env.BUILD_VERSION }}-binary.zip
+          ./output/Toolbox.Core.${{ env.BUILD_VERSION }}.nupkg      
 
     - name: Pulish NuGet
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_TOKEN}}
