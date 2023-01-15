@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Reflection;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Toolbox.Collection.Generics;
 
@@ -11,6 +11,10 @@ namespace Toolbox.ComponentModel
     /// <summary>
     /// A replacement for <see cref="BindingList{T}"/> with better events.
     /// </summary>
+    /// <remarks>
+    /// The events autoamtically use the <see cref="ISynchronizeInvoke.Invoke(Delegate, object[])"/>
+    /// if the target of the event handler supports the interfae.
+    /// </remarks>
     public class BindableList<T> : Collection<T>, IBindingList, ICancelAddNew, IRaiseItemChangedEvents
     {
         /// <summary>
@@ -18,14 +22,52 @@ namespace Toolbox.ComponentModel
         /// </summary>
         public BindableList()
         {
+            _raisesItemChangedEvents = typeof(INotifyPropertyChanged).IsAssignableFrom(typeof(T));
+            DataProperties = TypeDescriptor.GetProperties(typeof(T))
+                                .Cast<PropertyDescriptor>()
+                                .ToDictionary(p => p.Name);
         }
+
+        private Dictionary<string, PropertyDescriptor> DataProperties { get; }
 
         /// <summary>
         /// Create a new instance of <see cref="BindableList{T}"/>.
         /// </summary>
-        public BindableList(IEnumerable<T> other)
+        public BindableList(IEnumerable<T> other) : this()
         {
             other.ForEach(Add);
+        }
+
+        private void Attach(T item)
+        {
+            if (!_raisesItemChangedEvents || item==null) return;
+
+            var changingItem = (INotifyPropertyChanged)item;
+            changingItem.PropertyChanged += ItemPropertyChanged;
+        }
+
+        private void ItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var item = (T)sender;
+            var index = IndexOf(item);
+
+            OnItemChanged(index, item, e.PropertyName);
+            if (DataProperties.TryGetValue(e.PropertyName, out var descriptor))
+            {
+                OnListChanged(ListChangedType.ItemChanged, index, 0, descriptor);
+            }
+            else
+            {
+                OnListChanged(ListChangedType.ItemChanged, index);
+            }
+        }
+
+        private void Detach(T item)
+        {
+            if (!_raisesItemChangedEvents || item==null) return;
+
+            var changingItem = (INotifyPropertyChanged)item;
+            changingItem.PropertyChanged -= ItemPropertyChanged;
         }
 
         protected override void InsertItem(int index, T item)
@@ -36,12 +78,16 @@ namespace Toolbox.ComponentModel
 
             OnAddingItem(index, item);
             base.InsertItem(index, item);
+            Attach(item);
             OnItemAdded(index, item);
             OnListChanged(ListChangedType.ItemAdded, index);
         }
 
         #region ItemAdded
         private event EventHandler<ItemEventArgs<T>> ItemAddedHandler;
+        /// <summary>
+        /// Raised after an item was added.
+        /// </summary>
         public event EventHandler<ItemEventArgs<T>> ItemAdded
         {
             add => AddHandler(ref ItemAddedHandler, value);
@@ -55,6 +101,9 @@ namespace Toolbox.ComponentModel
         #endregion
         #region AddingItem
         private event EventHandler<ItemEventArgs<T>> AddingItemHandler;
+        /// <summary>
+        /// Raised before an item is added.
+        /// </summary>
         public event EventHandler<ItemEventArgs<T>> AddingItem
         {
             add => AddHandler(ref AddingItemHandler, value);
@@ -75,13 +124,17 @@ namespace Toolbox.ComponentModel
 
             var item = this[index];
             OnRemovingItem(index, item);
-            base.RemoveItem(index);
+            Detach(item);
+            base.RemoveItem(index);            
             OnItemRemoved(index, item);
             OnListChanged(ListChangedType.ItemDeleted, -1, index);
         }
 
         #region ItemRemoved
         private event EventHandler<ItemEventArgs<T>> ItemRemovedHandler;
+        /// <summary>
+        /// Raised after an item is removed.
+        /// </summary>
         public event EventHandler<ItemEventArgs<T>> ItemRemoved
         {
             add => AddHandler(ref ItemRemovedHandler, value);
@@ -95,6 +148,9 @@ namespace Toolbox.ComponentModel
         #endregion
         #region RemovingItem
         private event EventHandler<ItemEventArgs<T>> RemovingItemHandler;
+        /// <summary>
+        /// Raised before an item is removed.
+        /// </summary>
         public event EventHandler<ItemEventArgs<T>> RemovingItem
         {
             add => AddHandler(ref RemovingItemHandler, value);
@@ -107,6 +163,24 @@ namespace Toolbox.ComponentModel
         }
         #endregion
 
+        #region ItemChanged
+        private event EventHandler<ItemChangedEventArgs<T>> ItemChangedHandler;
+        /// <summary>
+        /// Raised after an item was changed.
+        /// </summary>
+        /// <see cref="INotifyPropertyChanged"/>
+        public event EventHandler<ItemChangedEventArgs<T>> ItemChanged
+        {
+            add => AddHandler(ref ItemChangedHandler, value);
+            remove => RemoveHandler(ref ItemChangedHandler, value);
+        }
+
+        private void OnItemChanged(int index, T item, string propertyName)
+        {
+            ItemChangedHandler?.Invoke(this, new ItemChangedEventArgs<T>(index, item, propertyName));
+        }
+        #endregion
+
         protected override void ClearItems()
         {
             if (!AllowRemove) throw new NotSupportedException();
@@ -114,6 +188,9 @@ namespace Toolbox.ComponentModel
             CommitItem();
 
             OnResetting();
+
+            Items.ForEach(i => Detach(i));
+            
             base.ClearItems();
             OnResetted();
             OnListChanged(ListChangedType.Reset, 0, 0);
@@ -121,6 +198,9 @@ namespace Toolbox.ComponentModel
 
         #region Resetted
         private event EventHandler<ListEventArgs> ResettedHandler;
+        /// <summary>
+        /// Raised after the collection is reset.
+        /// </summary>
         public event EventHandler<ListEventArgs> Resetted
         {
             add => AddHandler(ref ResettedHandler, value);
@@ -133,6 +213,9 @@ namespace Toolbox.ComponentModel
         #endregion
         #region Resetting
         private event EventHandler<ListEventArgs> ResettingHandler;
+        /// <summary>
+        /// Raised before the collection is resetting.
+        /// </summary>
         public event EventHandler<ListEventArgs> Resetting
         {
             add => AddHandler(ref ResettingHandler, value);
@@ -148,16 +231,22 @@ namespace Toolbox.ComponentModel
         protected override void SetItem(int index, T item)
         {
             CommitItem();
+            var oldItem = this[index];
 
-            var args = new ItemSetEventArgs<T>(index, this[index], item);
+            var args = new ItemSetEventArgs<T>(index, oldItem, item);
             OnSetting(args);
+            Detach(oldItem);
             base.SetItem(index, item);
+            Attach(item);
             OnSet(args);
             OnListChanged(ListChangedType.ItemChanged, index);
         }
 
         #region Setting
         private event EventHandler<ItemSetEventArgs<T>> SettingItemHandler;
+        /// <summary>
+        /// Raised before an item is set.
+        /// </summary>
         public event EventHandler<ItemSetEventArgs<T>> SettingItem
         {
             add => AddHandler(ref SettingItemHandler, value);
@@ -172,6 +261,9 @@ namespace Toolbox.ComponentModel
 
         #region Set
         private event EventHandler<ItemSetEventArgs<T>> ItemSetHandler;
+        /// <summary>
+        /// Raised after an item is set.
+        /// </summary>
         public event EventHandler<ItemSetEventArgs<T>> ItemSet
         {
             add => AddHandler(ref ItemSetHandler, value);
@@ -186,6 +278,9 @@ namespace Toolbox.ComponentModel
 
 
         private bool allowEdit = true;
+        /// <summary>
+        /// Is adding and setting allowed.
+        /// </summary>
         public bool AllowEdit
         {
             get => allowEdit;
@@ -196,11 +291,21 @@ namespace Toolbox.ComponentModel
                 OnListChanged(ListChangedType.Reset);
             }
         }
+        /// <summary>
+        /// Is using <see cref="AddNew"/> allowed.
+        /// </summary>
         public bool AllowNew { get; set; } = true;
+        /// <summary>
+        /// Can items be removed.
+        /// </summary>
         public bool AllowRemove { get; set; } = true;
 
         #region AddingNew
         private event AddingNewEventHandler AddingNewHandler;
+        /// <summary>
+        /// Raised when an new item needs to be added.
+        /// </summary>
+        /// <see cref="AddNew"/>
         public event AddingNewEventHandler AddingNew
         {
             add => AddHandler(ref AddingNewHandler, value);
@@ -213,51 +318,78 @@ namespace Toolbox.ComponentModel
         }
         #endregion
 
-        #region IBindingList        
+        #region IBindingList 
+        /// <summary>
+        /// Is the collection sorted.
+        /// </summary>
         bool IBindingList.IsSorted => false;
 
+        /// <summary>
+        /// Direction of sort
+        /// </summary>
         ListSortDirection IBindingList.SortDirection => throw new NotImplementedException();
 
+        /// <summary>
+        /// Property used for sorting
+        /// </summary>
         PropertyDescriptor IBindingList.SortProperty => throw new NotImplementedException();
 
+        /// <summary>
+        /// Supports the <see cref="INotifyPropertyChanged"/> events.
+        /// </summary>
         bool IBindingList.SupportsChangeNotification => true;
 
+        /// <summary>
+        /// Support searching of an item.
+        /// </summary>
         bool IBindingList.SupportsSearching => false;
 
+        /// <summary>
+        /// Support sorting of collection.
+        /// </summary>
         bool IBindingList.SupportsSorting => false;
 
-        bool IRaiseItemChangedEvents.RaisesItemChangedEvents => true;
+        private readonly bool _raisesItemChangedEvents;
+        /// <summary>
+        /// Collection will raise item change events.
+        /// </summary>
+        bool IRaiseItemChangedEvents.RaisesItemChangedEvents => _raisesItemChangedEvents;
 
+        /// <summary>
+        /// Is edition allowed.
+        /// </summary>
+        /// <see cref="AllowEdit"/>
         bool IBindingList.AllowEdit => AllowEdit;
 
+        /// <summary>
+        /// Is add a new item allowed.
+        /// </summary>
+        /// <see cref="AllowNew"/>
         bool IBindingList.AllowNew => AllowNew;
 
+        /// <summary>
+        /// Is removing allowed.
+        /// </summary>
+        /// <see cref="AllowRemove"/>
         bool IBindingList.AllowRemove => AllowRemove;
 
         #region ListChanged
         private event ListChangedEventHandler ListChangedHandler;
+        /// <summary>
+        /// Raised if the collection changes
+        /// </summary>
         public event ListChangedEventHandler ListChanged
         {
             add => AddHandler(ref ListChangedHandler, value);
             remove => RemoveHandler(ref ListChangedHandler, value);
         }
 
-        event ListChangedEventHandler IBindingList.ListChanged
+        private void OnListChanged(ListChangedType type, int newIndex = 0, int oldIndex = 0, PropertyDescriptor descriptor = null)
         {
-            add
-            {
-                throw new NotImplementedException();
-            }
+            var args = descriptor == null
+                            ? new ListChangedEventArgs(type, newIndex, oldIndex)
+                            : new ListChangedEventArgs(type, newIndex, descriptor);
 
-            remove
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        private void OnListChanged(ListChangedType type, int newIndex = 0, int oldIndex = 0)
-        {
-            var args = new ListChangedEventArgs(type, newIndex, oldIndex);
             ListChangedHandler?.Invoke(this, args);
         }
         #endregion
@@ -318,10 +450,23 @@ namespace Toolbox.ComponentModel
         }
         #endregion
         #region ICancelAddNew
+        /// <summary>
+        /// Cancels an item created with <see cref="AddNew"/>.
+        /// </summary>
+        /// <param name="itemIndex"></param>
+        /// <exception cref="NotImplementedException"></exception>
         public void CancelNew(int itemIndex)
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Commits an itme created with <see cref="AddNew"/>.
+        /// </summary>
+        /// <param name="itemIndex"></param>
+        /// <exception cref="ArgumentException"></exception>
+        /// <remarks>
+        /// Changes to the collection will automatically commit a pending new item.
+        /// </remarks>
         public void EndNew(int itemIndex)
         {
             if (IndexOf(PendingItem) != itemIndex)
@@ -470,33 +615,85 @@ namespace Toolbox.ComponentModel
     }
 
     #region EventArgs
+    /// <summary>
+    /// Event arguments for signaling changes for an item.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ItemEventArgs<T> : EventArgs
     {
+        /// <summary>
+        /// Create a new instance of <see cref="ItemEventArgs{T}"/>.
+        /// </summary>
         public ItemEventArgs(int index, T item)
         {            
             Index = index;
             Item = item;
         }
 
+        /// <summary>
+        /// The item affected.
+        /// </summary>
         public T Item { get; }
 
+        /// <summary>
+        /// Index of the item.
+        /// </summary>
         public int Index { get; }
     }
 
+    /// <summary>
+    /// Event arguments for signaling changes on an item.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class ItemChangedEventArgs<T> : ItemEventArgs<T>
+    {
+        /// <summary>
+        /// Create a new instance of <see cref="ItemChangedEventArgs{T}"/>.
+        /// </summary>
+        public ItemChangedEventArgs(int index, T item, string propertyName) : base(index, item)
+        {
+            PropertyName = propertyName;
+        }
+
+        /// <summary>
+        /// Property that raised the change.
+        /// </summary>
+        public string PropertyName { get;  }
+    }
+
+    /// <summary>
+    /// Event arguments for signaling changes on an item replacement.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ItemSetEventArgs<T> : EventArgs
     {
+        /// <summary>
+        /// Create a new instance of <see cref="ItemSetEventArgs{T}"/>.
+        /// </summary>
         public ItemSetEventArgs(int index, T oldItem, T newItem)
         {
             Index = index;
             OldItem = oldItem;
             NewItem = newItem;
         }
+        /// <summary>
+        /// Index of the items.
+        /// </summary>
         public int Index { get; }
-        public T OldItem { get; private set; }
+        /// <summary>
+        /// The item getting replaced
+        /// </summary>
+        public T OldItem { get; }
+        /// <summary>
+        /// The new item
+        /// </summary>
         public T NewItem { get; }
         
     }
 
+    /// <summary>
+    /// Event arguments for signaling changes on the collection.
+    /// </summary>
     public class ListEventArgs : EventArgs
     {
     }

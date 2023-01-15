@@ -574,7 +574,7 @@ namespace Toolbox.Core.Test
             Assert.AreEqual(3, changed.Calls[0].EventArgs.NewIndex);
         }
 
-        [TestMethod, TestCategory("Insert")]
+        [TestMethod, TestCategory("insert")]
         public void InsertWithSynchronizedEvents()
         {
             var data = new Data();
@@ -609,6 +609,136 @@ namespace Toolbox.Core.Test
             Assert.AreEqual(3, changed.Calls[0].EventArgs.NewIndex);
         }
 
+        [TestMethod, TestCategory("event")]
+        public void ItemChangeWithEvents()
+        {
+            var data = new Data();
+
+            var cut = new BindableList<Data>
+            {
+                data
+            };
+
+            var itemChanged = new Handler<ItemChangedEventArgs<Data>>(cut);
+            var listChanged = new Handler<ListChangedEventArgs>(cut);
+
+            cut.ItemChanged += itemChanged.Raised;
+            cut.ListChanged += listChanged.Raised;
+
+            data.Name = "new Name";
+
+            itemChanged.AssertCalls();
+            listChanged.AssertCalls();
+
+            Assert.AreEqual(0, itemChanged.Calls[0].EventArgs.Index);
+            Assert.AreSame(data, itemChanged.Calls[0].EventArgs.Item);
+            Assert.AreEqual(nameof(Data.Name), itemChanged.Calls[0].EventArgs.PropertyName);
+
+            Assert.AreEqual(ListChangedType.ItemChanged, listChanged.Calls[0].EventArgs.ListChangedType);
+            Assert.AreEqual(0, listChanged.Calls[0].EventArgs.NewIndex);           
+            Assert.AreEqual(nameof(Data.Name), listChanged.Calls[0].EventArgs.PropertyDescriptor.Name);
+        }
+
+        [TestMethod, TestCategory("event")]
+        public void ItemChangeAfterSetWithEvents()
+        {
+            var data = new Data();
+
+            var cut = new BindableList<Data>() { new Data() };
+
+            var itemChanged = new Handler<ItemChangedEventArgs<Data>>(cut);
+            var listChanged = new Handler<ListChangedEventArgs>(cut);
+
+            cut[0] = data;
+
+            cut.ItemChanged += itemChanged.Raised;
+            cut.ListChanged += listChanged.Raised;
+
+            data.Name = "new Name";
+
+            itemChanged.AssertCalls();
+            listChanged.AssertCalls();
+
+            Assert.AreEqual(0, itemChanged.Calls[0].EventArgs.Index);
+            Assert.AreSame(data, itemChanged.Calls[0].EventArgs.Item);
+            Assert.AreEqual(nameof(Data.Name), itemChanged.Calls[0].EventArgs.PropertyName);
+
+            Assert.AreEqual(ListChangedType.ItemChanged, listChanged.Calls[0].EventArgs.ListChangedType);
+            Assert.AreEqual(0, listChanged.Calls[0].EventArgs.NewIndex);
+            Assert.AreEqual(nameof(Data.Name), listChanged.Calls[0].EventArgs.PropertyDescriptor.Name);
+        }
+
+        [TestMethod, TestCategory("event")]
+        public void NoItemChangeAfterRemove()
+        {
+            var data = new Data();
+
+            var cut = new BindableList<Data>
+            {
+                data
+            };
+
+            var itemChanged = new Handler<ItemChangedEventArgs<Data>>(cut, 0);
+            var listChanged = new Handler<ListChangedEventArgs>(cut, 0);
+
+            cut.Remove(data);
+
+            cut.ItemChanged += itemChanged.Raised;
+            cut.ListChanged += listChanged.Raised;
+
+            data.Name = "new Name";
+
+            itemChanged.AssertCalls();
+            listChanged.AssertCalls();
+        }
+
+        [TestMethod, TestCategory("event")]
+        public void NoItemChangeAfterSetReplacement()
+        {
+            var data = new Data();
+
+            var cut = new BindableList<Data>
+            {
+                data
+            };
+
+            var itemChanged = new Handler<ItemChangedEventArgs<Data>>(cut, 0);
+            var listChanged = new Handler<ListChangedEventArgs>(cut, 0);
+
+            cut[0] = new Data();
+
+            cut.ItemChanged += itemChanged.Raised;
+            cut.ListChanged += listChanged.Raised;
+
+            data.Name = "new Name";
+
+            itemChanged.AssertCalls();
+            listChanged.AssertCalls();
+        }
+
+        [TestMethod, TestCategory("event")]
+        public void NoItemChangeAfterClear()
+        {
+            var data = new Data();
+
+            var cut = new BindableList<Data>
+            {
+                data
+            };
+
+            var itemChanged = new Handler<ItemChangedEventArgs<Data>>(cut, 0);
+            var listChanged = new Handler<ListChangedEventArgs>(cut, 0);
+
+            cut.Clear();
+
+            cut.ItemChanged += itemChanged.Raised;
+            cut.ListChanged += listChanged.Raised;
+
+            data.Name = "new Name";
+
+            itemChanged.AssertCalls();
+            listChanged.AssertCalls();
+        }
 
 
         #region Data
