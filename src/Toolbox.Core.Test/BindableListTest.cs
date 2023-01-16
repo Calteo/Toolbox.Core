@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Linq;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Toolbox.ComponentModel;
+using Toolbox.Core.Test.Model;
 
 namespace Toolbox.Core.Test
 {
@@ -324,8 +325,8 @@ namespace Toolbox.Core.Test
             var adding = new Handler<ItemEventArgs<Data>>(cut, 0);
             var added = new Handler<ItemEventArgs<Data>>(cut, 0);
             var changed = new Handler<ListChangedEventArgs>(cut, 0);
-            var resetting = new Handler<ListEventArgs>(cut,0);
-            var resetted = new Handler<ListEventArgs>(cut, 0);
+            var resetting = new Handler<ListResetEventArgs>(cut,0);
+            var resetted = new Handler<ListResetEventArgs>(cut, 0);
             var setting = new Handler<ItemSetEventArgs<Data>>(cut, 0);
             var set = new Handler<ItemSetEventArgs<Data>>(cut, 0);
 
@@ -368,8 +369,8 @@ namespace Toolbox.Core.Test
             var adding = new SynchronizedHandler<ItemEventArgs<Data>>(cut, 0);
             var added = new SynchronizedHandler<ItemEventArgs<Data>>(cut, 0);
             var changed = new SynchronizedHandler<ListChangedEventArgs>(cut, 0);
-            var resetting = new SynchronizedHandler<ListEventArgs>(cut, 0);
-            var resetted = new SynchronizedHandler<ListEventArgs>(cut, 0);
+            var resetting = new SynchronizedHandler<ListResetEventArgs>(cut, 0);
+            var resetted = new SynchronizedHandler<ListResetEventArgs>(cut, 0);
             var setting = new SynchronizedHandler<ItemSetEventArgs<Data>>(cut, 0);
             var set = new SynchronizedHandler<ItemSetEventArgs<Data>>(cut, 0);
 
@@ -402,8 +403,6 @@ namespace Toolbox.Core.Test
             set.AssertCalls();
         }
 
-
-
         [TestMethod, TestCategory("clear")]
         public void ClearItemsWithEvents()
         {
@@ -412,8 +411,8 @@ namespace Toolbox.Core.Test
                 new Data(), new Data(), new Data(), new Data()
             };
 
-            var resetting = new Handler<ListEventArgs>(cut);
-            var resetted = new Handler<ListEventArgs>(cut);
+            var resetting = new Handler<ListResetEventArgs>(cut);
+            var resetted = new Handler<ListResetEventArgs>(cut);
             var changed = new Handler<ListChangedEventArgs>(cut);
 
             cut.Resetting += resetting.Raised;
@@ -740,33 +739,200 @@ namespace Toolbox.Core.Test
             listChanged.AssertCalls();
         }
 
-
-        #region Data
-        class Data : INotifyPropertyChanged
+        private Data[] CreateData(int length)
         {
-            private string name;
-            public string Name
+            var datas = new Data[length];
+            for (int i = 0; i < length; i++)
             {
-                get => name;
-                set => SetField(ref name, value);
+                datas[i] = new Data();
             }
-
-            #region INotifyPropertyChanged
-            public event PropertyChangedEventHandler PropertyChanged;
-            private void OnPropertyChanged([CallerMemberName] string properyName = null)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(properyName));
-            }
-
-            private void SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-            {
-                if (EqualityComparer<T>.Default.Equals(field, value)) return;
-                field = value;
-                OnPropertyChanged(propertyName);
-            }
-            #endregion
+            return datas;
         }
-        #endregion
+
+        private Data[] AddData(BindableList<Data> list, int length)
+        {
+            var datas = CreateData(length);
+            foreach (var data in datas)
+            {
+                list.Add(data);
+            }
+            return datas;
+        }
+
+        [TestMethod]
+        public void AddSorted()
+        {
+            var cut = new BindableList<Data>();
+
+            var raisedEvents = new List<ListChangedEventArgs>();
+            cut.ListChanged += (s, e) => raisedEvents.Add(e);
+
+            cut.ApplySort(nameof(Data.Name), ListSortDirection.Ascending);
+
+            var datas = AddData(cut, 3);
+
+            var sorted = datas.OrderBy(d => d.Name).ToArray();
+
+            Assert.AreEqual(datas.Length, cut.Count);
+            for (var i = 0; i < datas.Length; i++)
+            {
+                Assert.AreEqual(sorted[i].Name, cut[i].Name, $"item[{i}]");
+            }
+        }
+
+        [TestMethod]
+        public void AddThenSort()
+        {
+            var cut = new BindableList<Data>();
+
+            var datas = AddData(cut, 5);
+
+            var resetting = new Handler<ListResetEventArgs>(cut);
+            var resetted = new Handler<ListResetEventArgs>(cut);
+            var changed = new Handler<ListChangedEventArgs>(cut);
+
+            cut.Resetting += resetting.Raised;
+            cut.Resetted += resetted.Raised;
+            cut.ListChanged += changed.Raised;
+
+
+            const string propertyName = nameof(Data.Name);
+            const ListSortDirection direction = ListSortDirection.Ascending;
+
+            cut.ApplySort(propertyName, direction);
+
+            var sorted = datas.OrderBy(d => d.Name).ToArray();
+
+            resetting.AssertCalls();
+            resetted.AssertCalls();
+            changed.AssertCalls();
+
+            Assert.AreEqual(datas.Length, cut.Count);
+            for (var i = 0; i < datas.Length; i++)
+            {
+                Assert.AreEqual(sorted[i], cut[i]);
+            }
+            Assert.IsTrue(cut.IsSorted);
+            Assert.AreEqual(propertyName, cut.SortProperty.Name);
+            Assert.AreEqual(direction, cut.SortDirection);
+            Assert.AreEqual(ListChangedType.Reset, changed.Calls[0].EventArgs.ListChangedType);
+        }
+
+        [TestMethod]
+        public void AddThenSortDescending()
+        {
+            var cut = new BindableList<Data>();
+
+            var datas = AddData(cut, 5);
+
+            var changed = new Handler<ListChangedEventArgs>(cut);
+            cut.ListChanged += changed.Raised;
+
+            const string propertyName = nameof(Data.Name);
+            const ListSortDirection direction = ListSortDirection.Descending;
+
+            cut.ApplySort(propertyName, direction);
+
+            var sorted = datas.OrderByDescending(d => d.Name).ToArray();
+            
+            Assert.AreEqual(datas.Length, cut.Count);
+            for (var i = 0; i < datas.Length; i++)
+            {
+                Assert.AreEqual(sorted[i], cut[i]);
+            }
+            Assert.IsTrue(cut.IsSorted);
+            Assert.AreEqual(propertyName, cut.SortProperty.Name);
+            Assert.AreEqual(direction, cut.SortDirection);
+            Assert.AreEqual(ListChangedType.Reset, changed.Calls[0].EventArgs.ListChangedType);
+        }
+
+        [TestMethod]
+        public void Contains()
+        {
+            var cut = new BindableList<Data>();
+
+            var data = new Data();
+
+            cut.Add(data);
+
+            var rc = cut.Contains(data);
+
+            Assert.IsTrue(rc);
+        }
+
+        [TestMethod]
+        public void IndexOf()
+        {
+            var cut = new BindableList<Data>();
+
+            var datas = AddData(cut, 3);
+
+            var rc = cut.IndexOf(datas[1]);
+
+            Assert.AreEqual(1, rc);
+        }
+
+        [TestMethod]
+        public void IndexOfNotFound()
+        {
+            var cut = new BindableList<Data>();
+
+            AddData(cut, 3);
+
+            var rc = cut.IndexOf(new Data());
+
+            Assert.AreEqual(-1, rc);
+        }
+
+        [TestMethod]
+        public void EnumerateUnsorted()
+        {
+            var cut = new BindableList<Data>();
+
+            var datas = AddData(cut, 6);
+
+            Assert.AreEqual(datas.Length, cut.Count);
+
+            var i = 0;
+            foreach (var item in cut)
+            {
+                Assert.AreEqual(datas[i++], item, $"item[{i}]");
+            }
+        }
+
+        [TestMethod]
+        public void EnumerateSorted()
+        {
+            var cut = new BindableList<Data>();
+
+            var datas = AddData(cut, 6);
+
+            cut.ApplySort(nameof(Data.Name), ListSortDirection.Ascending);
+            var sorted = datas.OrderBy(d => d.Name).ToArray();
+
+            Assert.AreEqual(sorted.Length, cut.Count);
+
+            var i = 0;
+            foreach (var item in cut)
+            {
+                Assert.AreEqual(sorted[i++], item, $"item[{i}]");
+            }
+        }
+
+        [TestMethod]
+        public void Find()
+        {
+            var cut = new BindableList<Data>();
+
+            var datas = AddData(cut, 10);
+
+            const int findIndex = 6;
+
+            var index = cut.Find(nameof(Data.Name), datas[findIndex].Name);
+
+            Assert.AreEqual(findIndex, index);
+        }
+
         #region Handler
         class Handler<T> where T : EventArgs
         {

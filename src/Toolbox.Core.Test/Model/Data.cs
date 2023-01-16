@@ -21,38 +21,33 @@ namespace Toolbox.Core.Test.Model
         public string Name
         {
             get => _name;
-            set
-            {
-                if (value == _name) return;
-                _name = value;
-                OnPropertyChanged();
-            }
+            set => SetField(ref _name, value);
         }
         #endregion
-
 
         #region Timestamp
         private DateTime _timestamp;
         public DateTime Timestamp
         {
             get => _timestamp;
-            set
-            {
-                if (value == _timestamp) return;
-                _timestamp = value;
-                OnPropertyChanged();
-            }
+            set => SetField(ref _timestamp, value);            
         }
         #endregion
-
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string properyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(properyName));
+        }
+
+        private void SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value)) return;
+            field = value;
+            OnPropertyChanged(propertyName);
         }
         #endregion
+
     }
 }
