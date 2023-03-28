@@ -1,4 +1,6 @@
-﻿namespace Toolbox
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Toolbox
 {
     /// <summary>
     /// Extension methods for <see cref="string"/>.
@@ -10,7 +12,7 @@
         /// </summary>
         /// <param name="text"></param>
         /// <returns><c>true</c> if string ist not empty, else <c>false</c></returns>
-        public static bool NotEmpty(this string text)
+        public static bool NotEmpty([NotNullWhen(true), MaybeNullWhen(false)] this string text)
         {
             return !string.IsNullOrEmpty(text);
         }
@@ -20,7 +22,7 @@
         /// </summary>
         /// <param name="text"></param>
         /// <returns><c>true</c> if string ist empty, else <c>false</c></returns>
-        public static bool IsEmpty(this string text)
+        public static bool IsEmpty([NotNullWhen(false), MaybeNullWhen(true)] this string text)
         {
             return string.IsNullOrEmpty(text);
         }
