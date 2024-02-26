@@ -225,11 +225,11 @@ namespace Toolbox.ComponentModel
             var args = new AddingNewEventArgs();
             OnAddingNew(args);
 
-            if (!(args.NewObject is T item))
+            if (args.NewObject is not T item)
             {
                 item = Activator.CreateInstance<T>();
             }
-            
+
             AddCore(item);
             PendingAdd = IndexOf(item);
             return item;
@@ -270,10 +270,8 @@ namespace Toolbox.ComponentModel
         /// <exception cref="ArgumentException">When the type of elements does not have a property named <paramref name="propertyName"/></exception>
         public void ApplySort(string propertyName, ListSortDirection direction)
         {
-            var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false);
-            if (property == null)
-                throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
-
+            var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false)
+                           ?? throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
             ApplySort(property, direction);
         }
 
@@ -497,6 +495,7 @@ namespace Toolbox.ComponentModel
         { nameof(ItemRemoved), new Dictionary<Delegate, object>() },
         { nameof(SettingItem), new Dictionary<Delegate, object>() },
         { nameof(ItemSet), new Dictionary<Delegate, object>() },
+        { nameof(ItemChanged), new Dictionary<Delegate, object>() },
         { nameof(Resetting), new Dictionary<Delegate, object>() },
         { nameof(Resetted), new Dictionary<Delegate, object>() },
         { nameof(ListChanged), new Dictionary<Delegate, object>() }
@@ -591,7 +590,7 @@ namespace Toolbox.ComponentModel
                 handler -= value;
             }
         }
-    
+
         #endregion
 
 
@@ -682,10 +681,9 @@ namespace Toolbox.ComponentModel
         public int Find(string propertyName, object key)
         {
             var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false);
-            if (property == null)
-                throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
-
-            return Find(property, key);
+            return property != null
+                ? Find(property, key)
+                : throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -849,7 +847,7 @@ namespace Toolbox.ComponentModel
                 OnItemAdded(index, item);
                 OnListChanged(ListChangedType.ItemAdded, index);
             }
-            
+
         }
 
         private void RemoveAtCore(int index)
@@ -928,7 +926,7 @@ namespace Toolbox.ComponentModel
                     yItem = SortProperty.GetValue(yItem);
                 }
 
-                int rc = 0;
+                int rc;
                 if (xItem is IComparable xCompare)
                 {
                     rc = xCompare.CompareTo(yItem);
@@ -993,790 +991,121 @@ namespace Toolbox.ComponentModel
         }
         #endregion
     }
-}
 
-internal class EventInvokerBase<TH, TE> where TH : Delegate where TE : EventArgs
-{
-    public EventInvokerBase(TH handler)
+
+    internal class EventInvokerBase<TH, TE> where TH : Delegate where TE : EventArgs
     {
-        Handler = handler;
-        Synchronized = (ISynchronizeInvoke)handler.Target;
-    }
-
-    public ISynchronizeInvoke Synchronized { get; }
-    public TH Handler { get; }
-
-    internal void RaiseEvent(object sender, TE eventArgs)
-    {
-        if (Synchronized.InvokeRequired)
+        public EventInvokerBase(TH handler)
         {
-            Synchronized.Invoke(Handler, new object[] { sender, eventArgs });
+            Handler = handler;
+            Synchronized = (ISynchronizeInvoke)handler.Target;
         }
-        else
+
+        public ISynchronizeInvoke Synchronized { get; }
+        public TH Handler { get; }
+
+        internal void RaiseEvent(object sender, TE eventArgs)
         {
-            Handler.DynamicInvoke(sender, eventArgs);
-        }
-    }
-}
-
-internal class EventInvoker<T> : EventInvokerBase<EventHandler<T>, T> where T : EventArgs
-{
-    public EventInvoker(EventHandler<T> handler) : base(handler)
-    {
-    }
-}
-
-#region EventArgs
-/// <summary>
-/// Event arguments for signaling changes for an item.
-/// </summary>
-/// <typeparam name="T"></typeparam>
-public class ItemEventArgs<T> : EventArgs
-{
-    /// <summary>
-    /// Create a new instance of <see cref="ItemEventArgs{T}"/>.
-    /// </summary>
-    public ItemEventArgs(int index, T item)
-    {
-        Index = index;
-        Item = item;
-    }
-
-    /// <summary>
-    /// The item affected.
-    /// </summary>
-    public T Item { get; }
-
-    /// <summary>
-    /// Index of the item.
-    /// </summary>
-    public int Index { get; }
-}
-
-/// <summary>
-/// Event arguments for signaling changes on an item.
-/// </summary>
-/// <typeparam name="T"></typeparam>
-public class ItemChangedEventArgs<T> : ItemEventArgs<T>
-{
-    /// <summary>
-    /// Create a new instance of <see cref="ItemChangedEventArgs{T}"/>.
-    /// </summary>
-    public ItemChangedEventArgs(int index, T item, string propertyName) : base(index, item)
-    {
-        PropertyName = propertyName;
-    }
-
-    /// <summary>
-    /// Property that raised the change.
-    /// </summary>
-    public string PropertyName { get; }
-}
-
-/// <summary>
-/// Event arguments for signaling changes on an item replacement.
-/// </summary>
-/// <typeparam name="T"></typeparam>
-public class ItemSetEventArgs<T> : EventArgs
-{
-    /// <summary>
-    /// Create a new instance of <see cref="ItemSetEventArgs{T}"/>.
-    /// </summary>
-    public ItemSetEventArgs(int index, T oldItem, T newItem)
-    {
-        Index = index;
-        OldItem = oldItem;
-        NewItem = newItem;
-    }
-    /// <summary>
-    /// Index of the items.
-    /// </summary>
-    public int Index { get; }
-    /// <summary>
-    /// The item getting replaced
-    /// </summary>
-    public T OldItem { get; }
-    /// <summary>
-    /// The new item
-    /// </summary>
-    public T NewItem { get; }
-
-}
-
-/// <summary>
-/// Event arguments for signaling changes on the collection.
-/// </summary>
-public class ListResetEventArgs : EventArgs
-{
-}
-#endregion
-
-
-    /*
-    : IList<T>, IReadOnlyList<T>, IBindingList, ICancelAddNew, IRaiseItemChangedEvents
-{
-    /// <summary>
-    /// Create a new instance of <see cref="BindableList{T}"/>.
-    /// </summary>
-    public BindableList()
-    {
-        _raisesItemChangedEvents = typeof(INotifyPropertyChanged).IsAssignableFrom(typeof(T));
-        DataProperties = TypeDescriptor.GetProperties(typeof(T))
-                            .Cast<PropertyDescriptor>()
-                            .ToDictionary(p => p.Name);
-
-        Comparer = new ItemComparer<T>(Items);
-    }
-
-    /// <summary>
-    /// Create a new instance of <see cref="BindableList{T}"/>.
-    /// </summary>
-    public BindableList(IEnumerable<T> other) : this()
-    {
-        other.ForEach(Add);
-    }
-
-    #region Internal Properties
-    private Dictionary<string, PropertyDescriptor> DataProperties { get; }
-    private List<T> Items { get; } = new List<T>();
-    private List<int> Indices { get; } = new List<int>();
-    private ItemComparer<T> Comparer { get; }
-    #endregion
-
-    #region IList
-    object IList.this[int index]
-    {
-        get => GetItem(index);
-        set
-        {
-            if (value is T tValue)
+            if (Synchronized.InvokeRequired)
             {
-                SetItem(index, tValue);
-                return;
-            }
-
-            throw new ArgumentException($"Value is not of type {typeof(T).FullName}.", nameof(value));
-        }
-    }
-    bool IList.IsFixedSize => false;
-
-    bool IList.IsReadOnly => IsReadOnly;
-
-    int IList.Add(object value)
-    {
-        if (value is T tValue)
-        {
-            Add(tValue);
-            return IndexOf(tValue);
-        }
-
-        throw new ArgumentException($"Value is not of type {typeof(T).FullName}.", nameof(value));
-    }
-
-    /// <summary>
-    /// Removes all elements from the list.
-    /// </summary>
-    public void Clear()
-    {
-        foreach (var item in Items)
-        {
-            if (item is INotifyPropertyChanged notifyItem)
-                notifyItem.PropertyChanged -= ItemPropertyChanged;
-        }
-        Items.Clear();
-        Indices.Clear();
-        ListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.Reset, 0));
-    }
-    #endregion
-    #region IList<T>
-    /// <summary>
-    /// Gets or sets an element at an index.
-    /// </summary>
-    /// <param name="index"></param>
-    /// <returns>The element at the index.</returns>
-    /// <exception cref="InvalidOperationException">When the list is sorted (<see cref="IsSorted"/>) setting an element is not possible, since
-    /// it would break the ordering.</exception>
-    public T this[int index]
-    {
-        get => GetItem(index);
-        set => SetItem(index, value);
-    }
-    #endregion
-    #region IReadOnlyList<T>
-    T IReadOnlyList<T>.this[int index] => Items[Indices[index]];
-    #endregion
-    #region ICollection<T>
-    /// <summary>
-    /// Adds an element to the list.
-    /// </summary>
-    /// <param name="item"></param>
-    /// <remarks>If the list is sorted (<see cref="IsSorted"/>) then it is inserted at the correct position.</remarks>
-    public void Add(T item)
-    {
-        AddCore(item);
-    }
-
-    bool ICollection<T>.IsReadOnly => IsReadOnly;
-
-    /// <summary>
-    /// Returns the number of elements in the list.
-    /// </summary>
-    public int Count => Items.Count;
-
-    bool ICollection.IsSynchronized => false;
-
-    object ICollection.SyncRoot => Items;
-    #endregion
-
-    #region T.INotifyPropertyChanged
-    private void Attach(T item)
-    {
-        if (!_raisesItemChangedEvents || item==null) return;
-
-        var changingItem = (INotifyPropertyChanged)item;
-        changingItem.PropertyChanged += ItemPropertyChanged;
-    }
-
-    private void ItemPropertyChanged(object sender, PropertyChangedEventArgs e)
-    {
-        var item = (T)sender;
-        var index = IndexOf(item);
-
-        OnItemChanged(index, item, e.PropertyName);
-        if (DataProperties.TryGetValue(e.PropertyName, out var descriptor))
-        {
-            OnListChanged(ListChangedType.ItemChanged, index, 0, descriptor);
-        }
-        else
-        {
-            OnListChanged(ListChangedType.ItemChanged, index);
-        }
-    }
-
-    private void Detach(T item)
-    {
-        if (!_raisesItemChangedEvents || item==null) return;
-
-        var changingItem = (INotifyPropertyChanged)item;
-        changingItem.PropertyChanged -= ItemPropertyChanged;
-    }
-    #endregion
-    protected override void InsertItem(int index, T item)
-    {
-        if (!AllowEdit) throw new NotSupportedException();
-
-        CommitItem();
-
-        OnAddingItem(index, item);
-        base.InsertItem(index, item);
-        Attach(item);
-        OnItemAdded(index, item);
-        OnListChanged(ListChangedType.ItemAdded, index);
-    }
-
-    protected override void RemoveItem(int index)
-    {
-        if (!AllowRemove) throw new NotSupportedException();
-
-        CommitItem();
-
-        var item = this[index];
-        OnRemovingItem(index, item);
-        Detach(item);
-        base.RemoveItem(index);            
-        OnItemRemoved(index, item);
-        OnListChanged(ListChangedType.ItemDeleted, -1, index);
-    }
-
-    protected override void ClearItems()
-    {
-        if (!AllowRemove) throw new NotSupportedException();
-
-        CommitItem();
-
-        OnResetting();
-
-        Items.ForEach(i => Detach(i));
-
-        base.ClearItems();
-        OnResetted();
-        OnListChanged(ListChangedType.Reset, 0, 0);
-    }
-
-
-    protected override void SetItem(int index, T item)
-    {
-        CommitItem();
-        var oldItem = this[index];
-
-        var args = new ItemSetEventArgs<T>(index, oldItem, item);
-        OnSetting(args);
-        Detach(oldItem);
-        base.SetItem(index, item);
-        Attach(item);
-        OnSet(args);
-        OnListChanged(ListChangedType.ItemChanged, index);
-    }
-
-    #region AllowEdit
-    private bool allowEdit = true;
-    /// <summary>
-    /// Is adding and setting allowed.
-    /// </summary>
-    public bool AllowEdit
-    {
-        get => allowEdit;
-        set
-        {
-            if (allowEdit == value) return;
-            allowEdit = value;
-            OnListChanged(ListChangedType.Reset);
-        }
-    }
-    #endregion
-    #region AllowNew
-    /// <summary>
-    /// Is using <see cref="AddNew"/> allowed.
-    /// </summary>
-    public bool AllowNew { get; set; } = true;
-    #endregion
-    #region AllowRemove
-    /// <summary>
-    /// Can items be removed.
-    /// </summary>
-    public bool AllowRemove { get; set; } = true;
-    #endregion
-
-    #region IBindingList 
-    /// <summary>
-    /// Is the collection sorted.
-    /// </summary>
-    public bool IsSorted => false;
-
-    /// <summary>
-    /// Direction of sort
-    /// </summary>
-    public ListSortDirection SortDirection => throw new NotImplementedException();
-
-    /// <summary>
-    /// Property used for sorting
-    /// </summary>
-    public PropertyDescriptor SortProperty => throw new NotImplementedException();
-
-    /// <summary>
-    /// Supports the <see cref="INotifyPropertyChanged"/> events.
-    /// </summary>
-    bool IBindingList.SupportsChangeNotification => true;
-
-    /// <summary>
-    /// Support searching of an item.
-    /// </summary>
-    bool IBindingList.SupportsSearching => true;
-
-    /// <summary>
-    /// Support sorting of collection.
-    /// </summary>
-    bool IBindingList.SupportsSorting => true;
-
-    /// <summary>
-    /// Is edition allowed.
-    /// </summary>
-    /// <see cref="AllowEdit"/>
-    bool IBindingList.AllowEdit => AllowEdit;
-
-    /// <summary>
-    /// Is add a new item allowed.
-    /// </summary>
-    /// <see cref="AllowNew"/>
-    bool IBindingList.AllowNew => AllowNew;
-
-    /// <summary>
-    /// Is removing allowed.
-    /// </summary>
-    /// <see cref="AllowRemove"/>
-    bool IBindingList.AllowRemove => AllowRemove;
-    #endregion
-
-    #region IRaiseItemChangedEvents
-    private readonly bool _raisesItemChangedEvents;
-    /// <summary>
-    /// Collection will raise item change events.
-    /// </summary>
-    bool IRaiseItemChangedEvents.RaisesItemChangedEvents => _raisesItemChangedEvents;
-    #endregion
-    #region ICancelAddNew
-    #region AddNew
-    private T PendingItem { get; set; }
-
-    private void CommitItem()
-    {
-        if (PendingItem == null) return;
-
-        var index = IndexOf(PendingItem);
-
-        OnItemAdded(index, PendingItem);
-        OnListChanged(ListChangedType.ItemAdded, index);
-        PendingItem = default;
-    }
-
-    void IBindingList.AddIndex(PropertyDescriptor property)
-    {
-        throw new NotImplementedException();
-    }
-
-    object IBindingList.AddNew()
-    {
-        CommitItem();
-
-        var args = new AddingNewEventArgs();
-
-        OnAddingNew(args);
-
-        var pendingItem = (T)(args.NewObject ?? Activator.CreateInstance<T>());
-
-        Add(pendingItem);
-
-        return PendingItem = pendingItem;
-    }
-
-    /// <summary>
-    /// Apply sorting to the list.
-    /// </summary>
-    /// <param name="property">The property used for sorting. If this property is <c>null</c> then the <see cref="ToString()"/> method is used for sorting.</param>
-    /// <param name="direction">The direction of the sort</param>
-    /// <see cref="IsSorted"/>
-    /// <see cref="SortDirection"/>
-    public void ApplySort(PropertyDescriptor property, ListSortDirection direction)
-    {
-        Comparer.SortDirection = direction;
-        Comparer.IsSorted = true;
-        Comparer.SortProperty = property;
-
-        CreateIndices();
-    }
-
-    /// <summary>
-    /// Apply sorting to the list.
-    /// </summary>
-    /// <param name="propertyName">The property used for sorting.</param>
-    /// <param name="direction">The direction of the sort</param>
-    /// <see cref="IsSorted"/>
-    /// <see cref="SortDirection"/>
-    /// <exception cref="ArgumentException">When the type of elements does not have a property named <paramref name="propertyName"/></exception>
-    public void ApplySort(string propertyName, ListSortDirection direction)
-    {
-        if (!DataProperties.TryGetValue(propertyName, out var property))
-            throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
-
-        ApplySort(property, direction);
-    }
-
-    private void CreateIndices()
-    {
-        OnResetting();
-
-        Indices.Clear();
-        for (var i = 0; i < Items.Count; i++)
-        {
-            Indices.Add(i);
-        }
-
-        if (IsSorted)
-        {
-            Indices.Sort(Comparer);
-        }
-
-        OnResetted();
-        OnListChanged(ListChangedType.Reset);
-    }
-
-
-    /// <summary>
-    /// Find an element having a certain property value.
-    /// </summary>
-    /// <param name="property"></param>
-    /// <param name="key"></param>
-    /// <returns>Index of the element or <c>-1</c> if no element was found.</returns>
-    public int Find(PropertyDescriptor property, object key)
-    {
-        return -1;
-        // return Indices.Find(i => property.GetValue(Items[Indices[i]]).Equals(key));
-    }
-
-    /// <summary>
-    /// Find an element having a certain property value.
-    /// </summary>
-    /// <param name="property"></param>
-    /// <param name="key"></param>
-    /// <returns>Index of the element or <c>-1</c> if no element was found.</returns>
-    /// <exception cref="ArgumentException">if <paramref name="propertyName"/> is not a property of the element type.</exception>
-    public int Find(string propertyName, object key)
-    {
-        var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false);
-        if (property == null)
-            throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
-
-        return Find(property, key);
-    }
-
-    void IBindingList.RemoveIndex(PropertyDescriptor property)
-    {
-        throw new NotImplementedException();
-    }
-
-    void IBindingList.RemoveSort()
-    {
-        throw new NotImplementedException();
-    }
-    #endregion
-
-    /// <summary>
-    /// Cancels an item created with <see cref="AddNew"/>.
-    /// </summary>
-    /// <param name="itemIndex"></param>
-    /// <exception cref="NotImplementedException"></exception>
-    public void CancelNew(int itemIndex)
-    {
-        throw new NotImplementedException();
-    }
-    /// <summary>
-    /// Commits an itme created with <see cref="AddNew"/>.
-    /// </summary>
-    /// <param name="itemIndex"></param>
-    /// <exception cref="ArgumentException"></exception>
-    /// <remarks>
-    /// Changes to the collection will automatically commit a pending new item.
-    /// </remarks>
-    public void EndNew(int itemIndex)
-    {
-        if (IndexOf(PendingItem) != itemIndex)
-            throw new ArgumentException("Index does not match pending item.", nameof(itemIndex));
-
-        CommitItem();
-    }
-    #endregion
-
-    #region EventManagement
-
-
-    public int Count => throw new NotImplementedException();
-
-    public bool IsReadOnly => throw new NotImplementedException();
-
-    public bool IsFixedSize => throw new NotImplementedException();
-
-    public bool IsSynchronized => throw new NotImplementedException();
-
-    public object SyncRoot => throw new NotImplementedException();
-
-    object IList.this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public T this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-    public int IndexOf(T item)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Insert(int index, T item)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void RemoveAt(int index)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Add(T item)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Clear()
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Contains(T item)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void CopyTo(T[] array, int arrayIndex)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Remove(T item)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerator<T> GetEnumerator()
-    {
-        throw new NotImplementedException();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException();
-    }
-
-    public int Add(object value)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Contains(object value)
-    {
-        throw new NotImplementedException();
-    }
-
-    public int IndexOf(object value)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Insert(int index, object value)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Remove(object value)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void CopyTo(Array array, int index)
-    {
-        throw new NotImplementedException();
-    }
-    #endregion
-
-    #region IComparer<T>
-    private class ItemComparer<TI> : IComparer<int>
-    {
-        public ItemComparer(IList<TI> items)
-        {
-            Items = items;
-        }
-
-        public IList<TI> Items { get; }
-
-        public bool IsSorted { get; set; }
-
-        public ListSortDirection SortDirection { get; set; }
-
-        public PropertyDescriptor SortProperty { get; set; }
-
-        public int Compare(int x, int y)
-        {
-            var xItem = (object)Items[x];
-            var yItem = (object)Items[y];
-
-            if (SortProperty != null)
-            {
-                xItem = SortProperty.GetValue(xItem);
-                yItem = SortProperty.GetValue(yItem);
-            }
-
-            int rc = 0;
-            if (xItem is IComparable xCompare)
-            {
-                rc = xCompare.CompareTo(yItem);
+                Synchronized.Invoke(Handler, new object[] { sender, eventArgs });
             }
             else
             {
-                rc = xItem.ToString().CompareTo(yItem.ToString());
-            }
-            return SortDirection == ListSortDirection.Ascending ? rc : -rc;
-
-        }
-    }
-    #endregion
-
-    #region Enumerator<T>
-    private class ItemEnumerator<TI> : IEnumerator<TI>
-    {
-        public ItemEnumerator(List<int> indices, List<TI> items)
-        {
-            IndicesEnumerator = indices.GetEnumerator();
-            Items = items;
-        }
-
-        private IEnumerator<int> IndicesEnumerator { get; }
-        private List<TI> Items { get; }
-
-        public TI Current => Items[IndicesEnumerator.Current];
-
-        object IEnumerator.Current => Current;
-
-        public bool MoveNext()
-        {
-            return IndicesEnumerator.MoveNext();
-        }
-
-        public void Reset()
-        {
-            IndicesEnumerator.Reset();
-        }
-
-        private bool _disposed;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-            {
-                if (disposing)
-                {
-                    IndicesEnumerator.Dispose();
-                }
-
-                _disposed = true;
+                Handler.DynamicInvoke(sender, eventArgs);
             }
         }
+    }
 
-        public void Dispose()
+    internal class EventInvoker<T> : EventInvokerBase<EventHandler<T>, T> where T : EventArgs
+    {
+        public EventInvoker(EventHandler<T> handler) : base(handler)
         {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
+    }
+
+    #region EventArgs
+    /// <summary>
+    /// Event arguments for signaling changes for an item.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class ItemEventArgs<T> : EventArgs
+    {
+        /// <summary>
+        /// Create a new instance of <see cref="ItemEventArgs{T}"/>.
+        /// </summary>
+        public ItemEventArgs(int index, T item)
+        {
+            Index = index;
+            Item = item;
+        }
+
+        /// <summary>
+        /// The item affected.
+        /// </summary>
+        public T Item { get; }
+
+        /// <summary>
+        /// Index of the item.
+        /// </summary>
+        public int Index { get; }
+    }
+
+    /// <summary>
+    /// Event arguments for signaling changes on an item.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class ItemChangedEventArgs<T> : ItemEventArgs<T>
+    {
+        /// <summary>
+        /// Create a new instance of <see cref="ItemChangedEventArgs{T}"/>.
+        /// </summary>
+        public ItemChangedEventArgs(int index, T item, string propertyName) : base(index, item)
+        {
+            PropertyName = propertyName;
+        }
+
+        /// <summary>
+        /// Property that raised the change.
+        /// </summary>
+        public string PropertyName { get; }
+    }
+
+    /// <summary>
+    /// Event arguments for signaling changes on an item replacement.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class ItemSetEventArgs<T> : EventArgs
+    {
+        /// <summary>
+        /// Create a new instance of <see cref="ItemSetEventArgs{T}"/>.
+        /// </summary>
+        public ItemSetEventArgs(int index, T oldItem, T newItem)
+        {
+            Index = index;
+            OldItem = oldItem;
+            NewItem = newItem;
+        }
+        /// <summary>
+        /// Index of the items.
+        /// </summary>
+        public int Index { get; }
+        /// <summary>
+        /// The item getting replaced
+        /// </summary>
+        public T OldItem { get; }
+        /// <summary>
+        /// The new item
+        /// </summary>
+        public T NewItem { get; }
+
+    }
+
+    /// <summary>
+    /// Event arguments for signaling changes on the collection.
+    /// </summary>
+    public class ListResetEventArgs : EventArgs
+    {
     }
     #endregion
-
 }
-
-internal class EventInvokerBase<TH, TE> where TH : Delegate where TE : EventArgs
-{
-    public EventInvokerBase(TH handler)
-    {
-        Handler = handler;
-        Synchronized = (ISynchronizeInvoke)handler.Target;
-    }
-
-    public ISynchronizeInvoke Synchronized { get; }
-    public TH Handler { get; }
-
-    internal void RaiseEvent(object sender, TE eventArgs)
-    {
-        if (Synchronized.InvokeRequired)
-        {
-            Synchronized.Invoke(Handler, new object[] { sender, eventArgs });
-        }
-        else
-        {
-            Handler.DynamicInvoke(sender, eventArgs);
-        }
-    }
-}
-
-internal class EventInvoker<T> : EventInvokerBase<EventHandler<T>,T> where T : EventArgs
-{
-    public EventInvoker(EventHandler<T> handler) : base(handler)
-    {
-    }
-}
-
-    */
-

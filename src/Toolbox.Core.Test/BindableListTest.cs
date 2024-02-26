@@ -324,7 +324,8 @@ namespace Toolbox.Core.Test
 
             var adding = new Handler<ItemEventArgs<Data>>(cut, 0);
             var added = new Handler<ItemEventArgs<Data>>(cut, 0);
-            var changed = new Handler<ListChangedEventArgs>(cut, 0);
+            var listChanged = new Handler<ListChangedEventArgs>(cut, 0);
+            var itemChanged = new Handler<ItemChangedEventArgs<Data>>(cut, 0);
             var resetting = new Handler<ListResetEventArgs>(cut,0);
             var resetted = new Handler<ListResetEventArgs>(cut, 0);
             var setting = new Handler<ItemSetEventArgs<Data>>(cut, 0);
@@ -334,8 +335,10 @@ namespace Toolbox.Core.Test
             cut.ItemAdded -= added.Raised;
             cut.AddingItem += adding.Raised;
             cut.AddingItem -= adding.Raised;
-            cut.ListChanged += changed.Raised;
-            cut.ListChanged -= changed.Raised;
+            cut.ListChanged += listChanged.Raised;
+            cut.ListChanged -= listChanged.Raised;
+            cut.ItemChanged += itemChanged.Raised;
+            cut.ItemChanged -= itemChanged.Raised;
             cut.Resetting += resetting.Raised;
             cut.Resetting -= resetting.Raised;
             cut.Resetted += resetted.Raised;
@@ -347,12 +350,14 @@ namespace Toolbox.Core.Test
 
             cut.Add(data);
             cut[0] = new Data();
+            cut[0].Name = "NewName";
             cut.RemoveAt(0);
             cut.Clear();
 
             adding.AssertCalls();
             added.AssertCalls();
-            changed.AssertCalls();
+            listChanged.AssertCalls();
+            itemChanged.AssertCalls();
             resetting.AssertCalls();
             resetted.AssertCalls();
             setting.AssertCalls();
