@@ -49,7 +49,7 @@ namespace Toolbox.Core.Test
         {
             var data = new Data();
 
-            var cut = new BindableList<Data> { new Data() };
+            var cut = new BindableList<Data> { new() };
 
             var adding = new Handler<ItemEventArgs<Data>>(cut);
             var added = new Handler<ItemEventArgs<Data>>(cut);
@@ -81,7 +81,7 @@ namespace Toolbox.Core.Test
         {
             var data = new Data();
 
-            var cut = new BindableList<Data> { new Data() };
+            var cut = new BindableList<Data> { new() };
 
             var adding = new SynchronizedHandler<ItemEventArgs<Data>>(cut);
             var added = new SynchronizedHandler<ItemEventArgs<Data>>(cut);
@@ -112,7 +112,7 @@ namespace Toolbox.Core.Test
         [TestMethod, TestCategory("add")]
         public void AddNullWithEvents()
         {
-            var cut = new BindableList<Data> { new Data() };
+            var cut = new BindableList<Data> { new() };
 
             var adding = new Handler<ItemEventArgs<Data>>(cut);
             var added = new Handler<ItemEventArgs<Data>>(cut);
@@ -142,7 +142,7 @@ namespace Toolbox.Core.Test
         [TestMethod, TestCategory("add")]
         public void AddNewWithEvents()
         {
-            var cut = new BindableList<Data> { new Data() };
+            var cut = new BindableList<Data> { new() };
 
             var newHandler = new Handler<AddingNewEventArgs>(cut);
             var adding = new Handler<ItemEventArgs<Data>>(cut);
@@ -185,7 +185,7 @@ namespace Toolbox.Core.Test
         {
             var data = new Data();
 
-            var cut = new BindableList<Data> { new Data() };
+            var cut = new BindableList<Data> { new() };
 
             var newHandler = new Handler<AddingNewEventArgs>(cut);
             var adding = new Handler<ItemEventArgs<Data>>(cut);
@@ -230,7 +230,7 @@ namespace Toolbox.Core.Test
         [TestMethod, TestCategory("add")]
         public void AddNewImplicitCommtWithEvents()
         {
-            var cut = new BindableList<Data> { new Data() };
+            var cut = new BindableList<Data> { new() };
 
             var adding = new Handler<ItemEventArgs<Data>>(cut);
             var added = new Handler<ItemEventArgs<Data>>(cut, 2);
@@ -275,7 +275,7 @@ namespace Toolbox.Core.Test
 
             const int index = 1;
 
-            var cut = new BindableList<Data> { new Data(), oldData };
+            var cut = new BindableList<Data> { new(), oldData };
 
             var setting = new Handler<ItemSetEventArgs<Data>>(cut);
             var set = new Handler<ItemSetEventArgs<Data>>(cut);
@@ -349,8 +349,10 @@ namespace Toolbox.Core.Test
             cut.ItemSet -= set.Raised;
 
             cut.Add(data);
-            cut[0] = new Data();
-            cut[0].Name = "NewName";
+            cut[0] = new Data
+            {
+                Name = "NewName"
+            };
             cut.RemoveAt(0);
             cut.Clear();
 
@@ -413,7 +415,7 @@ namespace Toolbox.Core.Test
         {
             var cut = new BindableList<Data>
             {
-                new Data(), new Data(), new Data(), new Data()
+                new(), new(), new(), new()
             };
 
             var resetting = new Handler<ListResetEventArgs>(cut);
@@ -550,7 +552,7 @@ namespace Toolbox.Core.Test
 
             var cut = new BindableList<Data>
             {
-                new Data(), new Data(), new Data(), new Data()
+                new(), new(), new(), new()
             };
 
             var adding = new Handler<ItemEventArgs<Data>>(cut);
@@ -585,7 +587,7 @@ namespace Toolbox.Core.Test
 
             var cut = new BindableList<Data>
             {
-                new Data(), new Data(), new Data(), new Data()
+                new(), new(), new(), new()
             };
 
             var adding = new SynchronizedHandler<ItemEventArgs<Data>>(cut);
@@ -648,7 +650,7 @@ namespace Toolbox.Core.Test
         {
             var data = new Data();
 
-            var cut = new BindableList<Data>() { new Data() };
+            var cut = new BindableList<Data>() { new() };
 
             var itemChanged = new Handler<ItemChangedEventArgs<Data>>(cut);
             var listChanged = new Handler<ListChangedEventArgs>(cut);
@@ -744,7 +746,7 @@ namespace Toolbox.Core.Test
             listChanged.AssertCalls();
         }
 
-        private Data[] CreateData(int length)
+        private static Data[] CreateData(int length)
         {
             var datas = new Data[length];
             for (int i = 0; i < length; i++)
@@ -754,7 +756,7 @@ namespace Toolbox.Core.Test
             return datas;
         }
 
-        private Data[] AddData(BindableList<Data> list, int length)
+        private static Data[] AddData(BindableList<Data> list, int length)
         {
             var datas = CreateData(length);
             foreach (var data in datas)

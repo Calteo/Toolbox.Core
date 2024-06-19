@@ -10,7 +10,7 @@ namespace Toolbox.Core.Test
     [TestClass]
     public class SortedBindingListTest
     {
-        private Data[] CreateData(int length)
+        private static Data[] CreateData(int length)
         {
             var datas = new Data[length];
             for (int i = 0; i < length; i++)
@@ -20,7 +20,7 @@ namespace Toolbox.Core.Test
             return datas;
         }
 
-        private Data[] AddData(SortedBindingList<Data> list, int length)
+        private static Data[] AddData(SortedBindingList<Data> list, int length)
         {
             var datas = CreateData(length);
             foreach (var data in datas)

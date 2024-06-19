@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- header comment -->
+<data>
+	<!-- comment 1 -->
+	<child id="1"/>
+	<!-- comment 2 -->
+	<child id="2" />
+	<other>
+		Contained text
+	</other>	
+</data>

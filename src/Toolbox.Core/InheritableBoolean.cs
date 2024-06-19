@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Toolbox
 {
@@ -19,7 +14,7 @@ namespace Toolbox
         public static implicit operator InheritableBoolean(bool value) => value ? True : False;
         public static explicit operator bool(InheritableBoolean value)
         {
-            if (value == null) throw new ArgumentNullException();
+            if (value == null) throw new ArgumentNullException(nameof(value));
             if (value == Default) throw new InvalidCastException("Default can not be converted.");
 
             return value == True;
