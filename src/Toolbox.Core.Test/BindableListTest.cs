@@ -44,7 +44,25 @@ namespace Toolbox.Core.Test
             }
         }
 
-        [TestMethod, TestCategory("add")]
+		[TestMethod, TestCategory("add")]
+        public void AddRange()
+        {
+            var range = new[]
+            {
+				new Data() { Name = "Data1" },
+				new Data() { Name = "Data2" },
+				new Data() { Name = "Data3" }
+			};
+			var cut = new BindableList<Data>();
+
+            cut.AddRange(range);
+
+            Assert.AreEqual(range.Length, cut.Count);
+            for(int i = 0;i < range.Length; i++)
+                Assert.AreSame(range[i], cut[i]);
+		}
+
+		[TestMethod, TestCategory("add")]
         public void AddWithEvents()
         {
             var data = new Data();

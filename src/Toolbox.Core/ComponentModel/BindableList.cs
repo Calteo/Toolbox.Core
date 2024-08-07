@@ -48,7 +48,7 @@ namespace Toolbox.ComponentModel
         private const bool IsReadOnly = false;
         #endregion
 
-        #region T.INotifyPropertyChanged
+        #region INotifyPropertyChanged
         private void Attach(T item)
         {
             if (!RaisesItemChangedEvents || item == null) return;
@@ -81,8 +81,6 @@ namespace Toolbox.ComponentModel
             changingItem.PropertyChanged -= ItemPropertyChanged;
         }
         #endregion
-
-
         #region IList
         object IList.this[int index]
         {
@@ -157,6 +155,19 @@ namespace Toolbox.ComponentModel
         public void Add(T item)
         {
             AddCore(item);
+        }
+
+        /// <summary>
+        /// Add multiple items to the list.
+        /// </summary>
+        /// <param name="items"></param>
+        /// <remarks>
+        /// The add is done one by one
+        /// </remarks>
+        /// <see cref="Add"/>
+        public void AddRange(IEnumerable<T> items)
+        {
+            items.ForEach(Add);
         }
 
         bool ICollection<T>.IsReadOnly => IsReadOnly;
