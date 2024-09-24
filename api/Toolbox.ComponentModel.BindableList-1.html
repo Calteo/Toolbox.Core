@@ -1,0 +1,2431 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BindableList&lt;T&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BindableList&lt;T&gt;
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/icon_tools_50.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Toolbox.ComponentModel.BindableList`1">
+  
+  
+  <h1 id="Toolbox_ComponentModel_BindableList_1" data-uid="Toolbox.ComponentModel.BindableList`1" class="text-break">Class BindableList&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>A replacement for <span class="xref">System.ComponentModel.BindingList`1</span> with better events.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">BindableList&lt;T&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.Generic.IList</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.Generic.ICollection</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;T&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</div>
+    <div><span class="xref">System.ComponentModel.IBindingList</span></div>
+    <div><span class="xref">System.Collections.IList</span></div>
+    <div><span class="xref">System.Collections.ICollection</span></div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">System.ComponentModel.IRaiseItemChangedEvents</span></div>
+    <div><span class="xref">System.ComponentModel.ICancelAddNew</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Toolbox.ComponentModel.html">Toolbox.ComponentModel</a></h6>
+  <h6><strong>Assembly</strong>: Toolbox.Core.dll</h6>
+  <h5 id="Toolbox_ComponentModel_BindableList_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BindableList&lt;T&gt; : IList&lt;T&gt;, ICollection&lt;T&gt;, IReadOnlyList&lt;T&gt;, IReadOnlyCollection&lt;T&gt;, IEnumerable&lt;T&gt;, IBindingList, IList, ICollection, IEnumerable, IRaiseItemChangedEvents, ICancelAddNew</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_ComponentModel_BindableList_1_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The events autoamtically use the <span class="xref">System.ComponentModel.ISynchronizeInvoke.Invoke(System.Delegate,System.Object[])</span>
+if the target of the event handler supports the interfae.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1__ctor.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L24">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1__ctor_" data-uid="Toolbox.ComponentModel.BindableList`1.#ctor*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1__ctor" data-uid="Toolbox.ComponentModel.BindableList`1.#ctor">BindableList()</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Toolbox.ComponentModel.SortedBindingList-1.html">SortedBindingList&lt;T&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BindableList()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1__ctor_System_Collections_Generic_IEnumerable__0__.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.%23ctor(System.Collections.Generic.IEnumerable%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L37">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1__ctor_" data-uid="Toolbox.ComponentModel.BindableList`1.#ctor*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1__ctor_System_Collections_Generic_IEnumerable__0__" data-uid="Toolbox.ComponentModel.BindableList`1.#ctor(System.Collections.Generic.IEnumerable{`0})">BindableList(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Create a new instance of <a class="xref" href="Toolbox.ComponentModel.BindableList-1.html">BindableList&lt;T&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BindableList(IEnumerable&lt;T&gt; other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_AllowEdit.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.AllowEdit%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L185">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_AllowEdit_" data-uid="Toolbox.ComponentModel.BindableList`1.AllowEdit*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_AllowEdit" data-uid="Toolbox.ComponentModel.BindableList`1.AllowEdit">AllowEdit</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowEdit { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_AllowNew.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.AllowNew%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L187">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_AllowNew_" data-uid="Toolbox.ComponentModel.BindableList`1.AllowNew*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_AllowNew" data-uid="Toolbox.ComponentModel.BindableList`1.AllowNew">AllowNew</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowNew { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_AllowRemove.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.AllowRemove%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L189">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_AllowRemove_" data-uid="Toolbox.ComponentModel.BindableList`1.AllowRemove*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_AllowRemove" data-uid="Toolbox.ComponentModel.BindableList`1.AllowRemove">AllowRemove</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowRemove { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Count.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L178">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Count_" data-uid="Toolbox.ComponentModel.BindableList`1.Count*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Count" data-uid="Toolbox.ComponentModel.BindableList`1.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Returns the number of elements in the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_IsSorted.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.IsSorted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L196">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_IsSorted_" data-uid="Toolbox.ComponentModel.BindableList`1.IsSorted*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_IsSorted" data-uid="Toolbox.ComponentModel.BindableList`1.IsSorted">IsSorted</h4>
+  <div class="markdown level1 summary"><p>Indicates if the list is sorted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSorted { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Item_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L137">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Item_" data-uid="Toolbox.ComponentModel.BindableList`1.Item*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Item_System_Int32_" data-uid="Toolbox.ComponentModel.BindableList`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets an element at an index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The element at the index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>When the list is sorted (<a class="xref" href="Toolbox.ComponentModel.BindableList-1.html#Toolbox_ComponentModel_BindableList_1_IsSorted">IsSorted</a>) setting an element is not possible, since
+it would break the ordering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_RaisesItemChangedEvents.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.RaisesItemChangedEvents%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L147">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_RaisesItemChangedEvents_" data-uid="Toolbox.ComponentModel.BindableList`1.RaisesItemChangedEvents*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_RaisesItemChangedEvents" data-uid="Toolbox.ComponentModel.BindableList`1.RaisesItemChangedEvents">RaisesItemChangedEvents</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RaisesItemChangedEvents { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_SortDirection.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.SortDirection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L203">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_SortDirection_" data-uid="Toolbox.ComponentModel.BindableList`1.SortDirection*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_SortDirection" data-uid="Toolbox.ComponentModel.BindableList`1.SortDirection">SortDirection</h4>
+  <div class="markdown level1 summary"><p>Direction of sorting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ListSortDirection SortDirection { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.ListSortDirection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_ComponentModel_BindableList_1_SortDirection_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only applies it <a class="xref" href="Toolbox.ComponentModel.BindableList-1.html#Toolbox_ComponentModel_BindableList_1_IsSorted">IsSorted</a> is <code>true</code>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_SortProperty.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.SortProperty%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L211">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_SortProperty_" data-uid="Toolbox.ComponentModel.BindableList`1.SortProperty*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_SortProperty" data-uid="Toolbox.ComponentModel.BindableList`1.SortProperty">SortProperty</h4>
+  <div class="markdown level1 summary"><p>Property by with the elements are sorted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyDescriptor SortProperty { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.PropertyDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_ComponentModel_BindableList_1_SortProperty_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If this property is <code>null</code> then the <see cref="!:ToString()"></see> method is used for sorting.</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Add__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Add(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L155">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Add_" data-uid="Toolbox.ComponentModel.BindableList`1.Add*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Add__0_" data-uid="Toolbox.ComponentModel.BindableList`1.Add(`0)">Add(T)</h4>
+  <div class="markdown level1 summary"><p>Adds an element to the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_ComponentModel_BindableList_1_Add__0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the list is sorted (<a class="xref" href="Toolbox.ComponentModel.BindableList-1.html#Toolbox_ComponentModel_BindableList_1_IsSorted">IsSorted</a>) then it is inserted at the correct position.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_AddNew.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.AddNew%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L234">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_AddNew_" data-uid="Toolbox.ComponentModel.BindableList`1.AddNew*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_AddNew" data-uid="Toolbox.ComponentModel.BindableList`1.AddNew">AddNew()</h4>
+  <div class="markdown level1 summary"><p>Creates a new item, which can me commited (<see cref="!:"></see></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T AddNew()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_AddRange_System_Collections_Generic_IEnumerable__0__.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.AddRange(System.Collections.Generic.IEnumerable%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L168">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_AddRange_" data-uid="Toolbox.ComponentModel.BindableList`1.AddRange*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_AddRange_System_Collections_Generic_IEnumerable__0__" data-uid="Toolbox.ComponentModel.BindableList`1.AddRange(System.Collections.Generic.IEnumerable{`0})">AddRange(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Add multiple items to the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRange(IEnumerable&lt;T&gt; items)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="parametername">items</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_ComponentModel_BindableList_1_AddRange_System_Collections_Generic_IEnumerable__0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The add is done one by one</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_ApplySort_System_ComponentModel_PropertyDescriptor_System_ComponentModel_ListSortDirection_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.ApplySort(System.ComponentModel.PropertyDescriptor%2CSystem.ComponentModel.ListSortDirection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L261">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_ApplySort_" data-uid="Toolbox.ComponentModel.BindableList`1.ApplySort*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_ApplySort_System_ComponentModel_PropertyDescriptor_System_ComponentModel_ListSortDirection_" data-uid="Toolbox.ComponentModel.BindableList`1.ApplySort(System.ComponentModel.PropertyDescriptor,System.ComponentModel.ListSortDirection)">ApplySort(PropertyDescriptor, ListSortDirection)</h4>
+  <div class="markdown level1 summary"><p>Apply sorting to the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplySort(PropertyDescriptor property, ListSortDirection direction)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.PropertyDescriptor</span></td>
+        <td><span class="parametername">property</span></td>
+        <td><p>The property used for sorting. If this property is <code>null</code> then the <see cref="!:ToString()"></see> method is used for sorting.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ComponentModel.ListSortDirection</span></td>
+        <td><span class="parametername">direction</span></td>
+        <td><p>The direction of the sort</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_ApplySort_System_String_System_ComponentModel_ListSortDirection_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.ApplySort(System.String%2CSystem.ComponentModel.ListSortDirection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L282">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_ApplySort_" data-uid="Toolbox.ComponentModel.BindableList`1.ApplySort*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_ApplySort_System_String_System_ComponentModel_ListSortDirection_" data-uid="Toolbox.ComponentModel.BindableList`1.ApplySort(System.String,System.ComponentModel.ListSortDirection)">ApplySort(String, ListSortDirection)</h4>
+  <div class="markdown level1 summary"><p>Apply sorting to the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplySort(string propertyName, ListSortDirection direction)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td><p>The property used for sorting. If this property is <code>null</code> then the <see cref="!:ToString()"></see> method is used for sorting.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ComponentModel.ListSortDirection</span></td>
+        <td><span class="parametername">direction</span></td>
+        <td><p>The direction of the sort</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>When the type of elements does not have a property named <code data-dev-comment-type="paramref" class="paramref">propertyName</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_CancelNew_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.CancelNew(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L614">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_CancelNew_" data-uid="Toolbox.ComponentModel.BindableList`1.CancelNew*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_CancelNew_System_Int32_" data-uid="Toolbox.ComponentModel.BindableList`1.CancelNew(System.Int32)">CancelNew(Int32)</h4>
+  <div class="markdown level1 summary"><p>Cancel an item that was created wird <a class="xref" href="Toolbox.ComponentModel.BindableList-1.html#Toolbox_ComponentModel_BindableList_1_AddNew">AddNew()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CancelNew(int itemIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Clear.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L117">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Clear_" data-uid="Toolbox.ComponentModel.BindableList`1.Clear*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Clear" data-uid="Toolbox.ComponentModel.BindableList`1.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Removes all elements from the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Contains__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Contains(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L634">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Contains_" data-uid="Toolbox.ComponentModel.BindableList`1.Contains*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Contains__0_" data-uid="Toolbox.ComponentModel.BindableList`1.Contains(`0)">Contains(T)</h4>
+  <div class="markdown level1 summary"><p>Checks it an element is part of the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if it is, else <code>false</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_CopyTo__0___System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.CopyTo(%600%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L652">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_CopyTo_" data-uid="Toolbox.ComponentModel.BindableList`1.CopyTo*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_CopyTo__0___System_Int32_" data-uid="Toolbox.ComponentModel.BindableList`1.CopyTo(`0[],System.Int32)">CopyTo(T[], Int32)</h4>
+  <div class="markdown level1 summary"><p>Copy the elements into an array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(T[] array, int arrayIndex = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td><span class="parametername">array</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">arrayIndex</span></td>
+        <td><p>Starting index in <code data-dev-comment-type="paramref" class="paramref">array</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">array</code> is <code>null</code></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>if <code data-dev-comment-type="paramref" class="paramref">arrayIndex</code> is less than <code>0</code></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>if <code data-dev-comment-type="paramref" class="paramref">array</code> is to small to take all elements starting at <code data-dev-comment-type="paramref" class="paramref">arrayIndex</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_EndNew_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.EndNew(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L669">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_EndNew_" data-uid="Toolbox.ComponentModel.BindableList`1.EndNew*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_EndNew_System_Int32_" data-uid="Toolbox.ComponentModel.BindableList`1.EndNew(System.Int32)">EndNew(Int32)</h4>
+  <div class="markdown level1 summary"><p>Commits an item that was created wird <a class="xref" href="Toolbox.ComponentModel.BindableList-1.html#Toolbox_ComponentModel_BindableList_1_AddNew">AddNew()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndNew(int itemIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">itemIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_ComponentModel_BindableList_1_EndNew_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Items are automatically commited, when needed for other operations.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Find_System_ComponentModel_PropertyDescriptor_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Find(System.ComponentModel.PropertyDescriptor%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L680">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Find_" data-uid="Toolbox.ComponentModel.BindableList`1.Find*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Find_System_ComponentModel_PropertyDescriptor_System_Object_" data-uid="Toolbox.ComponentModel.BindableList`1.Find(System.ComponentModel.PropertyDescriptor,System.Object)">Find(PropertyDescriptor, Object)</h4>
+  <div class="markdown level1 summary"><p>Find an element having a certain property value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Find(PropertyDescriptor property, object key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.PropertyDescriptor</span></td>
+        <td><span class="parametername">property</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Index of the element or <code>-1</code> if no element was found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Find_System_String_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Find(System.String%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L692">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Find_" data-uid="Toolbox.ComponentModel.BindableList`1.Find*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Find_System_String_System_Object_" data-uid="Toolbox.ComponentModel.BindableList`1.Find(System.String,System.Object)">Find(String, Object)</h4>
+  <div class="markdown level1 summary"><p>Find an element having a certain property value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Find(string propertyName, object key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Index of the element or <code>-1</code> if no element was found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>if <code data-dev-comment-type="paramref" class="paramref">propertyName</code> is not a property of the element type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_GetEnumerator.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L711">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_GetEnumerator_" data-uid="Toolbox.ComponentModel.BindableList`1.GetEnumerator*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_GetEnumerator" data-uid="Toolbox.ComponentModel.BindableList`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Returns an enumerator for the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_ComponentModel_BindableList_1_GetEnumerator_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This uses sorting if it is enabled.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_IndexOf__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.IndexOf(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L729">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_IndexOf_" data-uid="Toolbox.ComponentModel.BindableList`1.IndexOf*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_IndexOf__0_" data-uid="Toolbox.ComponentModel.BindableList`1.IndexOf(`0)">IndexOf(T)</h4>
+  <div class="markdown level1 summary"><p>Returns the index of an element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Index of the elment or <code>-1</code> it is not in the list.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Insert_System_Int32__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Insert(System.Int32%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L753">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Insert_" data-uid="Toolbox.ComponentModel.BindableList`1.Insert*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Insert_System_Int32__0_" data-uid="Toolbox.ComponentModel.BindableList`1.Insert(System.Int32,`0)">Insert(Int32, T)</h4>
+  <div class="markdown level1 summary"><p>Inserts an element into the list</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(int index, T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>When the list is sorted (<a class="xref" href="Toolbox.ComponentModel.BindableList-1.html#Toolbox_ComponentModel_BindableList_1_IsSorted">IsSorted</a>) inserting an element is not possible, since
+it would break the ordering.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_InsertCore_System_Int32__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.InsertCore(System.Int32%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L894">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_InsertCore_" data-uid="Toolbox.ComponentModel.BindableList`1.InsertCore*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_InsertCore_System_Int32__0_" data-uid="Toolbox.ComponentModel.BindableList`1.InsertCore(System.Int32,`0)">InsertCore(Int32, T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertCore(int index, T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Remove__0_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Remove(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L774">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_Remove_" data-uid="Toolbox.ComponentModel.BindableList`1.Remove*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Remove__0_" data-uid="Toolbox.ComponentModel.BindableList`1.Remove(`0)">Remove(T)</h4>
+  <div class="markdown level1 summary"><p>Remove an element from the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_RemoveAt_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.RemoveAt(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L783">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_RemoveAt_" data-uid="Toolbox.ComponentModel.BindableList`1.RemoveAt*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_RemoveAt_System_Int32_" data-uid="Toolbox.ComponentModel.BindableList`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>Remove an element at a postion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_RemoveSort.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.RemoveSort%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L300">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_RemoveSort_" data-uid="Toolbox.ComponentModel.BindableList`1.RemoveSort*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_RemoveSort" data-uid="Toolbox.ComponentModel.BindableList`1.RemoveSort">RemoveSort()</h4>
+  <div class="markdown level1 summary"><p>Removes the sorting</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveSort()</code></pre>
+  </div>
+  <h3 id="events">Events
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_AddingItem.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.AddingItem%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L336">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_AddingItem" data-uid="Toolbox.ComponentModel.BindableList`1.AddingItem">AddingItem</h4>
+  <div class="markdown level1 summary"><p>Raised before an item is added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ItemEventArgs&lt;T&gt;&gt; AddingItem</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ItemEventArgs-1.html">ItemEventArgs</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_AddingNew.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.AddingNew%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L487">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_AddingNew" data-uid="Toolbox.ComponentModel.BindableList`1.AddingNew">AddingNew</h4>
+  <div class="markdown level1 summary"><p>Raised when an new item needs to be added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event AddingNewEventHandler AddingNew</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.AddingNewEventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_ItemAdded.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.ItemAdded%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L318">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_ItemAdded" data-uid="Toolbox.ComponentModel.BindableList`1.ItemAdded">ItemAdded</h4>
+  <div class="markdown level1 summary"><p>Raised after an item was added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ItemEventArgs&lt;T&gt;&gt; ItemAdded</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ItemEventArgs-1.html">ItemEventArgs</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_ItemChanged.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.ItemChanged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L386">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_ItemChanged" data-uid="Toolbox.ComponentModel.BindableList`1.ItemChanged">ItemChanged</h4>
+  <div class="markdown level1 summary"><p>Raised after an item was changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ItemChangedEventArgs&lt;T&gt;&gt; ItemChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ItemChangedEventArgs-1.html">ItemChangedEventArgs</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_ItemRemoved.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.ItemRemoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L353">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_ItemRemoved" data-uid="Toolbox.ComponentModel.BindableList`1.ItemRemoved">ItemRemoved</h4>
+  <div class="markdown level1 summary"><p>Raised after an item is removed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ItemEventArgs&lt;T&gt;&gt; ItemRemoved</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ItemEventArgs-1.html">ItemEventArgs</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_ItemSet.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.ItemSet%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L450">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_ItemSet" data-uid="Toolbox.ComponentModel.BindableList`1.ItemSet">ItemSet</h4>
+  <div class="markdown level1 summary"><p>Raised after an item is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ItemSetEventArgs&lt;T&gt;&gt; ItemSet</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ItemSetEventArgs-1.html">ItemSetEventArgs</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_ListChanged.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.ListChanged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L466">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_ListChanged" data-uid="Toolbox.ComponentModel.BindableList`1.ListChanged">ListChanged</h4>
+  <div class="markdown level1 summary"><p>Raised if the collection changes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event ListChangedEventHandler ListChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.ListChangedEventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_RemovingItem.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.RemovingItem%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L369">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_RemovingItem" data-uid="Toolbox.ComponentModel.BindableList`1.RemovingItem">RemovingItem</h4>
+  <div class="markdown level1 summary"><p>Raised before an item is removed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ItemEventArgs&lt;T&gt;&gt; RemovingItem</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ItemEventArgs-1.html">ItemEventArgs</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Resetted.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Resetted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L402">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Resetted" data-uid="Toolbox.ComponentModel.BindableList`1.Resetted">Resetted</h4>
+  <div class="markdown level1 summary"><p>Raised after the collection is reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ListResetEventArgs&gt; Resetted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ListResetEventArgs.html">ListResetEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_Resetting.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.Resetting%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L417">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_Resetting" data-uid="Toolbox.ComponentModel.BindableList`1.Resetting">Resetting</h4>
+  <div class="markdown level1 summary"><p>Raised before the collection is resetting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ListResetEventArgs&gt; Resetting</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ListResetEventArgs.html">ListResetEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_SettingItem.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.SettingItem%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L433">View Source</a>
+  </span>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_SettingItem" data-uid="Toolbox.ComponentModel.BindableList`1.SettingItem">SettingItem</h4>
+  <div class="markdown level1 summary"><p>Raised before an item is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ItemSetEventArgs&lt;T&gt;&gt; SettingItem</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span>&lt;<a class="xref" href="Toolbox.ComponentModel.ItemSetEventArgs-1.html">ItemSetEventArgs</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_Generic_ICollection_T__IsReadOnly.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23Generic%23ICollection%7BT%7D%23IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L173">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_Generic_ICollection_T__IsReadOnly_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#Generic#ICollection{T}#IsReadOnly*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_Generic_ICollection_T__IsReadOnly" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#Generic#ICollection{T}#IsReadOnly">ICollection&lt;T&gt;.IsReadOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ICollection&lt;T&gt;.IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_Generic_IReadOnlyList_T__Item_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23Generic%23IReadOnlyList%7BT%7D%23Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L144">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_Generic_IReadOnlyList_T__Item_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#Generic#IReadOnlyList{T}#Item*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_Generic_IReadOnlyList_T__Item_System_Int32_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#Generic#IReadOnlyList{T}#Item(System.Int32)">IReadOnlyList&lt;T&gt;.Item[Int32]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">T IReadOnlyList&lt;T&gt;.this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_CopyTo_System_Array_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23ICollection%23CopyTo(System.Array%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L639">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_CopyTo_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#ICollection#CopyTo*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_CopyTo_System_Array_System_Int32_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#ICollection#CopyTo(System.Array,System.Int32)">ICollection.CopyTo(Array, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ICollection.CopyTo(Array array, int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Array</span></td>
+        <td><span class="parametername">array</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_IsSynchronized.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23ICollection%23IsSynchronized%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L180">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_IsSynchronized_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#ICollection#IsSynchronized*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_IsSynchronized" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#ICollection#IsSynchronized">ICollection.IsSynchronized</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ICollection.IsSynchronized { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_SyncRoot.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23ICollection%23SyncRoot%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L182">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_SyncRoot_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#ICollection#SyncRoot*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_ICollection_SyncRoot" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#ICollection#SyncRoot">ICollection.SyncRoot</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object ICollection.SyncRoot { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L700">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Add_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IList%23Add(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L103">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Add_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Add*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Add_System_Object_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Add(System.Object)">IList.Add(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int IList.Add(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Contains_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IList%23Contains(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L621">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Contains_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Contains*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Contains_System_Object_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Contains(System.Object)">IList.Contains(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IList.Contains(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IndexOf_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IList%23IndexOf(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L716">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IndexOf_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#IndexOf*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IndexOf_System_Object_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#IndexOf(System.Object)">IList.IndexOf(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int IList.IndexOf(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Insert_System_Int32_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IList%23Insert(System.Int32%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L735">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Insert_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Insert*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Insert_System_Int32_System_Object_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Insert(System.Int32,System.Object)">IList.Insert(Int32, Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IList.Insert(int index, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IsFixedSize.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IList%23IsFixedSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L99">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IsFixedSize_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#IsFixedSize*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IsFixedSize" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#IsFixedSize">IList.IsFixedSize</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IList.IsFixedSize { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IsReadOnly.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IList%23IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L101">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IsReadOnly_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#IsReadOnly*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_IsReadOnly" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#IsReadOnly">IList.IsReadOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IList.IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Item_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IList%23Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L85">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Item_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Item*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Item_System_Int32_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Item(System.Int32)">IList.Item[Int32]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object IList.this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Remove_System_Object_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23Collections%23IList%23Remove(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L758">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Remove_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Remove*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_Collections_IList_Remove_System_Object_" data-uid="Toolbox.ComponentModel.BindableList`1.System#Collections#IList#Remove(System.Object)">IList.Remove(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IList.Remove(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_AddIndex_System_ComponentModel_PropertyDescriptor_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23ComponentModel%23IBindingList%23AddIndex(System.ComponentModel.PropertyDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L289">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_AddIndex_" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#AddIndex*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_AddIndex_System_ComponentModel_PropertyDescriptor_" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#AddIndex(System.ComponentModel.PropertyDescriptor)">IBindingList.AddIndex(PropertyDescriptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IBindingList.AddIndex(PropertyDescriptor property)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.PropertyDescriptor</span></td>
+        <td><span class="parametername">property</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_AddNew.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23ComponentModel%23IBindingList%23AddNew%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L249">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_AddNew_" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#AddNew*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_AddNew" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#AddNew">IBindingList.AddNew()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object IBindingList.AddNew()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_RemoveIndex_System_ComponentModel_PropertyDescriptor_.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23ComponentModel%23IBindingList%23RemoveIndex(System.ComponentModel.PropertyDescriptor)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L293">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_RemoveIndex_" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#RemoveIndex*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_RemoveIndex_System_ComponentModel_PropertyDescriptor_" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#RemoveIndex(System.ComponentModel.PropertyDescriptor)">IBindingList.RemoveIndex(PropertyDescriptor)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IBindingList.RemoveIndex(PropertyDescriptor property)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ComponentModel.PropertyDescriptor</span></td>
+        <td><span class="parametername">property</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsChangeNotification.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23ComponentModel%23IBindingList%23SupportsChangeNotification%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L213">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsChangeNotification_" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#SupportsChangeNotification*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsChangeNotification" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#SupportsChangeNotification">IBindingList.SupportsChangeNotification</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IBindingList.SupportsChangeNotification { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsSearching.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23ComponentModel%23IBindingList%23SupportsSearching%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L215">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsSearching_" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#SupportsSearching*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsSearching" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#SupportsSearching">IBindingList.SupportsSearching</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IBindingList.SupportsSearching { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsSorting.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601.System%23ComponentModel%23IBindingList%23SupportsSorting%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L217">View Source</a>
+  </span>
+  <a id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsSorting_" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#SupportsSorting*"></a>
+  <h4 id="Toolbox_ComponentModel_BindableList_1_System_ComponentModel_IBindingList_SupportsSorting" data-uid="Toolbox.ComponentModel.BindableList`1.System#ComponentModel#IBindingList#SupportsSorting">IBindingList.SupportsSorting</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IBindingList.SupportsSorting { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.Generic.IList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.ICollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyList&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.IBindingList</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IList</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.ICollection</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.IRaiseItemChangedEvents</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.ICancelAddNew</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Toolbox.Collection.Generics.EnumerableExtension.html#Toolbox_Collection_Generics_EnumerableExtension_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__">EnumerableExtension.ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T&gt;)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_ComponentModel_BindableList_1.md&amp;value=---%0Auid%3A%20Toolbox.ComponentModel.BindableList%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/ComponentModel/BindableList.cs/#L18" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
