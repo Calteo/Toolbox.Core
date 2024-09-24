@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text;
+using Toolbox.ComponentModel;
 
 namespace Toolbox.Core.Test.Model
 {
-    [DebuggerDisplay("{Name} - {Timestamp}")]
-    class Data : INotifyPropertyChanged
+	[DebuggerDisplay("{Name} - {Timestamp}")]
+    class Data : NotifyObject
     {
         public Data()
         {
             Name = $"Test-{GetHashCode()}";
-            Timestamp = DateTime.Now;
+            Timestamp = DateTime.Now;            
         }
 
         #region Name
@@ -33,21 +31,27 @@ namespace Toolbox.Core.Test.Model
             set => SetField(ref _timestamp, value);            
         }
         #endregion
+        #region Child
+        private Data _child;
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName] string properyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(properyName));
-        }
+        public Data Child
+		{
+			get => _child;
+			set
+			{
+                if (SetField(ref _child, value, out var old)) return;
 
-        private void SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return;
-            field = value;
-            OnPropertyChanged(propertyName);
-        }
-        #endregion
+				if (old != null) old.PropertyChanged -= ChildPropertyChanged;
+                if (value != null) value.PropertyChanged += ChildPropertyChanged;
+			}
+		}
 
-    }
+        public int ChildPropertyChangedCount {  get; set; }
+		private void ChildPropertyChanged(object sender, PropertyChangedEventArgs e)
+		{
+			ChildPropertyChangedCount++;
+		}
+		#endregion
+
+	}
 }

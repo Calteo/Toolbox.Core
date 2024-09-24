@@ -23,7 +23,7 @@ namespace Toolbox.ComponentModel
         private List<int> Indices { get; } = new List<int>();
         private ItemComparer<T> Comparer { get; }
         
-        private const bool IsReadOnly = false;
+        private const bool _isReadOnly = false;
 
         #region IList
         object IList.this[int index]
@@ -42,7 +42,7 @@ namespace Toolbox.ComponentModel
         }
         bool IList.IsFixedSize => false;
 
-        bool IList.IsReadOnly => IsReadOnly;
+        bool IList.IsReadOnly => _isReadOnly;
 
         int IList.Add(object value)
         {
@@ -101,7 +101,7 @@ namespace Toolbox.ComponentModel
             AddCore(item);
         }
 
-        bool ICollection<T>.IsReadOnly => IsReadOnly;
+        bool ICollection<T>.IsReadOnly => _isReadOnly;
 
         /// <summary>
         /// Returns the number of elements in the list.
@@ -147,11 +147,11 @@ namespace Toolbox.ComponentModel
 
         bool IBindingList.SupportsSorting => true;
 
-        private int _pendingAdd { get; set; }
+        private int PendingAdd { get; set; }
         private void CommitPendingItem()
         {
-            if (_pendingAdd >= 0)
-                _pendingAdd = -1;
+            if (PendingAdd >= 0)
+                PendingAdd = -1;
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace Toolbox.ComponentModel
         {
             var item = new T();
             AddCore(item);
-            _pendingAdd = IndexOf(item);
+            PendingAdd = IndexOf(item);
             return item;
         }
 
@@ -197,11 +197,10 @@ namespace Toolbox.ComponentModel
         /// <exception cref="ArgumentException">When the type of elements does not have a property named <paramref name="propertyName"/></exception>
         public void ApplySort(string propertyName, ListSortDirection direction)
         {
-            var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false);
-            if (property == null)
-                throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
+            var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false) 
+                ?? throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
 
-            ApplySort(property, direction);
+			ApplySort(property, direction);
         }
 
         void IBindingList.AddIndex(PropertyDescriptor property)
@@ -237,9 +236,9 @@ namespace Toolbox.ComponentModel
         /// <param name="itemIndex"></param>
         public void CancelNew(int itemIndex)
         {
-            if (itemIndex != _pendingAdd) return;
+            if (itemIndex != PendingAdd) return;
             RemoveAt(itemIndex);
-            _pendingAdd = -1;
+            PendingAdd = -1;
         }
 
         bool IList.Contains(object value)
@@ -315,11 +314,9 @@ namespace Toolbox.ComponentModel
         /// <exception cref="ArgumentException">if <paramref name="propertyName"/> is not a property of the element type.</exception>
         public int Find(string propertyName, object key)
         {
-            var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false);
-            if (property == null)
-                throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
-
-            return Find(property, key);
+            var property = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, false) 
+                ?? throw new ArgumentException($"Property {propertyName} not found on type {typeof(T).FullName}");
+			return Find(property, key);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -555,7 +552,7 @@ namespace Toolbox.ComponentModel
                     yItem = SortProperty.GetValue(yItem);
                 }
 
-                int rc = 0;
+				int rc;
                 if (xItem is IComparable xCompare)
                 {
                     rc = xCompare.CompareTo(yItem);
