@@ -41,11 +41,11 @@ namespace Toolbox.ComponentModel
 
         #region Internal Properties
         private Dictionary<string, PropertyDescriptor> DataProperties { get; }
-        private List<T> Items { get; } = new List<T>();
-        private List<int> Indices { get; } = new List<int>();
+        private List<T> Items { get; } = [];
+        private List<int> Indices { get; } = [];
         private ItemComparer<T> Comparer { get; }
 
-        private const bool IsReadOnly = false;
+        private const bool _isReadOnly = false;
         #endregion
 
         #region INotifyPropertyChanged
@@ -57,13 +57,15 @@ namespace Toolbox.ComponentModel
             changingItem.PropertyChanged += ItemPropertyChanged;
         }
 
-        private void ItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void ItemPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            var item = (T)sender;
+            ArgumentNullException.ThrowIfNull(sender);
+
+			var item = (T)sender;
             var index = IndexOf(item);
 
             OnItemChanged(index, item, e.PropertyName);
-            if (DataProperties.TryGetValue(e.PropertyName, out var descriptor))
+            if (DataProperties.TryGetValue(e.PropertyName ?? "", out var descriptor))
             {
                 OnListChanged(ListChangedType.ItemChanged, index, 0, descriptor);
             }
@@ -82,7 +84,7 @@ namespace Toolbox.ComponentModel
         }
         #endregion
         #region IList
-        object IList.this[int index]
+        object? IList.this[int index]
         {
             get => GetItem(index);
             set
@@ -98,9 +100,9 @@ namespace Toolbox.ComponentModel
         }
         bool IList.IsFixedSize => false;
 
-        bool IList.IsReadOnly => IsReadOnly;
+        bool IList.IsReadOnly => _isReadOnly;
 
-        int IList.Add(object value)
+        int IList.Add(object? value)
         {
             if (value is T tValue)
             {
@@ -170,7 +172,7 @@ namespace Toolbox.ComponentModel
             items.ForEach(Add);
         }
 
-        bool ICollection<T>.IsReadOnly => IsReadOnly;
+        bool ICollection<T>.IsReadOnly => _isReadOnly;
 
         /// <summary>
         /// Returns the number of elements in the list.
@@ -208,7 +210,7 @@ namespace Toolbox.ComponentModel
         /// <remarks>If this property is <c>null</c> then the <see cref="ToString()"/> method is used for sorting.</remarks>
         /// <see cref="IsSorted"/>
         /// <see cref="SortDirection"/>
-        public PropertyDescriptor SortProperty => Comparer.SortProperty;
+        public PropertyDescriptor? SortProperty => Comparer.SortProperty;
 
         bool IBindingList.SupportsChangeNotification => true;
 
@@ -246,7 +248,7 @@ namespace Toolbox.ComponentModel
             return item;
         }
 
-        object IBindingList.AddNew()
+        object? IBindingList.AddNew()
         {
             return AddNew();
         }
@@ -311,7 +313,7 @@ namespace Toolbox.ComponentModel
 
         #region ItemAdded
 
-        private event EventHandler<ItemEventArgs<T>> ItemAddedHandler;
+        private event EventHandler<ItemEventArgs<T>>? ItemAddedHandler;
         /// <summary>
         /// Raised after an item was added.
         /// </summary>
@@ -329,7 +331,7 @@ namespace Toolbox.ComponentModel
         #endregion
         #region AddingItem
 
-        private event EventHandler<ItemEventArgs<T>> AddingItemHandler;
+        private event EventHandler<ItemEventArgs<T>>? AddingItemHandler;
         /// <summary>
         /// Raised before an item is added.
         /// </summary>
@@ -346,7 +348,7 @@ namespace Toolbox.ComponentModel
 
         #endregion
         #region ItemRemoved
-        private event EventHandler<ItemEventArgs<T>> ItemRemovedHandler;
+        private event EventHandler<ItemEventArgs<T>>? ItemRemovedHandler;
         /// <summary>
         /// Raised after an item is removed.
         /// </summary>
@@ -362,7 +364,7 @@ namespace Toolbox.ComponentModel
         }
         #endregion
         #region RemovingItem
-        private event EventHandler<ItemEventArgs<T>> RemovingItemHandler;
+        private event EventHandler<ItemEventArgs<T>>? RemovingItemHandler;
         /// <summary>
         /// Raised before an item is removed.
         /// </summary>
@@ -378,7 +380,7 @@ namespace Toolbox.ComponentModel
         }
         #endregion
         #region ItemChanged
-        private event EventHandler<ItemChangedEventArgs<T>> ItemChangedHandler;
+        private event EventHandler<ItemChangedEventArgs<T>>? ItemChangedHandler;
         /// <summary>
         /// Raised after an item was changed.
         /// </summary>
@@ -389,13 +391,13 @@ namespace Toolbox.ComponentModel
             remove => RemoveHandler(ref ItemChangedHandler, value);
         }
 
-        private void OnItemChanged(int index, T item, string propertyName)
+        private void OnItemChanged(int index, T item, string? propertyName)
         {
             ItemChangedHandler?.Invoke(this, new ItemChangedEventArgs<T>(index, item, propertyName));
         }
         #endregion
         #region Resetted
-        private event EventHandler<ListResetEventArgs> ResettedHandler;
+        private event EventHandler<ListResetEventArgs>? ResettedHandler;
         /// <summary>
         /// Raised after the collection is reset.
         /// </summary>
@@ -410,7 +412,7 @@ namespace Toolbox.ComponentModel
         }
         #endregion
         #region Resetting
-        private event EventHandler<ListResetEventArgs> ResettingHandler;
+        private event EventHandler<ListResetEventArgs>? ResettingHandler;
         /// <summary>
         /// Raised before the collection is resetting.
         /// </summary>
@@ -426,7 +428,7 @@ namespace Toolbox.ComponentModel
         }
         #endregion
         #region Setting
-        private event EventHandler<ItemSetEventArgs<T>> SettingItemHandler;
+        private event EventHandler<ItemSetEventArgs<T>>? SettingItemHandler;
         /// <summary>
         /// Raised before an item is set.
         /// </summary>
@@ -443,7 +445,7 @@ namespace Toolbox.ComponentModel
         #endregion
 
         #region Set
-        private event EventHandler<ItemSetEventArgs<T>> ItemSetHandler;
+        private event EventHandler<ItemSetEventArgs<T>>? ItemSetHandler;
         /// <summary>
         /// Raised after an item is set.
         /// </summary>
@@ -459,7 +461,7 @@ namespace Toolbox.ComponentModel
         }
         #endregion
         #region ListChanged
-        private event ListChangedEventHandler ListChangedHandler;
+        private event ListChangedEventHandler? ListChangedHandler;
         /// <summary>
         /// Raised if the collection changes
         /// </summary>
@@ -469,7 +471,7 @@ namespace Toolbox.ComponentModel
             remove => RemoveHandler(ref ListChangedHandler, value);
         }
 
-        private void OnListChanged(ListChangedType type, int newIndex = 0, int oldIndex = 0, PropertyDescriptor descriptor = null)
+        private void OnListChanged(ListChangedType type, int newIndex = 0, int oldIndex = 0, PropertyDescriptor? descriptor = null)
         {
             var args = descriptor == null
                             ? new ListChangedEventArgs(type, newIndex, oldIndex)
@@ -479,7 +481,7 @@ namespace Toolbox.ComponentModel
         }
         #endregion
         #region AddingNew
-        private event AddingNewEventHandler AddingNewHandler;
+        private event AddingNewEventHandler? AddingNewHandler;
         /// <summary>
         /// Raised when an new item needs to be added.
         /// </summary>
@@ -512,7 +514,7 @@ namespace Toolbox.ComponentModel
         { nameof(ListChanged), new Dictionary<Delegate, object>() }
     };
 
-        private void AddHandler<TE>(ref EventHandler<TE> handler, EventHandler<TE> value, [CallerMemberName] string methodName = null) where TE : EventArgs
+        private void AddHandler<TE>(ref EventHandler<TE>? handler, EventHandler<TE> value, [CallerMemberName] string methodName = "") where TE : EventArgs
         {
             if (value.Target is ISynchronizeInvoke synchronize)
             {
@@ -526,7 +528,7 @@ namespace Toolbox.ComponentModel
             }
         }
 
-        private void RemoveHandler<TE>(ref EventHandler<TE> handler, EventHandler<TE> value, [CallerMemberName] string methodName = null) where TE : EventArgs
+        private void RemoveHandler<TE>(ref EventHandler<TE>? handler, EventHandler<TE> value, [CallerMemberName] string methodName = "") where TE : EventArgs
         {
             if (value.Target is ISynchronizeInvoke synchronize)
             {
@@ -543,7 +545,7 @@ namespace Toolbox.ComponentModel
             }
         }
 
-        private void AddHandler(ref ListChangedEventHandler handler, ListChangedEventHandler value, [CallerMemberName] string methodName = null)
+        private void AddHandler(ref ListChangedEventHandler? handler, ListChangedEventHandler value, [CallerMemberName] string methodName = "")
         {
             if (value.Target is ISynchronizeInvoke synchronize)
             {
@@ -556,13 +558,13 @@ namespace Toolbox.ComponentModel
                 handler += value;
             }
         }
-        private void RemoveHandler(ref ListChangedEventHandler handler, ListChangedEventHandler value, [CallerMemberName] string methodName = null)
+        private void RemoveHandler(ref ListChangedEventHandler? handler, ListChangedEventHandler value, [CallerMemberName] string methodName = "")
         {
             if (value.Target is ISynchronizeInvoke synchronize)
             {
                 if (InvokeHandler[methodName].TryGetValue(value, out var obj))
                 {
-                    var invoker = (EventInvokerBase<ListChangedEventHandler, ListChangedEventArgs>)obj;
+					var invoker = (EventInvokerBase<ListChangedEventHandler, ListChangedEventArgs>)obj;
                     InvokeHandler[methodName].Remove(value);
                     handler -= invoker.RaiseEvent;
                 }
@@ -572,7 +574,7 @@ namespace Toolbox.ComponentModel
                 handler -= value;
             }
         }
-        private void AddHandler(ref AddingNewEventHandler handler, AddingNewEventHandler value, [CallerMemberName] string methodName = null)
+        private void AddHandler(ref AddingNewEventHandler? handler, AddingNewEventHandler value, [CallerMemberName] string methodName = "")
         {
             if (value.Target is ISynchronizeInvoke synchronize)
             {
@@ -585,7 +587,7 @@ namespace Toolbox.ComponentModel
                 handler += value;
             }
         }
-        private void RemoveHandler(ref AddingNewEventHandler handler, AddingNewEventHandler value, [CallerMemberName] string methodName = null)
+        private void RemoveHandler(ref AddingNewEventHandler? handler, AddingNewEventHandler value, [CallerMemberName] string methodName = "")
         {
             if (value.Target is ISynchronizeInvoke synchronize)
             {
@@ -618,7 +620,7 @@ namespace Toolbox.ComponentModel
             PendingAdd = -1;
         }
 
-        bool IList.Contains(object value)
+        bool IList.Contains(object? value)
         {
             if (value is T tValue)
                 return Contains(tValue);
@@ -651,9 +653,9 @@ namespace Toolbox.ComponentModel
         /// <exception cref="ArgumentException">if <paramref name="array"/> is to small to take all elements starting at <paramref name="arrayIndex"/></exception>
         public void CopyTo(T[] array, int arrayIndex = 0)
         {
-            if (array == null) throw new ArgumentNullException(nameof(array));
-            if (arrayIndex < 0) throw new ArgumentOutOfRangeException(nameof(arrayIndex));
-            if (array.Length - arrayIndex > Count) throw new ArgumentException("Target array to small.");
+			ArgumentNullException.ThrowIfNull(array);
+			ArgumentOutOfRangeException.ThrowIfNegative(arrayIndex);
+			if (array.Length - arrayIndex > Count) throw new ArgumentException("Target array to small.");
 
             for (var i = 0; i < Count; i++)
             {
@@ -679,7 +681,7 @@ namespace Toolbox.ComponentModel
         /// <returns>Index of the element or <c>-1</c> if no element was found.</returns>
         public int Find(PropertyDescriptor property, object key)
         {
-            return Indices.Find(i => property.GetValue(Items[Indices[i]]).Equals(key));
+            return Indices.Find(i => property.GetValue(Items[Indices[i]])?.Equals(key) ?? false);
         }
 
         /// <summary>
@@ -713,7 +715,7 @@ namespace Toolbox.ComponentModel
             return new ItemEnumerator<T>(Indices, Items);
         }
 
-        int IList.IndexOf(object value)
+        int IList.IndexOf(object? value)
         {
             if (value is T tValue)
                 return IndexOf(tValue);
@@ -732,7 +734,7 @@ namespace Toolbox.ComponentModel
             return dataIndex >= 0 ? Indices.IndexOf(dataIndex) : -1;
         }
 
-        void IList.Insert(int index, object value)
+        void IList.Insert(int index, object? value)
         {
             if (value is T tValue)
             {
@@ -755,7 +757,7 @@ namespace Toolbox.ComponentModel
             InsertCore(index, item);
         }
 
-        void IList.Remove(object value)
+        void IList.Remove(object? value)
         {
             if (value is T tValue)
             {
@@ -916,7 +918,10 @@ namespace Toolbox.ComponentModel
             public ItemComparer(List<TI> items)
             {
                 Items = items;
-            }
+                SortDirection = ListSortDirection.Ascending;
+				SortProperty = null;
+
+			}
 
             public List<TI> Items { get; }
 
@@ -924,12 +929,12 @@ namespace Toolbox.ComponentModel
 
             public ListSortDirection SortDirection { get; set; }
 
-            public PropertyDescriptor SortProperty { get; set; }
+            public PropertyDescriptor? SortProperty { get; set; }
 
             public int Compare(int x, int y)
             {
-                var xItem = (object)Items[x];
-                var yItem = (object)Items[y];
+                var xItem = (object?)Items[x];
+                var yItem = (object?)Items[y];
 
                 if (SortProperty != null)
                 {
@@ -942,10 +947,14 @@ namespace Toolbox.ComponentModel
                 {
                     rc = xCompare.CompareTo(yItem);
                 }
+                else if (xItem != null && yItem != null)
+                {
+                    rc = xItem.ToString()?.CompareTo(yItem.ToString()) ?? 0;
+                }
                 else
                 {
-                    rc = xItem.ToString().CompareTo(yItem.ToString());
-                }
+                    rc = 0;
+                }    
                 return SortDirection == ListSortDirection.Ascending ? rc : -rc;
 
             }
@@ -966,7 +975,7 @@ namespace Toolbox.ComponentModel
 
             public TI Current => Items[IndicesEnumerator.Current];
 
-            object IEnumerator.Current => Current;
+            object? IEnumerator.Current => Current;
 
             public bool MoveNext()
             {
@@ -1009,17 +1018,17 @@ namespace Toolbox.ComponentModel
         public EventInvokerBase(TH handler)
         {
             Handler = handler;
-            Synchronized = (ISynchronizeInvoke)handler.Target;
+            Synchronized = (ISynchronizeInvoke?)handler.Target;
         }
 
-        public ISynchronizeInvoke Synchronized { get; }
+        public ISynchronizeInvoke? Synchronized { get; }
         public TH Handler { get; }
 
-        internal void RaiseEvent(object sender, TE eventArgs)
+        internal void RaiseEvent(object? sender, TE eventArgs)
         {
-            if (Synchronized.InvokeRequired)
+            if (Synchronized?.InvokeRequired ?? false)
             {
-                Synchronized.Invoke(Handler, new object[] { sender, eventArgs });
+                Synchronized.Invoke(Handler, [sender, eventArgs]);
             }
             else
             {
@@ -1071,7 +1080,7 @@ namespace Toolbox.ComponentModel
         /// <summary>
         /// Create a new instance of <see cref="ItemChangedEventArgs{T}"/>.
         /// </summary>
-        public ItemChangedEventArgs(int index, T item, string propertyName) : base(index, item)
+        public ItemChangedEventArgs(int index, T item, string? propertyName) : base(index, item)
         {
             PropertyName = propertyName;
         }
@@ -1079,7 +1088,7 @@ namespace Toolbox.ComponentModel
         /// <summary>
         /// Property that raised the change.
         /// </summary>
-        public string PropertyName { get; }
+        public string? PropertyName { get; }
     }
 
     /// <summary>

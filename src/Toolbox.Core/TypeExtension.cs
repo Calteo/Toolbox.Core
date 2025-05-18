@@ -20,7 +20,7 @@ namespace Toolbox
 				if (!type.IsNested)
 					return $"{(includeNamespace ? type.Namespace + "." : "")}{type.Name}";
 				else
-					return $"{type.DeclaringType.GetTypeName(includeNamespace)}+{type.Name}";
+					return $"{type.DeclaringType?.GetTypeName(includeNamespace)}+{type.Name}";
 			}
 
 			var shortName = type.Name.Split('`')[0];
@@ -33,7 +33,7 @@ namespace Toolbox
 			if (!type.IsNested)
 				return $"{(includeNamespace ? type.Namespace + "." : "")}{shortName}<{string.Join(",", arguments)}>";
 
-			return $"{type.DeclaringType.GetTypeName(includeNamespace)}+{shortName}<{string.Join(",", arguments)}>";
+			return $"{type.DeclaringType?.GetTypeName(includeNamespace)}+{shortName}<{string.Join(",", arguments)}>";
 		}
 	}
 }

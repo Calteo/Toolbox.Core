@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Toolbox.ComponentModel
 {
@@ -19,14 +20,14 @@ namespace Toolbox.ComponentModel
             Comparer = new ItemComparer<T>(Items);
         }
 
-        private List<T> Items { get; } = new List<T>();
-        private List<int> Indices { get; } = new List<int>();
+        private List<T> Items { get; } = [];
+		private List<int> Indices { get; } = [];
         private ItemComparer<T> Comparer { get; }
         
         private const bool _isReadOnly = false;
 
         #region IList
-        object IList.this[int index]
+        object? IList.this[int index]
         {
             get => GetItem(index);
             set
@@ -44,7 +45,7 @@ namespace Toolbox.ComponentModel
 
         bool IList.IsReadOnly => _isReadOnly;
 
-        int IList.Add(object value)
+        int IList.Add(object? value)
         {
             if (value is T tValue)
             {
@@ -139,7 +140,7 @@ namespace Toolbox.ComponentModel
         /// <remarks>If this property is <c>null</c> then the <see cref="ToString()"/> method is used for sorting.</remarks>
         /// <see cref="IsSorted"/>
         /// <see cref="SortDirection"/>
-        public PropertyDescriptor SortProperty => Comparer.SortProperty;
+        public PropertyDescriptor? SortProperty => Comparer.SortProperty;
 
         bool IBindingList.SupportsChangeNotification => true;
 
@@ -166,7 +167,7 @@ namespace Toolbox.ComponentModel
             return item;
         }
 
-        object IBindingList.AddNew()
+        object? IBindingList.AddNew()
         {
             return AddNew();
         }
@@ -227,7 +228,7 @@ namespace Toolbox.ComponentModel
         /// Gets fired, when the list changes.
         /// </summary>
         /// <see cref="IBindingList.ListChanged"/>
-        public event ListChangedEventHandler ListChanged;
+        public event ListChangedEventHandler? ListChanged;
         #endregion
 
         /// <summary>
@@ -241,7 +242,7 @@ namespace Toolbox.ComponentModel
             PendingAdd = -1;
         }
 
-        bool IList.Contains(object value)
+        bool IList.Contains(object? value)
         {
             if (value is T tValue)
                 return Contains(tValue);
@@ -302,7 +303,7 @@ namespace Toolbox.ComponentModel
         /// <returns>Index of the element or <c>-1</c> if no element was found.</returns>
         public int Find(PropertyDescriptor property, object key)
         {
-            return Indices.Find(i => property.GetValue(Items[Indices[i]]).Equals(key));
+            return Indices.Find(i => property.GetValue(Items[Indices[i]])?.Equals(key) ?? false);
         }
 
         /// <summary>
@@ -335,7 +336,7 @@ namespace Toolbox.ComponentModel
             return new ItemEnumerator<T>(Indices, Items);
         }
 
-        int IList.IndexOf(object value)
+        int IList.IndexOf(object? value)
         {
             if (value is T tValue)
                 return IndexOf(tValue);
@@ -354,7 +355,7 @@ namespace Toolbox.ComponentModel
             return dataIndex >= 0 ? Indices.IndexOf(dataIndex) : -1;
         }
 
-        void IList.Insert(int index, object value)
+        void IList.Insert(int index, object? value)
         {
             if (value is T tValue)
             {
@@ -377,7 +378,7 @@ namespace Toolbox.ComponentModel
             InsertCore(index, item);
         }
 
-        void IList.Remove(object value)
+        void IList.Remove(object? value)
         {
             if (value is T tValue)
             {
@@ -475,11 +476,13 @@ namespace Toolbox.ComponentModel
                 notifyItem.PropertyChanged += ItemPropertyChanged;                             
         }
 
-        private void ItemPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void ItemPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            var item = (T)sender;
+            ArgumentNullException.ThrowIfNull(sender);
+            
+			var item = (T)sender;
             var index = IndexOf(item);
-            var property = TypeDescriptor.GetProperties(item).Find(e.PropertyName, false);
+            var property = TypeDescriptor.GetProperties(item).Find(e.PropertyName ?? "", false);
 
             ListChanged?.Invoke(this, new ListChangedEventArgs(ListChangedType.ItemChanged, index, property));
         }
@@ -530,21 +533,22 @@ namespace Toolbox.ComponentModel
         {
             public ItemComparer(List<TI> items)
             {
-                Items = items;
+                Items = items;                
             }
 
             public List<TI> Items { get; }
 
             public bool IsSorted { get; set; }
 
-            public ListSortDirection SortDirection { get; set; }
+            public ListSortDirection SortDirection { get; set; } = ListSortDirection.Ascending;
 
-            public PropertyDescriptor SortProperty { get; set; }
+
+            public PropertyDescriptor? SortProperty { get; set; } = null;
 
             public int Compare(int x, int y)
             {
-                var xItem = (object)Items[x];
-                var yItem = (object)Items[y];
+                var xItem = (object?)Items[x];
+                var yItem = (object?)Items[y];
 
                 if (SortProperty != null)
                 {
@@ -557,9 +561,13 @@ namespace Toolbox.ComponentModel
                 {
                     rc = xCompare.CompareTo(yItem);
                 }
+                else if (xItem!=null && yItem!=null)
+                {
+                    rc = xItem.ToString()?.CompareTo(yItem.ToString()) ?? 0;
+                }
                 else
                 {
-                    rc = xItem.ToString().CompareTo(yItem.ToString());
+                    rc = x.CompareTo(y);
                 }
                 return SortDirection == ListSortDirection.Ascending ? rc : -rc;
 
@@ -581,7 +589,7 @@ namespace Toolbox.ComponentModel
 
             public TI Current => Items[IndicesEnumerator.Current];
 
-            object IEnumerator.Current => Current;
+            object? IEnumerator.Current => Current;
 
             public bool MoveNext()
             {

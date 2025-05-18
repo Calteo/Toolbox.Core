@@ -16,7 +16,7 @@ namespace Toolbox.Xml
 
             if (node is XAttribute attribute)
             {
-                return $"{attribute.Parent.GetXPath()}/@{attribute.Name}";
+                return $"{attribute.Parent?.GetXPath()}/@{attribute.Name}";
             }
             if (node is XElement element)
             {
@@ -36,7 +36,7 @@ namespace Toolbox.Xml
             {
                 return "/";
             }
-            return $"{node.Parent.GetXPath()}->{node.NodeType}";
+            return $"{node.Parent?.GetXPath()}->{node.NodeType}";
         }
     }
 }

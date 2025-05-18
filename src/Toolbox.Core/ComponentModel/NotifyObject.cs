@@ -6,12 +6,12 @@ namespace Toolbox.ComponentModel
 	public class NotifyObject : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		#region INotifyPropertyChanging
-		public event PropertyChangingEventHandler PropertyChanging;
+		public event PropertyChangingEventHandler? PropertyChanging;
 		protected void OnPropertyChanging([CallerMemberName] string propertyName = "")
 			=> PropertyChanging?.Invoke(this, new PropertyChangingEventArgs(propertyName));
 		#endregion
 		#region INotifyPropertyChanged
-		public event PropertyChangedEventHandler PropertyChanged;
+		public event PropertyChangedEventHandler? PropertyChanged;
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
 			=> PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		#endregion

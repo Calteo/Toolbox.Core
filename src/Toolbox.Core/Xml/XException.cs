@@ -14,7 +14,7 @@ namespace Toolbox.Xml
         /// <param name="xObject"></param>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public XException(XObject xObject, string message = null, Exception innerException = null)
+        public XException(XObject xObject, string? message = null, Exception? innerException = null)
             : base(message, innerException)
         {
             Object = xObject;

@@ -17,12 +17,12 @@ namespace Toolbox.Xml
         /// <param name="node"></param>
         /// <param name="message"></param>
         /// <param name="innerException"></param>
-        public XMissingException(XObject xObject, string message = null, Exception innerException = null) 
+        public XMissingException(XObject xObject, string? message = null, Exception? innerException = null) 
             : base(xObject, message, innerException)
         {
         }
 
-        public XMissingException(XObject xObject, XmlNodeType type, XName name, Exception innerException = null) 
+        public XMissingException(XObject xObject, XmlNodeType type, XName name, Exception? innerException = null) 
             : base(xObject, GetExceptionMessage(xObject, type, name), innerException)
         {            
         }
