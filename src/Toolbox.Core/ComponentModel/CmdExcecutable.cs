@@ -29,6 +29,13 @@ namespace Toolbox.ComponentModel
 		/// Path to the executable 
 		/// </summary>
 		public string Executable { get; }
+		/// <summary>
+		/// Working directory to execute the command
+		/// </summary>
+		public string WorkingDirectory { get; set; } = "";
+		/// <summary>
+		/// Return code of the process
+		/// </summary>
 		public int ReturnCode { get; private set; } = -1;
 
 		public event EventHandler<DataReceivedEventArgs>? OutputReceived;
@@ -49,7 +56,8 @@ namespace Toolbox.ComponentModel
 					UseShellExecute = false,
 					CreateNoWindow = true,
 					RedirectStandardOutput = true,
-					RedirectStandardError = true,					
+					RedirectStandardError = true,
+					WorkingDirectory = WorkingDirectory
 				},
 				EnableRaisingEvents = true
 			};
