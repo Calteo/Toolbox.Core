@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  BUILD_VERSION: "0.5.${{ github.run_number }}"
+  BUILD_VERSION: "0.6.${{ github.run_number }}"
 
 jobs:
 
@@ -29,7 +29,7 @@ jobs:
     - name: Install .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 10.0.x
 
     - name: Install NuGet
       uses: NuGet/setup-nuget@v1.0.5
@@ -52,7 +52,7 @@ jobs:
     
     # Compile the solution
     - name: Compile solution
-      run: dotnet build src\Toolbox.Core.sln -c Release -o output
+      run: dotnet build src\Toolbox.Core.slnx -c Release -o output
 
     # Test?
     
