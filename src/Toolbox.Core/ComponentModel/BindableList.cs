@@ -835,49 +835,61 @@ namespace Toolbox.ComponentModel
             CommitPendingItem();
             if (IsSorted)
             {
-                var dataIndex = Items.Count;
+                var index = 0;
 
-                Items.Add(item);
-                var index = Indices.BinarySearch(dataIndex, Comparer);
-                if (index < 0) index = ~index;
+                lock (this)
+                {
+                    var dataIndex = Items.Count;
 
-                OnAddingItem(index, item);
+                    Items.Add(item);
+                    index = Indices.BinarySearch(dataIndex, Comparer);
+                    if (index < 0) index = ~index;
 
-                Attach(item);
-                Indices.Insert(index, dataIndex);
+                    OnAddingItem(index, item);
 
+                    Attach(item);
+                    Indices.Insert(index, dataIndex);
+                }
                 OnItemAdded(index, item);
                 OnListChanged(ListChangedType.ItemAdded, index);
             }
             else
             {
-                var index = Items.Count;
+                var index = 0;
+                lock (this)
+                {
+                    index = Items.Count;
 
-                OnAddingItem(index, item);
-                Indices.Add(Items.Count);
-                Items.Add(item);
-                Attach(item);
+                    OnAddingItem(index, item);
+                    Indices.Add(Items.Count);
+                    Items.Add(item);
+                    Attach(item);
+                }
                 OnItemAdded(index, item);
                 OnListChanged(ListChangedType.ItemAdded, index);
             }
-
         }
 
         private void RemoveAtCore(int index)
         {
             if (!AllowRemove) throw new NotSupportedException();
 
-            var dataIndex = Indices[index];
-            var item = Items[dataIndex];
+            T? item;
 
-            OnRemovingItem(index, item);
-
-            Detach(item);
-            Items.RemoveAt(dataIndex);
-            Indices.RemoveAt(index);
-            for (var i = 0; i < Indices.Count; i++)
+            lock (this)
             {
-                if (Indices[i] > dataIndex) Indices[i]--;
+                var dataIndex = Indices[index];
+                item = Items[dataIndex];
+
+                OnRemovingItem(index, item);
+
+                Detach(item);
+                Items.RemoveAt(dataIndex);
+                Indices.RemoveAt(index);
+                for (var i = 0; i < Indices.Count; i++)
+                {
+                    if (Indices[i] > dataIndex) Indices[i]--;
+                }
             }
 
             OnItemRemoved(index, item);
@@ -885,7 +897,7 @@ namespace Toolbox.ComponentModel
         }
 
         private bool RemoveCore(T item)
-        {
+        {            
             var index = IndexOf(item);
             if (index >= 0)
                 RemoveAt(index);
@@ -899,13 +911,15 @@ namespace Toolbox.ComponentModel
                 throw new InvalidOperationException("No insert operation when list is sorted.");
 
             CommitPendingItem();
-
+            
             OnAddingItem(index, item);
 
-            Items.Insert(index, item);
-            Indices.Add(Indices.Count);
-            Attach(item);
-
+            lock (this)
+            {
+                Items.Insert(index, item);
+                Indices.Add(Indices.Count);
+                Attach(item);
+            }
             OnItemAdded(index, item);
             OnListChanged(ListChangedType.ItemAdded, index);
         }
