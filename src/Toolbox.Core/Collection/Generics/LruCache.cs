@@ -19,21 +19,42 @@ namespace Toolbox.Collection.Generics
 	/// <remarks>This cache is designed for concurrent access and automatically removes the least recently used
 	/// entry when adding a new item causes the cache to exceed its specified capacity. Accessing or updating an item marks
 	/// it as most recently used. All public members are thread-safe.</remarks>
+	/// <param name="capacity">Initial capacity.</param>
 	/// <typeparam name="TKey">The type of keys in the cache.</typeparam>
 	/// <typeparam name="TValue">The type of values stored in the cache.</typeparam>
 	public class LruCache<TKey, TValue>(int capacity) where TKey : notnull where TValue : notnull
 	{
-		private readonly int _capacity = capacity;
+		public int Capacity 
+		{ 
+			get => capacity;
+			set 
+			{ 
+				if (value <= 0) throw new ArgumentException("Capacity must be postive.", nameof(value));
+				lock (_lock)
+				{
+					capacity = value;
+					while (Count > capacity)
+					{
+						var evicted = _usageList.Last;
+						if (evicted == null) break;
+						_usageList.RemoveLast();
+						_cache.Remove(evicted.Value.Key);
+						ItemEvicted?.Invoke(evicted.Value.Key, evicted.Value.Value);
+					}
+				}
+			}
+		}
+
 		private readonly Dictionary<TKey, LinkedListNode<CacheItem>> _cache = [];
 
 		private readonly LinkedList<CacheItem> _usageList = [];
 		private readonly object _lock = new();
-		
+	
 		/// <summary>
 		/// Occurs when an item is evicted from the cache.
 		/// </summary>
 		/// <remarks>Subscribe to this event to be notified when an item is removed from the cache.</remarks>
-		public event ItemEvictedEventHandler<TKey, TValue> ItemEvicted;
+		public event ItemEvictedEventHandler<TKey, TValue>? ItemEvicted;
 
 		private class CacheItem
 		{
@@ -105,7 +126,7 @@ namespace Toolbox.Collection.Generics
 				_cache[key] = newNode;
 
 				// Evict least recently used
-				if (_cache.Count > _capacity)
+				if (_cache.Count > Capacity)
 				{
 					evicted = _usageList.Last;
 					if (evicted != null)

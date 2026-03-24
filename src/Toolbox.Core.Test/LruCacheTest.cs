@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Toolbox.Collection.Generics;
@@ -19,6 +20,39 @@ namespace Toolbox.Core.Test
 			Assert.AreEqual(1, cut.Count);
 			Assert.IsTrue(cut.TryGet("a", out var valueA));
 			Assert.AreEqual(1, valueA);
+		}
+
+		[TestMethod]
+		public void TestChangeCapacity()
+		{
+			var cut = new LruCache<string, int>(2);
+			var evictedItems = new List<(string Key, int Value)>();
+
+			cut.ItemEvicted += (key, value) => evictedItems.Add((key, value));
+
+			cut.Put("a", 1);
+			cut.Put("b", 2);
+
+			cut.Capacity = 3;
+			
+			Assert.AreEqual(3, cut.Capacity);
+			Assert.AreEqual(2, cut.Count);
+
+			cut.Put("c", 3);
+
+			cut.Capacity = 1;
+
+			Assert.AreEqual(1, cut.Capacity);
+			Assert.AreEqual(1, cut.Count);
+			Assert.IsFalse(cut.TryGet("a", out var _));
+			Assert.IsFalse(cut.TryGet("b", out var _));
+			Assert.IsTrue(cut.TryGet("c", out var valueC));
+			Assert.AreEqual(3, valueC);
+			Assert.AreEqual(2, evictedItems.Count);
+			Assert.AreEqual("a", evictedItems[0].Key);
+			Assert.AreEqual(1, evictedItems[0].Value);
+			Assert.AreEqual("b", evictedItems[1].Key);
+			Assert.AreEqual(2, evictedItems[1].Value);
 		}
 
 		[TestMethod]
