@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Toolbox.Core.Test.App/Toolbox.Core.Test.App.csproj" Id="93642efc-ac5a-4e41-b8da-27f9c32cff98" />
   <Project Path="Toolbox.Core.Test.Cmd/Toolbox.Core.Test.Cmd.csproj" />
   <Project Path="Toolbox.Core.Test/Toolbox.Core.Test.csproj" />
   <Project Path="Toolbox.Core/Toolbox.Core.csproj" />

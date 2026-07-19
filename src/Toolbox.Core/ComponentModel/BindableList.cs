@@ -874,6 +874,8 @@ namespace Toolbox.ComponentModel
         {
             if (!AllowRemove) throw new NotSupportedException();
 
+            CommitPendingItem(); 
+
             T? item;
 
             lock (this)
@@ -893,7 +895,7 @@ namespace Toolbox.ComponentModel
             }
 
             OnItemRemoved(index, item);
-            OnListChanged(ListChangedType.ItemDeleted, 0, index);
+            OnListChanged(ListChangedType.ItemDeleted, index);
         }
 
         private bool RemoveCore(T item)
