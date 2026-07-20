@@ -125,7 +125,7 @@ namespace Toolbox.ComponentModel
             Indices.Clear();
 
             OnResetted();
-            OnListChanged(ListChangedType.Reset);
+            OnListChanged(ListChangedType.Reset, -1);
         }
         #endregion
         #region IList<T>
@@ -224,7 +224,7 @@ namespace Toolbox.ComponentModel
             if (PendingAdd >= 0)
             {
                 OnItemAdded(PendingAdd, GetItem(PendingAdd));
-                OnListChanged(ListChangedType.ItemAdded, PendingAdd);
+                OnListChanged(ListChangedType.ItemAdded, PendingAdd, -1);
                 PendingAdd = -1;
             }
         }
@@ -270,7 +270,7 @@ namespace Toolbox.ComponentModel
             CreateIndices();
 
             OnResetted();
-            OnListChanged(ListChangedType.Reset);
+            OnListChanged(ListChangedType.Reset, -1);
         }
 
         /// <summary>
@@ -851,7 +851,7 @@ namespace Toolbox.ComponentModel
                     Indices.Insert(index, dataIndex);
                 }
                 OnItemAdded(index, item);
-                OnListChanged(ListChangedType.ItemAdded, index);
+                OnListChanged(ListChangedType.ItemAdded, index, -1);
             }
             else
             {
@@ -866,7 +866,7 @@ namespace Toolbox.ComponentModel
                     Attach(item);
                 }
                 OnItemAdded(index, item);
-                OnListChanged(ListChangedType.ItemAdded, index);
+                OnListChanged(ListChangedType.ItemAdded, index, -1);
             }
         }
 
@@ -923,7 +923,7 @@ namespace Toolbox.ComponentModel
                 Attach(item);
             }
             OnItemAdded(index, item);
-            OnListChanged(ListChangedType.ItemAdded, index);
+            OnListChanged(ListChangedType.ItemAdded, index, -1);
         }
 
         #endregion

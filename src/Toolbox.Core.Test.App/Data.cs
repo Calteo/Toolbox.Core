@@ -11,6 +11,8 @@ namespace Toolbox.Core.Test.App
 
 		public event PropertyChangedEventHandler? PropertyChanged;
 
+		BindingList
+
 		public string Name
 		{
 			get => name;
