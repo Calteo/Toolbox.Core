@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class LruCache&lt;TKey, TValue&gt; </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class LruCache&lt;TKey, TValue&gt; ">
+    
+    <meta name="description" content="Represents a thread-safe, fixed-capacity cache that stores key-value pairs and evicts the least recently used items when the capacity is exceeded.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/icon_tools_50.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Toolbox.Collection.Generics.LruCache`2">
+
+
+
+  <h1 id="Toolbox_Collection_Generics_LruCache_2" data-uid="Toolbox.Collection.Generics.LruCache`2" class="text-break">Class LruCache&lt;TKey, TValue&gt;</h1>
+  <div class="markdown level0 summary"><p>Represents a thread-safe, fixed-capacity cache that stores key-value pairs and evicts the least recently used items
+when the capacity is exceeded.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">LruCache&lt;TKey, TValue&gt;</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Toolbox.html">Toolbox</a>.<a class="xref" href="Toolbox.Collection.html">Collection</a>.<a class="xref" href="Toolbox.Collection.Generics.html">Generics</a></h6>
+  <h6><strong>Assembly</strong>: Toolbox.Core.dll</h6>
+  <h5 id="Toolbox_Collection_Generics_LruCache_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class LruCache&lt;TKey, TValue&gt; where TKey : notnull where TValue : notnull</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>The type of keys in the cache.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>The type of values stored in the cache.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_Collection_Generics_LruCache_2_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This cache is designed for concurrent access and automatically removes the least recently used
+entry when adding a new item causes the cache to exceed its specified capacity. Accessing or updating an item marks
+it as most recently used. All public members are thread-safe.</p>
+</div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_Collection_Generics_LruCache_2__ctor_System_Int32_.md&amp;value=---%0Auid%3A%20Toolbox.Collection.Generics.LruCache%602.%23ctor(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/Collection/Generics/LruCache.cs/#L25">View Source</a>
+  </span>
+  <a id="Toolbox_Collection_Generics_LruCache_2__ctor_" data-uid="Toolbox.Collection.Generics.LruCache`2.#ctor*"></a>
+  <h4 id="Toolbox_Collection_Generics_LruCache_2__ctor_System_Int32_" data-uid="Toolbox.Collection.Generics.LruCache`2.#ctor(System.Int32)">LruCache(int)</h4>
+  <div class="markdown level1 summary"><p>Represents a thread-safe, fixed-capacity cache that stores key-value pairs and evicts the least recently used items
+when the capacity is exceeded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LruCache(int capacity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">capacity</span></td>
+        <td><p>Initial capacity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_Collection_Generics_LruCache_2__ctor_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This cache is designed for concurrent access and automatically removes the least recently used
+entry when adding a new item causes the cache to exceed its specified capacity. Accessing or updating an item marks
+it as most recently used. All public members are thread-safe.</p>
+</div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_Collection_Generics_LruCache_2_Capacity.md&amp;value=---%0Auid%3A%20Toolbox.Collection.Generics.LruCache%602.Capacity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/Collection/Generics/LruCache.cs/#L27">View Source</a>
+  </span>
+  <a id="Toolbox_Collection_Generics_LruCache_2_Capacity_" data-uid="Toolbox.Collection.Generics.LruCache`2.Capacity*"></a>
+  <h4 id="Toolbox_Collection_Generics_LruCache_2_Capacity" data-uid="Toolbox.Collection.Generics.LruCache`2.Capacity">Capacity</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Capacity { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_Collection_Generics_LruCache_2_Count.md&amp;value=---%0Auid%3A%20Toolbox.Collection.Generics.LruCache%602.Count%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/Collection/Generics/LruCache.cs/#L173">View Source</a>
+  </span>
+  <a id="Toolbox_Collection_Generics_LruCache_2_Count_" data-uid="Toolbox.Collection.Generics.LruCache`2.Count*"></a>
+  <h4 id="Toolbox_Collection_Generics_LruCache_2_Count" data-uid="Toolbox.Collection.Generics.LruCache`2.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Gets the number of items currently stored in the cache.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_Collection_Generics_LruCache_2_Put__0__1_.md&amp;value=---%0Auid%3A%20Toolbox.Collection.Generics.LruCache%602.Put(%600%2C%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/Collection/Generics/LruCache.cs/#L107">View Source</a>
+  </span>
+  <a id="Toolbox_Collection_Generics_LruCache_2_Put_" data-uid="Toolbox.Collection.Generics.LruCache`2.Put*"></a>
+  <h4 id="Toolbox_Collection_Generics_LruCache_2_Put__0__1_" data-uid="Toolbox.Collection.Generics.LruCache`2.Put(`0,`1)">Put(TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>Adds a key and value to the cache, or updates the value if the key already exists. Moves the key to the most
+recently used position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Put(TKey key, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key to add or update in the cache.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to associate with the specified key.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_Collection_Generics_LruCache_2_Put__0__1__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the cache exceeds its capacity, the least recently used item is removed. This method is
+thread-safe.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_Collection_Generics_LruCache_2_Remove__0_.md&amp;value=---%0Auid%3A%20Toolbox.Collection.Generics.LruCache%602.Remove(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/Collection/Generics/LruCache.cs/#L152">View Source</a>
+  </span>
+  <a id="Toolbox_Collection_Generics_LruCache_2_Remove_" data-uid="Toolbox.Collection.Generics.LruCache`2.Remove*"></a>
+  <h4 id="Toolbox_Collection_Generics_LruCache_2_Remove__0_" data-uid="Toolbox.Collection.Generics.LruCache`2.Remove(`0)">Remove(TKey)</h4>
+  <div class="markdown level1 summary"><p>Removes the value with the specified key from the cache.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(TKey key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the element to remove from the cache.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>true if the element is successfully found and removed; otherwise, false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_Collection_Generics_LruCache_2_Remove__0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is thread-safe. If the specified key does not exist in the cache, the method returns
+false and no action is taken.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_Collection_Generics_LruCache_2_TryGet__0__1__.md&amp;value=---%0Auid%3A%20Toolbox.Collection.Generics.LruCache%602.TryGet(%600%2C%601%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/Collection/Generics/LruCache.cs/#L80">View Source</a>
+  </span>
+  <a id="Toolbox_Collection_Generics_LruCache_2_TryGet_" data-uid="Toolbox.Collection.Generics.LruCache`2.TryGet*"></a>
+  <h4 id="Toolbox_Collection_Generics_LruCache_2_TryGet__0__1__" data-uid="Toolbox.Collection.Generics.LruCache`2.TryGet(`0,`1@)">TryGet(TKey, out TValue?)</h4>
+  <div class="markdown level1 summary"><p>Attempts to retrieve the value associated with the specified key from the cache.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGet(TKey key, out TValue? value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key whose associated value is to be retrieved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>When this method returns, contains the value associated with the specified key, if the key is found; otherwise,
+the default value for the type of the value parameter. This parameter is passed uninitialized.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>true if the cache contains an element with the specified key; otherwise, false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_Collection_Generics_LruCache_2_TryGet__0__1___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the key is found, the associated entry is marked as most recently used. This method is
+thread-safe.</p>
+</div>
+  <h3 id="events">Events
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_Collection_Generics_LruCache_2_ItemEvicted.md&amp;value=---%0Auid%3A%20Toolbox.Collection.Generics.LruCache%602.ItemEvicted%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/Collection/Generics/LruCache.cs/#L57">View Source</a>
+  </span>
+  <h4 id="Toolbox_Collection_Generics_LruCache_2_ItemEvicted" data-uid="Toolbox.Collection.Generics.LruCache`2.ItemEvicted">ItemEvicted</h4>
+  <div class="markdown level1 summary"><p>Occurs when an item is evicted from the cache.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event ItemEvictedEventHandler&lt;TKey, TValue&gt;? ItemEvicted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Toolbox.Collection.Generics.ItemEvictedEventHandler-2.html">ItemEvictedEventHandler</a>&lt;TKey, TValue&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Toolbox_Collection_Generics_LruCache_2_ItemEvicted_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Subscribe to this event to be notified when an item is removed from the cache.</p>
+</div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Calteo/Toolbox.Core/new/main/apiSpec/new?filename=Toolbox_Collection_Generics_LruCache_2.md&amp;value=---%0Auid%3A%20Toolbox.Collection.Generics.LruCache%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Calteo/Toolbox.Core/blob/main/src/Toolbox.Core/Collection/Generics/LruCache.cs/#L25" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

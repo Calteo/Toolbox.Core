@@ -1,0 +1,474 @@
+{
+  "source_base_path": "D:/a/Toolbox.Core/Toolbox.Core/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Collection.Generics.EnumerableExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Collection.Generics.EnumerableExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Collection.Generics.EnumerableExtension",
+      "Summary": "<p sourcefile=\"api/Toolbox.Collection.Generics.EnumerableExtension.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.Collections.Generic.IEnumerable%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Collection.Generics.ItemEvictedEventHandler-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Collection.Generics.ItemEvictedEventHandler-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Collection.Generics.ItemEvictedEventHandler<TKey, TValue>",
+      "Summary": "<p sourcefile=\"api/Toolbox.Collection.Generics.ItemEvictedEventHandler-2.yml\" sourcestartlinenumber=\"1\">Represents the method that handles the event raised when an item is evicted from a collection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Collection.Generics.LruCache-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Collection.Generics.LruCache-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Collection.Generics.LruCache<TKey, TValue>",
+      "Summary": "<p sourcefile=\"api/Toolbox.Collection.Generics.LruCache-2.yml\" sourcestartlinenumber=\"1\">Represents a thread-safe, fixed-capacity cache that stores key-value pairs and evicts the least recently used items\nwhen the capacity is exceeded.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Collection.Generics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Collection.Generics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Collection.Generics",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.BindableList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.BindableList-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel.BindableList<T>",
+      "Summary": "<p sourcefile=\"api/Toolbox.ComponentModel.BindableList-1.yml\" sourcestartlinenumber=\"1\">A replacement for <xref href=\"System.ComponentModel.BindingList%601\" data-throw-if-not-resolved=\"false\"></xref> with better events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.CmdExcecutable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.CmdExcecutable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel.CmdExcecutable",
+      "Summary": "<p sourcefile=\"api/Toolbox.ComponentModel.CmdExcecutable.yml\" sourcestartlinenumber=\"1\">Command line to execute a command.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.ItemChangedEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.ItemChangedEventArgs-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel.ItemChangedEventArgs<T>",
+      "Summary": "<p sourcefile=\"api/Toolbox.ComponentModel.ItemChangedEventArgs-1.yml\" sourcestartlinenumber=\"1\">Event arguments for signaling changes on an item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.ItemEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.ItemEventArgs-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel.ItemEventArgs<T>",
+      "Summary": "<p sourcefile=\"api/Toolbox.ComponentModel.ItemEventArgs-1.yml\" sourcestartlinenumber=\"1\">Event arguments for signaling changes for an item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.ItemSetEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.ItemSetEventArgs-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel.ItemSetEventArgs<T>",
+      "Summary": "<p sourcefile=\"api/Toolbox.ComponentModel.ItemSetEventArgs-1.yml\" sourcestartlinenumber=\"1\">Event arguments for signaling changes on an item replacement.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.ListResetEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.ListResetEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel.ListResetEventArgs",
+      "Summary": "<p sourcefile=\"api/Toolbox.ComponentModel.ListResetEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for signaling changes on the collection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.NotifyObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.NotifyObject.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel.NotifyObject",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.SortedBindingList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.SortedBindingList-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel.SortedBindingList<T>",
+      "Summary": "<p sourcefile=\"api/Toolbox.ComponentModel.SortedBindingList-1.yml\" sourcestartlinenumber=\"1\">A <xref href=\"System.ComponentModel.BindingList%601\" data-throw-if-not-resolved=\"false\"></xref> that support sorting and filtering</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ComponentModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ComponentModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ComponentModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.InheritableBoolean.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.InheritableBoolean.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.InheritableBoolean",
+      "Summary": "<p sourcefile=\"api/Toolbox.InheritableBoolean.yml\" sourcestartlinenumber=\"1\">Calls to make <xref href=\"System.Boolean\" data-throw-if-not-resolved=\"false\"></xref> inheriable values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.ObjectExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.ObjectExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.ObjectExtension",
+      "Summary": "<p sourcefile=\"api/Toolbox.ObjectExtension.yml\" sourcestartlinenumber=\"1\">Extensions to the <xref href=\"System.Object\" data-throw-if-not-resolved=\"false\"></xref> class.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.StringExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.StringExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.StringExtension",
+      "Summary": "<p sourcefile=\"api/Toolbox.StringExtension.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"System.String\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Text.Json.Utf8JsonWriterExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Text.Json.Utf8JsonWriterExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Text.Json.Utf8JsonWriterExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Text.Json.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Text.Json.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Text.Json",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.TypeExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.TypeExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.TypeExtension",
+      "Summary": "<p sourcefile=\"api/Toolbox.TypeExtension.yml\" sourcestartlinenumber=\"1\">Extensions to the <xref href=\"System.Type\" data-throw-if-not-resolved=\"false\"></xref> class.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Xml.XContainerExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Xml.XContainerExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Xml.XContainerExtension",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Xml.XElementExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Xml.XElementExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Xml.XElementExtension",
+      "Summary": "<p sourcefile=\"api/Toolbox.Xml.XElementExtension.yml\" sourcestartlinenumber=\"1\">Extensions to the <xref href=\"System.Xml.Linq.XElement\" data-throw-if-not-resolved=\"false\"></xref></p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Xml.XException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Xml.XException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Xml.XException",
+      "Summary": "<p sourcefile=\"api/Toolbox.Xml.XException.yml\" sourcestartlinenumber=\"1\">Exception on an <xref href=\"System.Xml.Linq.XNode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Xml.XMissingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Xml.XMissingException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Xml.XMissingException",
+      "Summary": "<p sourcefile=\"api/Toolbox.Xml.XMissingException.yml\" sourcestartlinenumber=\"1\">Something is missing on the <xref href=\"System.Xml.Linq.XNode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Xml.XObjectExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Xml.XObjectExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Xml.XObjectExtension",
+      "Summary": "<p sourcefile=\"api/Toolbox.Xml.XObjectExtension.yml\" sourcestartlinenumber=\"1\">Extensions to <xref href=\"System.Xml.Linq.XObject\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.Xml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.Xml.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox.Xml",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Toolbox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Toolbox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Toolbox",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/disclaimer.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/disclaimer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/icon_tools.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/icon_tools.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/icon_tools_50.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/icon_tools_50.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
