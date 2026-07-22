@@ -31,6 +31,7 @@
 			dataGridView1 = new DataGridView();
 			ColumnName = new DataGridViewTextBoxColumn();
 			labelCount = new Label();
+			textBoxTrace = new TextBox();
 			((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
 			SuspendLayout();
 			// 
@@ -38,10 +39,10 @@
 			// 
 			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnName });
-			dataGridView1.Location = new Point(38, 36);
+			dataGridView1.Location = new Point(24, 22);
 			dataGridView1.Name = "dataGridView1";
 			dataGridView1.RowHeadersWidth = 51;
-			dataGridView1.Size = new Size(663, 332);
+			dataGridView1.Size = new Size(233, 332);
 			dataGridView1.TabIndex = 0;
 			dataGridView1.UserDeletedRow += dataGridView1_UserDeletedRow;
 			dataGridView1.UserDeletingRow += dataGridView1_UserDeletingRow;
@@ -57,17 +58,30 @@
 			// labelCount
 			// 
 			labelCount.AutoSize = true;
-			labelCount.Location = new Point(758, 62);
+			labelCount.Location = new Point(291, 22);
 			labelCount.Name = "labelCount";
 			labelCount.Size = new Size(50, 20);
 			labelCount.TabIndex = 1;
 			labelCount.Text = "label1";
+			// 
+			// textBoxTrace
+			// 
+			textBoxTrace.Font = new Font("Consolas", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			textBoxTrace.Location = new Point(298, 101);
+			textBoxTrace.MaxLength = 500000;
+			textBoxTrace.Multiline = true;
+			textBoxTrace.Name = "textBoxTrace";
+			textBoxTrace.ScrollBars = ScrollBars.Both;
+			textBoxTrace.Size = new Size(803, 425);
+			textBoxTrace.TabIndex = 2;
+			textBoxTrace.WordWrap = false;
 			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1124, 538);
+			Controls.Add(textBoxTrace);
 			Controls.Add(labelCount);
 			Controls.Add(dataGridView1);
 			Name = "MainForm";
@@ -83,5 +97,6 @@
 		private DataGridView dataGridView1;
 		private DataGridViewTextBoxColumn ColumnName;
 		private Label labelCount;
+		private TextBox textBoxTrace;
 	}
 }

@@ -19,7 +19,7 @@ namespace Toolbox.ComponentModel
         IBindingList, IRaiseItemChangedEvents, ICancelAddNew
     {
         /// <summary>
-        /// Creates a new instance of <see cref="SortedBindingList{T}"/>.
+        /// Creates a new instance of <see cref="BindableList{T}"/>.
         /// </summary>
         public BindableList()
         {
@@ -28,7 +28,7 @@ namespace Toolbox.ComponentModel
                                 .Cast<PropertyDescriptor>()
                                 .ToDictionary(p => p.Name);
 
-            Comparer = new ItemComparer<T>(Items);
+            Comparer = new ItemComparer<T>(this);
         }
 
         /// <summary>
@@ -46,10 +46,11 @@ namespace Toolbox.ComponentModel
         private ItemComparer<T> Comparer { get; }
 
         private const bool _isReadOnly = false;
-        #endregion
+		private int pendingAdd = -1;
+		#endregion
 
-        #region INotifyPropertyChanged
-        private void Attach(T item)
+		#region INotifyPropertyChanged
+		private void Attach(T item)
         {
             if (!RaisesItemChangedEvents || item == null) return;
 
@@ -218,19 +219,29 @@ namespace Toolbox.ComponentModel
 
         bool IBindingList.SupportsSorting => true;
 
-        private int PendingAdd { get; set; } = -1;
-        private void CommitPendingItem()
+		private int PendingAdd 
+        { 
+            get => pendingAdd; 
+            set => pendingAdd = value; 
+        }
+		private void CommitPendingItem(int index)
         {
-            if (PendingAdd >= 0)
+            if (PendingAdd == index)
             {
-                OnItemAdded(PendingAdd, GetItem(PendingAdd));
-                OnListChanged(ListChangedType.ItemAdded, PendingAdd, -1);
-                PendingAdd = -1;
-            }
+				PendingAdd = -1;
+                
+				if (IsSorted)
+                {
+                    OnResetting();
+                    Indices.Sort(Comparer);
+                    OnResetted();
+                    OnListChanged(ListChangedType.Reset, -1);
+				}
+			}
         }
 
         /// <summary>
-        /// Creates a new item, which can me commited (<see cref=""/>
+        /// Creates a new item, which can me commited.
         /// </summary>
         /// <returns></returns>
         public T AddNew()
@@ -243,8 +254,7 @@ namespace Toolbox.ComponentModel
                 item = Activator.CreateInstance<T>();
             }
 
-            AddCore(item);
-            PendingAdd = IndexOf(item);
+            PendingAdd = AddCore(item, true);
             return item;
         }
 
@@ -606,9 +616,6 @@ namespace Toolbox.ComponentModel
 
         #endregion
 
-
-
-
         /// <summary>
         /// Cancel an item that was created wird <see cref="AddNew"/>.
         /// </summary>
@@ -663,14 +670,14 @@ namespace Toolbox.ComponentModel
             }
         }
 
-        /// <summary>
-        /// Commits an item that was created wird <see cref="AddNew"/>.
-        /// </summary>
-        /// <param name="itemIndex"></param>
-        /// <remarks>Items are automatically commited, when needed for other operations.</remarks>
-        public void EndNew(int itemIndex)
+		/// <summary>
+		/// Commits an item that was created wird <see cref="AddNew"/>.
+		/// </summary>
+		/// <param name="index"></param>
+		/// <remarks>Items are automatically commited, when needed for other operations.</remarks>
+		public void EndNew(int index)
         {
-            CommitPendingItem();
+            CommitPendingItem(index);
         }
 
         /// <summary>
@@ -799,8 +806,6 @@ namespace Toolbox.ComponentModel
             if (Comparer.IsSorted)
                 throw new InvalidOperationException("No set operation when list is sorted.");
 
-            CommitPendingItem();
-
             var oldItem = Items[index];
             var args = new ItemSetEventArgs<T>(index, oldItem, value);
 
@@ -828,11 +833,10 @@ namespace Toolbox.ComponentModel
             }
         }
 
-        private void AddCore(T item)
+        private int AddCore(T item, bool last = false)
         {
             if (!AllowEdit) throw new NotSupportedException();
 
-            CommitPendingItem();
             if (IsSorted)
             {
                 var index = 0;
@@ -842,16 +846,25 @@ namespace Toolbox.ComponentModel
                     var dataIndex = Items.Count;
 
                     Items.Add(item);
-                    index = Indices.BinarySearch(dataIndex, Comparer);
-                    if (index < 0) index = ~index;
+                    if (last)
+                    {
+                        index = Items.Count - 1;    
+                    }
+                    else
+                    {
+                        index = Indices.BinarySearch(dataIndex, Comparer);
+                        if (index < 0) index = ~index;						
+					}
 
                     OnAddingItem(index, item);
+					Indices.Insert(index, dataIndex);
 
-                    Attach(item);
-                    Indices.Insert(index, dataIndex);
+					Attach(item);                    
                 }
                 OnItemAdded(index, item);
                 OnListChanged(ListChangedType.ItemAdded, index, -1);
+
+                return index;
             }
             else
             {
@@ -867,14 +880,14 @@ namespace Toolbox.ComponentModel
                 }
                 OnItemAdded(index, item);
                 OnListChanged(ListChangedType.ItemAdded, index, -1);
-            }
+
+				return index;
+			}
         }
 
         private void RemoveAtCore(int index)
         {
             if (!AllowRemove) throw new NotSupportedException();
-
-            CommitPendingItem(); 
 
             T? item;
 
@@ -911,9 +924,7 @@ namespace Toolbox.ComponentModel
         {
             if (Comparer.IsSorted)
                 throw new InvalidOperationException("No insert operation when list is sorted.");
-
-            CommitPendingItem();
-            
+                       
             OnAddingItem(index, item);
 
             lock (this)
@@ -931,15 +942,14 @@ namespace Toolbox.ComponentModel
         #region IComparer<T>
         private class ItemComparer<TI> : IComparer<int>
         {
-            public ItemComparer(List<TI> items)
+            public ItemComparer(BindableList<TI> list)
             {
-                Items = items;
+                List = list;                
                 SortDirection = ListSortDirection.Ascending;
 				SortProperty = null;
-
 			}
 
-            public List<TI> Items { get; }
+            public BindableList<TI> List { get; }
 
             public bool IsSorted { get; set; }
 
@@ -949,30 +959,41 @@ namespace Toolbox.ComponentModel
 
             public int Compare(int x, int y)
             {
-                var xItem = (object?)Items[x];
-                var yItem = (object?)Items[y];
+                var xItem = (object?)List.Items[x];
+                var yItem = (object?)List.Items[y];
 
-                if (SortProperty != null)
+				var rc = 0;
+
+				if (x == List.PendingAdd)
                 {
-                    xItem = SortProperty.GetValue(xItem);
-                    yItem = SortProperty.GetValue(yItem);
+                    rc = -1;
+                }
+                else if (y == List.PendingAdd)
+                {
+                    rc = 1;
                 }
 
-                int rc;
-                if (xItem is IComparable xCompare)
+                if (rc == 0)
                 {
-                    rc = xCompare.CompareTo(yItem);
+                    if (SortProperty != null)
+                    {
+                        xItem = SortProperty.GetValue(xItem);
+                        yItem = SortProperty.GetValue(yItem);
+                    }
+                    if (xItem is IComparable xCompare)
+                    {
+                        rc = xCompare.CompareTo(yItem);
+                    }
+                    else if (xItem != null && yItem != null)
+                    {
+                        rc = xItem.ToString()?.CompareTo(yItem.ToString()) ?? 0;
+                    }
+                    else
+                    {
+                        rc = 0;
+                    }
                 }
-                else if (xItem != null && yItem != null)
-                {
-                    rc = xItem.ToString()?.CompareTo(yItem.ToString()) ?? 0;
-                }
-                else
-                {
-                    rc = 0;
-                }    
                 return SortDirection == ListSortDirection.Ascending ? rc : -rc;
-
             }
         }
         #endregion

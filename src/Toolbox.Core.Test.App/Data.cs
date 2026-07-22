@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Toolbox.Core.Test.App
 {
+	[DebuggerDisplay("{Name}")]
 	internal class Data : INotifyPropertyChanged
 	{
 		private string name = "";

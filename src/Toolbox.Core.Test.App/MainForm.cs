@@ -13,15 +13,17 @@ namespace Toolbox.Core.Test.App
 			dataGridView1.AutoGenerateColumns = false;
 			dataGridView1.DataSource = Datas;
 
-			Datas.ListChanged += Datas_ListChanged;
+			Datas.ListChanged += DatasListChanged;
 		}
 
-		private void Datas_ListChanged(object? sender, ListChangedEventArgs e)
-		{ 
+		private void DatasListChanged(object? sender, ListChangedEventArgs e)
+		{
+			textBoxTrace.Text += $"ListChanged: {e.ListChangedType} {e.OldIndex}->{e.NewIndex}" + Environment.NewLine;
 			labelCount.Text = $"Count  = {Datas.Count}";
 		}
 
 		private BindableList<Data> Datas { get; } = [];
+		// private BindingList<Data> Datas { get; } = [];
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
