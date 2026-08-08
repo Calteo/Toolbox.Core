@@ -90,8 +90,8 @@ jobs:
           ./output/${{ env.PROJECT_NAME }}.${{ env.BUILD_VERSION }}-binary.zip
           ./output/${{ env.PROJECT_NAME }}.${{ env.BUILD_VERSION }}.nupkg      
 
-    - name: Pulish NuGet
-      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_TOKEN}}
+    - name: NuGet push
+      run: dotnet nuget push **\*.nupkg --api-key ${{steps.login.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json    
 
     # publish documentation
     - name: Upload Pages artifact
