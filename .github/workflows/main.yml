@@ -7,8 +7,18 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 env:
   BUILD_VERSION: "0.6.${{ github.run_number }}"
+  PROJECT_NAME: "Toolbox.Core"
 
 jobs:
 
@@ -17,12 +27,10 @@ jobs:
     runs-on: windows-latest  
 
     steps:
-    # - name: List env
-    #  run: env
-      
+    
     # setup
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -51,7 +59,7 @@ jobs:
     
     # Compile the solution
     - name: Compile solution
-      run: dotnet build src\Toolbox.Core.slnx -c Release -o output
+      run: dotnet build src\${{ env.PROJECT_NAME }}.slnx -c Release -o output
 
     # Test?
     
@@ -67,9 +75,9 @@ jobs:
     - name: Zip binaries
       uses: TheDoctor0/zip-release@0.6.2
       with:
-        filename: 'Toolbox.Core.${{ env.BUILD_VERSION }}-binary.zip'
+        filename: '${{ env.PROJECT_NAME }}.${{ env.BUILD_VERSION }}-binary.zip'
         directory: output
-        path: Toolbox.Core.dll
+        path: ${{ env.PROJECT_NAME }}.dll
         type: 'zip'
 
     # create github release
@@ -79,17 +87,14 @@ jobs:
         name: Release ${{ env.BUILD_VERSION }}
         tag_name: ${{ env.BUILD_VERSION }}
         files: |
-          ./output/Toolbox.Core.${{ env.BUILD_VERSION }}-binary.zip
-          ./output/Toolbox.Core.${{ env.BUILD_VERSION }}.nupkg      
+          ./output/${{ env.PROJECT_NAME }}.${{ env.BUILD_VERSION }}-binary.zip
+          ./output/${{ env.PROJECT_NAME }}.${{ env.BUILD_VERSION }}.nupkg      
 
     - name: Pulish NuGet
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_TOKEN}}
 
     # publish documentation
-    - name: Publish documentation
-      if: github.event_name == 'push'
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docfx_project/docs
-        force_orphan: true
+        path: docfx_project/docs
