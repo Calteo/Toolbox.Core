@@ -70,11 +70,30 @@ namespace Toolbox.Core.Test
 		[TestMethod]
 		public void GetEmbeddedRessourceStream()
 		{
-			using var stream = this.GetType().GetRessourceStream("TypeExtensionTest.txt");
+			using var stream = GetType().GetRessourceStream("TypeExtensionTest.txt");
 			using var reader = new System.IO.StreamReader(stream);
 			var content = reader.ReadToEnd();
 			Assert.AreEqual("Embedded Test File Content", content);
 		}
+
+		[TestMethod]
+		public void TryGetExisitingEmbeddedRessourceStream()
+		{
+			using var stream = GetType().TryGetRessourceStream("TypeExtensionTest.txt");
+			using var reader = new System.IO.StreamReader(stream);
+			var content = reader.ReadToEnd();
+			Assert.AreEqual("Embedded Test File Content", content);
+		}
+
+		[TestMethod]
+		public void TryGetMissingEmbeddedRessourceStream()
+		{
+			using var stream = GetType().TryGetRessourceStream("Missing.txt");
+
+			Assert.IsNull(stream);
+		}
+
+
 
 		[TestMethod]
 		[ExpectedException(typeof(System.Exception))]
@@ -89,9 +108,24 @@ namespace Toolbox.Core.Test
 		[TestMethod]
 		public void GetEmbeddedRessourceString()
 		{
-			var content = this.GetType().GetRessourceString("TypeExtensionTest.txt");
+			var content = GetType().GetRessourceString("TypeExtensionTest.txt");
 			Assert.AreEqual("Embedded Test File Content", content);
 		}
+
+		[TestMethod]
+		public void TryGetExisitingEmbeddedRessourceString()
+		{
+			var content = GetType().TryGetRessourceString("TypeExtensionTest.txt");
+			Assert.AreEqual("Embedded Test File Content", content);
+		}
+
+		[TestMethod]
+		public void TryGetMissingEmbeddedRessourceString()
+		{
+			var content = GetType().TryGetRessourceString("Missing.txt");
+			Assert.IsNull(content);
+		}
+
 
 		class Nested
 		{

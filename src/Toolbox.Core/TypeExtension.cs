@@ -57,6 +57,18 @@ namespace Toolbox
 			}
 
 			/// <summary>
+			/// Get a embedded ressource stream from the type's assembly.
+			/// </summary>
+			/// <param name="type"></param>
+			/// <param name="ressourceName"></param>
+			/// <returns><c>null</c> if the resource doe not exist.</returns>
+			public Stream? TryGetRessourceStream(string ressourceName)
+			{
+				var fullName = type.Namespace + "." + ressourceName;
+				return type.Assembly.GetManifestResourceStream(fullName);							
+			}
+
+			/// <summary>
 			/// Get a embedded ressource string from the type's assembly.
 			/// </summary>
 			/// <param name="type"></param>
@@ -66,7 +78,21 @@ namespace Toolbox
 			public string GetRessourceString(string ressourceName)
 			{
 				using var stream = type.GetRessourceStream(ressourceName);
-				using var reader = new System.IO.StreamReader(stream);
+				using var reader = new StreamReader(stream);
+				return reader.ReadToEnd();
+			}
+			/// <summary>
+			/// 
+			/// Get a embedded ressource string from the type's assembly.
+			/// </summary>
+			/// <param name="type"></param>
+			/// <param name="ressourceName"></param>
+			/// <returns><c>null</c> if resource does not exist.</returns>
+			public string? TryGetRessourceString(string ressourceName)
+			{
+				using var stream = type.TryGetRessourceStream(ressourceName);
+				if (stream == null) return null;
+				using var reader = new StreamReader(stream);
 				return reader.ReadToEnd();
 			}
 		}

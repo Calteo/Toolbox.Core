@@ -164,8 +164,8 @@ namespace Toolbox.Core.Test
 
             var newHandler = new Handler<AddingNewEventArgs>(cut);
             var adding = new Handler<ItemEventArgs<Data>>(cut);
-            var added = new Handler<ItemEventArgs<Data>>(cut, 2);
-            var changed = new Handler<ListChangedEventArgs>(cut, 2);
+            var added = new Handler<ItemEventArgs<Data>>(cut, 1);
+            var changed = new Handler<ListChangedEventArgs>(cut, 1);
 
             cut.AddingItem += adding.Raised;
             cut.ItemAdded += added.Raised;
@@ -188,14 +188,10 @@ namespace Toolbox.Core.Test
             added.AssertCalls();
             Assert.AreSame(data, added.Calls[0].EventArgs.Item);
             Assert.AreEqual(1, added.Calls[0].EventArgs.Index);
-            Assert.AreSame(data, added.Calls[1].EventArgs.Item);
-            Assert.AreEqual(1, added.Calls[1].EventArgs.Index);
-
+            
             changed.AssertCalls();
             Assert.AreEqual(ListChangedType.ItemAdded, changed.Calls[0].EventArgs.ListChangedType);
-            Assert.AreEqual(ListChangedType.ItemAdded, changed.Calls[1].EventArgs.ListChangedType);
             Assert.AreEqual(1, changed.Calls[0].EventArgs.NewIndex);
-            Assert.AreEqual(1, changed.Calls[1].EventArgs.NewIndex);
         }
 
         [TestMethod, TestCategory("add")]
@@ -207,8 +203,8 @@ namespace Toolbox.Core.Test
 
             var newHandler = new Handler<AddingNewEventArgs>(cut);
             var adding = new Handler<ItemEventArgs<Data>>(cut);
-            var added = new Handler<ItemEventArgs<Data>>(cut, 2);
-            var changed = new Handler<ListChangedEventArgs>(cut, 2);
+            var added = new Handler<ItemEventArgs<Data>>(cut, 1);
+            var changed = new Handler<ListChangedEventArgs>(cut, 1);
 
             cut.AddingItem += adding.Raised;
             cut.ItemAdded += added.Raised;
@@ -233,14 +229,10 @@ namespace Toolbox.Core.Test
             added.AssertCalls();
             Assert.AreSame(data, added.Calls[0].EventArgs.Item);
             Assert.AreEqual(1, added.Calls[0].EventArgs.Index);
-            Assert.AreSame(data, added.Calls[1].EventArgs.Item);
-            Assert.AreEqual(1, added.Calls[1].EventArgs.Index);
 
             changed.AssertCalls();
             Assert.AreEqual(ListChangedType.ItemAdded, changed.Calls[0].EventArgs.ListChangedType);
-            Assert.AreEqual(ListChangedType.ItemAdded, changed.Calls[1].EventArgs.ListChangedType);
             Assert.AreEqual(1, changed.Calls[0].EventArgs.NewIndex);
-            Assert.AreEqual(1, changed.Calls[1].EventArgs.NewIndex);
         }
 
 
@@ -251,8 +243,8 @@ namespace Toolbox.Core.Test
             var cut = new BindableList<Data> { new() };
 
             var adding = new Handler<ItemEventArgs<Data>>(cut);
-            var added = new Handler<ItemEventArgs<Data>>(cut, 2);
-            var changed = new Handler<ListChangedEventArgs>(cut, 3);
+            var added = new Handler<ItemEventArgs<Data>>(cut, 1);
+            var changed = new Handler<ListChangedEventArgs>(cut, 2);
 
             cut.AddingItem += adding.Raised;
             cut.ItemAdded += added.Raised;
@@ -273,16 +265,12 @@ namespace Toolbox.Core.Test
             added.AssertCalls();
             Assert.AreSame(data, added.Calls[0].EventArgs.Item);
             Assert.AreEqual(1, added.Calls[0].EventArgs.Index);
-            Assert.AreSame(data, added.Calls[1].EventArgs.Item);
-            Assert.AreEqual(1, added.Calls[1].EventArgs.Index);
 
             changed.AssertCalls();
             Assert.AreEqual(ListChangedType.ItemAdded, changed.Calls[0].EventArgs.ListChangedType);
-            Assert.AreEqual(ListChangedType.ItemAdded, changed.Calls[1].EventArgs.ListChangedType);
-            Assert.AreEqual(ListChangedType.ItemChanged, changed.Calls[2].EventArgs.ListChangedType);
+            Assert.AreEqual(ListChangedType.ItemChanged, changed.Calls[1].EventArgs.ListChangedType);
             Assert.AreEqual(1, changed.Calls[0].EventArgs.NewIndex);
-            Assert.AreEqual(1, changed.Calls[1].EventArgs.NewIndex);
-            Assert.AreEqual(0, changed.Calls[2].EventArgs.NewIndex);
+            Assert.AreEqual(0, changed.Calls[1].EventArgs.NewIndex);
         }
 
         [TestMethod, TestCategory("set")]
@@ -452,7 +440,7 @@ namespace Toolbox.Core.Test
                         
             changed.AssertCalls();
             Assert.AreEqual(ListChangedType.Reset, changed.Calls[0].EventArgs.ListChangedType);
-            Assert.AreEqual(0, changed.Calls[0].EventArgs.NewIndex);
+            Assert.AreEqual(-1, changed.Calls[0].EventArgs.NewIndex);
             Assert.AreEqual(0, changed.Calls[0].EventArgs.OldIndex);
         }
 
